@@ -1,0 +1,27 @@
+import Foundation
+
+public extension Array where Element: Equatable {
+    
+    /// Removes the given element in the array.
+    ///
+    /// - Parameter element: The element to be removed.
+    /// - Returns: The element got removed, or `nil` if the element doesn't exist.
+    @discardableResult
+    mutating func remove(_ element: Element) -> Element? {
+        if let index = self.firstIndex(of: element) {
+            return self.remove(at: index)
+        }
+        return nil
+    }
+    
+    /// Returns an array where repeating elements of the receiver got removed.
+    var removingRepeatElements: Array<Element> {
+        var arr = Array<Element>()
+        forEach {
+            if !arr.contains($0) {
+                arr.append($0)
+            }
+        }
+        return arr
+    }
+}
