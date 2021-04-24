@@ -59,5 +59,41 @@ public extension UIColor {
         let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
         return brightness > 0.9
     }
+    
+    /// Random color
+    /// - Parameter alpha: alpha
+    /// - Returns: new color
+    static func random(alpha: CGFloat = 1.0) -> UIColor {
+         let r = CGFloat.random(in: 0...1)
+         let g = CGFloat.random(in: 0...1)
+         let b = CGFloat.random(in: 0...1)
+         
+         return UIColor(red: r, green: g, blue: b, alpha: alpha)
+     }
+    
+    /// Darken color
+    /// - Parameter percentage: percentage
+    /// - Returns: new color
+    func lighten(by percentage: CGFloat = 30.0) -> UIColor {
+        return self.adjust(by: abs(percentage) )
+    }
 
+    /// Darken color
+    /// - Parameter percentage: percentage
+    /// - Returns: new color
+    func darken(by percentage: CGFloat = 30.0) -> UIColor {
+        return self.adjust(by: -1 * abs(percentage) )
+    }
+    
+    private func adjust(by percentage: CGFloat = 30.0) -> UIColor {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            return UIColor(red: min(red + percentage/100, 1.0),
+                           green: min(green + percentage/100, 1.0),
+                           blue: min(blue + percentage/100, 1.0),
+                           alpha: alpha)
+        } else {
+            return self
+        }
+    }
 }
