@@ -174,4 +174,47 @@ public extension UIView {
         layer.add(animation, forKey: "shake")
     }
 
+    /// New drop shadow by adding new layer
+    /// - Parameters:
+    ///   - shadowColor: color
+    ///   - fillColor: fill default: white
+    ///   - opacity: opacity default 20%
+    ///   - offset: offset default y: 1
+    ///   - radius: radius (blur) default 10
+    /// - Returns: new layer
+    func dropRealShadow(shadowColor: UIColor = UIColor.black, fillColor: UIColor = UIColor.white, opacity: Float = 0.2, offset: CGSize = CGSize(width: 0.0, height: 1.0), radius: CGFloat = 10) -> CAShapeLayer {
+
+        let shadowLayer = CAShapeLayer()
+        let bounds = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height / 2)
+        shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+        shadowLayer.fillColor = fillColor.cgColor
+        shadowLayer.shadowColor = shadowColor.cgColor
+        shadowLayer.shadowPath = shadowLayer.path
+        shadowLayer.shadowOffset = offset
+        shadowLayer.shadowOpacity = opacity
+        shadowLayer.shadowRadius = radius
+        shadowLayer.name = "shadow"
+        shadowLayer.frame.size = CGSize(width: shadowLayer.frame.size.width / 2, height: shadowLayer.frame.size.height / 2)
+        layer.insertSublayer(shadowLayer, at: 0)
+        return shadowLayer
+    }
+
+    /// Draw a simple drop shadow for the views layer
+    /// - Parameters:
+    ///   - color: color
+    ///   - opacity: opacity default: 50%
+    ///   - offSet: offset
+    ///   - radius: radius (blur) default 1
+    ///   - scale:  scale default: true
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+        
+        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
 }
