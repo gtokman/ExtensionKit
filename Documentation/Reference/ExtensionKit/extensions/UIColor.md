@@ -60,3 +60,51 @@ Color from HEX
 | Name | Description |
 | ---- | ----------- |
 | hexCode | Hex w/o `#` |
+
+### `random(alpha:)`
+
+```swift
+static func random(alpha: CGFloat = 1.0) -> UIColor
+```
+
+Random color
+- Parameter alpha: alpha
+- Returns: new color
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| alpha | alpha |
+
+### `lighten(by:)`
+
+```swift
+func lighten(by percentage: CGFloat = 30.0) -> UIColor
+```
+
+Darken color
+- Parameter percentage: percentage
+- Returns: new color
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| percentage | percentage |
+
+### `darken(by:)`
+
+```swift
+func darken(by percentage: CGFloat = 30.0) -> UIColor
+```
+
+Darken color
+- Parameter percentage: percentage
+- Returns: new color
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| percentage | percentage |

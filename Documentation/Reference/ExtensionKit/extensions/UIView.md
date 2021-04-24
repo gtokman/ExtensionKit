@@ -124,3 +124,52 @@ func shakeToIndicateError()
 ```
 
 Commit a shake animation and vibrate to indicate the occured error.
+
+### `dropRealShadow(shadowColor:fillColor:opacity:offset:radius:)`
+
+```swift
+func dropRealShadow(shadowColor: UIColor = UIColor.black, fillColor: UIColor = UIColor.white, opacity: Float = 0.2, offset: CGSize = CGSize(width: 0.0, height: 1.0), radius: CGFloat = 10) -> CAShapeLayer
+```
+
+New drop shadow by adding new layer
+- Parameters:
+  - shadowColor: color
+  - fillColor: fill default: white
+  - opacity: opacity default 20%
+  - offset: offset default y: 1
+  - radius: radius (blur) default 10
+- Returns: new layer
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| shadowColor | color |
+| fillColor | fill default: white |
+| opacity | opacity default 20% |
+| offset | offset default y: 1 |
+| radius | radius (blur) default 10 |
+
+### `dropShadow(color:opacity:offSet:radius:scale:)`
+
+```swift
+func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true)
+```
+
+Draw a simple drop shadow for the views layer
+- Parameters:
+  - color: color
+  - opacity: opacity default: 50%
+  - offSet: offset
+  - radius: radius (blur) default 1
+  - scale:  scale default: true
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| color | color |
+| opacity | opacity default: 50% |
+| offSet | offset |
+| radius | radius (blur) default 1 |
+| scale | scale default: true |

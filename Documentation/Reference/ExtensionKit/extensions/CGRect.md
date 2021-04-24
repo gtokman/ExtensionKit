@@ -54,18 +54,6 @@ var leftMiddle: CGPoint
 var rightMiddle: CGPoint
 ```
 
-### `midX`
-
-```swift
-var midX: CGFloat
-```
-
-### `midY`
-
-```swift
-var midY: CGFloat
-```
-
 ### `center`
 
 ```swift
