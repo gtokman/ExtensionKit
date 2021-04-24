@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/gtokman/ExtensionKit/compare/v1.0.1...v1.1.0) (2021-04-24)
+
+
+### Features
+
+* add color extensions ([ec0e604](https://github.com/gtokman/ExtensionKit/commit/ec0e6040476517ede4af16511aa6996f1185f9e4))
+* add new View extensions ([b502d98](https://github.com/gtokman/ExtensionKit/commit/b502d98b3b775c78f41d8429cafbe2af7a0871ae))
+* add UIView extensions ([b4e0e61](https://github.com/gtokman/ExtensionKit/commit/b4e0e615cfbc5df14047613b8115383bcaede31a))
+
 ### [1.0.1](https://github.com/gtokman/ExtensionKit/compare/v1.0.0...v1.0.1) (2021-04-24)
 
 
