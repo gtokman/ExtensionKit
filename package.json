@@ -1,0 +1,19 @@
+{
+  "name": "extensionkit",
+  "version": "1.0.0",
+  "description": "A collection of UIKit and SwiftUI extensions to speed up app development",
+  "main": "package.swift",
+  "scripts": {
+      "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtokman/ExtensionKit.git"
+  },
+  "author": "Gary Tokman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gtokman/ExtensionKit/issues"
+  },
+  "homepage": "https://github.com/gtokman/ExtensionKit#readme"
+}
