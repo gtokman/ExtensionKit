@@ -34,14 +34,6 @@ public extension CGRect {
         return CGPoint(x: maxX, y: midY)
     }
     
-    var midX: CGFloat {
-        return (maxX - minX) / 2
-    }
-    
-    var midY: CGFloat {
-        return (maxY - minY) / 2
-    }
-    
     /// Center taking size into account
     var center: CGPoint {
         get {
