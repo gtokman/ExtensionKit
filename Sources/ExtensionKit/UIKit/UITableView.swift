@@ -1,4 +1,8 @@
+#if canImport(UIKit)
+
 import UIKit
+
+#endif
 
 public extension UITableView {
     

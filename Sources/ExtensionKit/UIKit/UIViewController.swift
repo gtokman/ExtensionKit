@@ -1,5 +1,9 @@
+#if canImport(UIKit)
+
 import UIKit
 import SafariServices
+
+#endif
 
 public extension UIViewController {
 

@@ -1,4 +1,8 @@
+#if canImport(UIKit)
+
 import UIKit
+
+#endif
 import AudioToolbox
 
 // These methods are for fixing a bug that `layer.content` exceeds its border programmically set by those `layer.borderxxx`.
