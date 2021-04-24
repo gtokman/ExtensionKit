@@ -3,7 +3,8 @@
 ![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![Swift Package Manager Compatible](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org/package-manager)
 
-<img alt="Petrify 2021-04-24 at 10 48 09 AM" src="https://user-images.githubusercontent.com/12258850/115962682-92600180-a4ea-11eb-9906-58ae6baed325.png">
+<img alt="Screen Shot 2021-04-24 at 3 58 58 PM" src="https://user-images.githubusercontent.com/12258850/115971376-1380be00-a516-11eb-82cd-451d7e0378fc.png">
+
 
 # Documentation
 
