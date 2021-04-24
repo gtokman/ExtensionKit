@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/gtokman/ExtensionKit/compare/v1.0.0...v1.0.1) (2021-04-24)
+
+
+### Bug Fixes
+
+* remove redundant rect vars ([c62c511](https://github.com/gtokman/ExtensionKit/commit/c62c511345e85f7237878eaf778dca3690a7ee1d))
+
 ## 1.0.0 (2021-04-24)
 
 
