@@ -4,6 +4,7 @@ import SwiftUI
 
 #endif
 
+@available(iOS 13.0, macOS 10.15, *)
 public extension Color {
     
     /// Initialize with HEX

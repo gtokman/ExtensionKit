@@ -22,6 +22,24 @@ Fill parent view
 | ---- | ----------- |
 | alignment | alignment |
 
+### `fillWidth()`
+
+```swift
+func fillWidth() -> some View
+```
+
+Fill parent's width
+- Returns: view
+
+### `fillHeight()`
+
+```swift
+func fillHeight() -> some View
+```
+
+Fill parent's height
+- Returns: view
+
 ### `if(_:transform:)`
 
 ```swift
@@ -127,3 +145,49 @@ Hides the view conditionally
 | Name | Description |
 | ---- | ----------- |
 | hidden | is hidden |
+
+### `shimmer(isActive:speed:angle:)`
+
+```swift
+func shimmer(
+    isActive: Bool = true,
+    speed: Double = 0.15,
+    angle: Angle = .init(degrees: 70)
+) -> some View
+```
+
+Loading shimmer animation on view
+- Parameters:
+  - isActive: is shimmer animation active
+  - speed: speed, default: 0.15
+  - angle: angle of animation, default: 70º
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| isActive | is shimmer animation active |
+| speed | speed, default: 0.15 |
+| angle | angle of animation, default: 70º |
+
+### `addBorder(_:width:cornerRadius:)`
+
+```swift
+func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S: ShapeStyle
+```
+
+Overlay border on view
+- Parameters:
+  - content: ShapeStyle view
+  - width: border width
+  - cornerRadius: corner radius
+- Returns: view
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| content | ShapeStyle view |
+| width | border width |
+| cornerRadius | corner radius |

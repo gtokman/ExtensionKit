@@ -35,6 +35,6 @@ class func schedule(repeatInterval interval: TimeInterval, handler: @escaping ()
  Schedule closure to run on main run loop and repeat at the interval
 
 - Parameters:
-  - interval: 触发时长，从现在开始经过interval时长后触发第一次
+  - interval: Interval
   - handler: Closure to run
 - Returns: CFRunLoopTimer
