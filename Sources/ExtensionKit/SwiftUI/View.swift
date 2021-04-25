@@ -136,5 +136,39 @@ public extension View {
         return overlay(RoundedRectangle(cornerRadius: cornerRadius)
                         .strokeBorder(content, lineWidth: width))
     }
+
+    /// Addd a `LinearGradient` overlayed on View
+    /// - Parameters:
+    ///   - colors: Colors
+    ///   - start: Start, default top
+    ///   - end: End, default bottom
+    /// - Returns: View
+    func gradientOverlay(
+        colors: Color...,
+        start: UnitPoint = .top,
+        end: UnitPoint = .bottom) -> some View {
+            overlay(
+                LinearGradient(
+                    gradient: Gradient(colors: colors),
+                    startPoint: start, endPoint: end)
+            )
+    }
+    
+    /// Addd a `LinearGradient` background on View
+    /// - Parameters:
+    ///   - colors: Colors
+    ///   - start: Start, default top
+    ///   - end: End, default bottom
+    /// - Returns: View
+    func gradientBackground(
+        colors: Color...,
+        start: UnitPoint = .top,
+        end: UnitPoint = .bottom) -> some View {
+            background(
+                LinearGradient(
+                    gradient: Gradient(colors: colors),
+                    startPoint: start, endPoint: end)
+            )
+    }
     
 }
