@@ -98,6 +98,45 @@ public extension View {
             }
     }
     
+    /**
+    ```
+     ForEach(0 ..< 5) { item in
+         Rectangle()
+             .foregroundColor(.random())
+     }.embedInVerticalPagingTabView($selection)
+    ```
+     */
+    /// Embed Self in vertically paging `TabView`
+    /// - Parameters:
+    ///   - selection: selection binding
+    ///   - pageIndicators: show page indicators, default .always
+    /// - Returns: View
+    @available(iOS 14.0, *)
+    func embedInVerticalPagingTabView<Selection: Hashable>(
+        _ selection: Binding<Selection>,
+        pageIndicators: PageTabViewStyle.IndexDisplayMode = .never
+    ) -> some View {
+        GeometryReader { proxy in
+            TabView(selection: selection) {
+                self
+                    .rotationEffect(.degrees(-90)) // Rotate content
+                    .frame(
+                        width: proxy.localWidth,
+                        height: proxy.localHeight
+                    )
+            }
+            .frame(
+                width: proxy.localHeight,
+                height: proxy.localWidth
+            )
+            .rotationEffect(.degrees(90), anchor: .topLeading) // Rotate TabView
+            .offset(x: proxy.localWidth) // Offset back into screens bounds
+            .tabViewStyle(
+                PageTabViewStyle(indexDisplayMode: pageIndicators)
+            )
+        }
+    }
+    
     /// Round view with specific corners
     /// - Parameters:
     ///   - radius: radius
