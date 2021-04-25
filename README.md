@@ -21,8 +21,8 @@
 -   [UIButton](Documentation/Reference/ExtensionKit/extensions/UIButton.md)
 -   [UIColor](Documentation/Reference/ExtensionKit/extensions/UIColor.md)
 -   [UIImage](Documentation/Reference/ExtensionKit/extensions/UIImage.md)
--   [UITableView](Documentation/Reference/ExtensionKit/UITableView.md)
--   [UIView](Documentation/Reference/ExtensionKit/UIView.md)
+-   [UITableView](Documentation/Reference/ExtensionKit/extensions/UITableView.md)
+-   [UIView](Documentation/Reference/ExtensionKit/extensions/UIView.md)
 -   [UIViewController](Documentation/Reference/ExtensionKit/UIViewController.md)
 
 ### Foundation
