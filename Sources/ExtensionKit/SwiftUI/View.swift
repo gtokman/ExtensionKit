@@ -72,6 +72,13 @@ public extension View {
         NavigationView { self }
     }
     
+    /// Embed Self in `ScrollView`
+    /// - Returns: New view with `ScrollView` parent
+    func embedInScrollView(_ axis: Axis.Set = .vertical,
+                           showsIndicators: Bool = false) -> some View {
+        ScrollView(axis, showsIndicators: showsIndicators) { self }
+    }
+    
     /// Round view with specific corners
     /// - Parameters:
     ///   - radius: radius
