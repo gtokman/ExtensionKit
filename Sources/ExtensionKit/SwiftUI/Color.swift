@@ -4,6 +4,12 @@ import SwiftUI
 
 #endif
 
+#if canImport(UIKit)
+
+import UIKit
+
+#endif
+
 @available(iOS 13.0, macOS 10.15, *)
 public extension Color {
     
