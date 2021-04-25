@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/gtokman/ExtensionKit/compare/v1.3.0...v1.4.0) (2021-04-25)
+
+
+### Features
+
+* add embed in tab view extension ([143c74b](https://github.com/gtokman/ExtensionKit/commit/143c74b1a8038432491ce5a8cdc88fdcdcfa30c7))
+* add font default extension and monospaced ([04b8712](https://github.com/gtokman/ExtensionKit/commit/04b8712582bf7f541cce6bf533922c5e3740150d))
+* add scroll view embedding extension ([5242d01](https://github.com/gtokman/ExtensionKit/commit/5242d011f562fbd5630111e975ec9d7496af872a))
+
 ## [1.3.0](https://github.com/gtokman/ExtensionKit/compare/v1.2.0...v1.3.0) (2021-04-25)
 
 
