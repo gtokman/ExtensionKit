@@ -191,3 +191,51 @@ Overlay border on view
 | content | ShapeStyle view |
 | width | border width |
 | cornerRadius | corner radius |
+
+### `gradientOverlay(colors:start:end:)`
+
+```swift
+func gradientOverlay(
+    colors: Color...,
+    start: UnitPoint = .top,
+    end: UnitPoint = .bottom) -> some View
+```
+
+Addd a `LinearGradient` overlayed on View
+- Parameters:
+  - colors: Colors
+  - start: Start, default top
+  - end: End, default bottom
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| colors | Colors |
+| start | Start, default top |
+| end | End, default bottom |
+
+### `gradientBackground(colors:start:end:)`
+
+```swift
+func gradientBackground(
+    colors: Color...,
+    start: UnitPoint = .top,
+    end: UnitPoint = .bottom) -> some View
+```
+
+Addd a `LinearGradient` background on View
+- Parameters:
+  - colors: Colors
+  - start: Start, default top
+  - end: End, default bottom
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| colors | Colors |
+| start | Start, default top |
+| end | End, default bottom |

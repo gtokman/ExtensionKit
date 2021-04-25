@@ -12,8 +12,12 @@
 
 ### SwiftUI
 
--   [View](Documentation/Reference/ExtensionKit/extensions/View.md)
+-   [Button](Documentation/Reference/ExtensionKit/extensions/Button.md)
 -   [Color](Documentation/Reference/ExtensionKit/extensions/Color.md)
+-   [GeometryProxy](Documentation/Reference/ExtensionKit/extensions/GeometryProxy.md)
+-   [Image](Documentation/Reference/ExtensionKit/extensions/Image.md)
+-   [Shape](Documentation/Reference/ExtensionKit/extensions/Shape.md)
+-   [View](Documentation/Reference/ExtensionKit/extensions/View.md)
 
 ### UIKit
 
@@ -22,8 +26,8 @@
 -   [UIColor](Documentation/Reference/ExtensionKit/extensions/UIColor.md)
 -   [UIImage](Documentation/Reference/ExtensionKit/extensions/UIImage.md)
 -   [UITableView](Documentation/Reference/ExtensionKit/extensions/UITableView.md)
--   [UIView](Documentation/Reference/ExtensionKit/extensions/UIView.md)
 -   [UIViewController](Documentation/Reference/ExtensionKit/UIViewController.md)
+-   [UIView](Documentation/Reference/ExtensionKit/extensions/UIView.md)
 
 ### Foundation
 
@@ -34,6 +38,7 @@
 -   [FileManager](Documentation/Reference/ExtensionKit/extensions/FileManager.md)
 -   [Int](Documentation/Reference/ExtensionKit/extensions/Int.md)
 -   [NSObject](Documentation/Reference/ExtensionKit/extensions/NSObject.md)
+-   [RandomAccessCollection](Documentation/Reference/ExtensionKit/extensions/RandomAccessCollection.md)
 -   [String](Documentation/Reference/ExtensionKit/extensions/String.md)
 -   [Timer](Documentation/Reference/ExtensionKit/extensions/Timer.md)
 
