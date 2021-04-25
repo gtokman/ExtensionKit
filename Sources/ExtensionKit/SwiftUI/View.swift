@@ -20,6 +20,18 @@ public extension View {
             alignment: alignment
         )
     }
+    
+    /// Fill parent's width
+    /// - Returns: view
+    func fillWidth() -> some View {
+        return self.frame(minWidth: 0, maxWidth: .infinity)
+    }
+
+    /// Fill parent's height
+    /// - Returns: view
+    func fillHeight() -> some View {
+        return self.frame(minHeight: 0, maxHeight: .infinity)
+    }
 
     /// If a condition is true, transform and return a new view
     /// - Parameters:
