@@ -17,6 +17,7 @@
 -   [GeometryProxy](Documentation/Reference/ExtensionKit/extensions/GeometryProxy.md)
 -   [Image](Documentation/Reference/ExtensionKit/extensions/Image.md)
 -   [Shape](Documentation/Reference/ExtensionKit/extensions/Shape.md)
+-   [Text](Documentation/Reference/ExtensionKit/extensions/Text.md)
 -   [View](Documentation/Reference/ExtensionKit/extensions/View.md)
 
 ### UIKit

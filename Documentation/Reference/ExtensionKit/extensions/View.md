@@ -93,6 +93,41 @@ func embedInNavigationView() -> some View
 Embed Self in `NavigationView`
 - Returns: New view with `NavigationView` parent
 
+### `embedInScrollView(_:showsIndicators:)`
+
+```swift
+func embedInScrollView(_ axis: Axis.Set = .vertical,
+                       showsIndicators: Bool = false) -> some View
+```
+
+Embed Self in `ScrollView`
+- Returns: New view with `ScrollView` parent
+
+### `embedInTabView(_:paged:pageIndicators:)`
+
+```swift
+func embedInTabView<Selection: Hashable>(
+    _ selection: Binding<Selection>,
+    paged: Bool = true,
+    pageIndicators: PageTabViewStyle.IndexDisplayMode = .always
+) -> some View
+```
+
+Embed Self in `TabView`
+- Parameters:
+  - selection: selection binding
+  - paged: page style or not (`PageTabViewStyle`)
+  - pageIndicators: show page indicators, default .always
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| selection | selection binding |
+| paged | page style or not (`PageTabViewStyle`) |
+| pageIndicators | show page indicators, default .always |
+
 ### `cornerRadius(_:corners:)`
 
 ```swift
