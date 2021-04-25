@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/gtokman/ExtensionKit/compare/v1.2.0...v1.3.0) (2021-04-25)
+
+
+### Features
+
+* add array enumeration helper ([2889672](https://github.com/gtokman/ExtensionKit/commit/288967206d731fc45c70e747021ea97f638bb484))
+* add Button helper initializers  ([09a0beb](https://github.com/gtokman/ExtensionKit/commit/09a0bebf1a61a29dfed6779729e1b758732eef37))
+* add geometry proxy extensions ([08e0edb](https://github.com/gtokman/ExtensionKit/commit/08e0edbc47c58432c200fddb40f2d65c92918cba))
+* add gradient extension to shape ([3482fbb](https://github.com/gtokman/ExtensionKit/commit/3482fbb994cfff12808b301183327d200708e243))
+* add gradient view extensions ([99f02a3](https://github.com/gtokman/ExtensionKit/commit/99f02a388ddc306e08e52862994a63acb43fb953))
+* add Image initializers ([55e753f](https://github.com/gtokman/ExtensionKit/commit/55e753fcb1376810616fd7ca18420fc9b92b93d9))
+
+
+### Bug Fixes
+
+* imports in Color ([b1b98cc](https://github.com/gtokman/ExtensionKit/commit/b1b98cc14fc41225ada75901547dbc911fc4a151))
+
 ## [1.2.0](https://github.com/gtokman/ExtensionKit/compare/v1.1.0...v1.2.0) (2021-04-25)
 
 
