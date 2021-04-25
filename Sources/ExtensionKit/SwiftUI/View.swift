@@ -79,6 +79,25 @@ public extension View {
         ScrollView(axis, showsIndicators: showsIndicators) { self }
     }
     
+    /// Embed Self in `TabView`
+    /// - Parameters:
+    ///   - selection: selection binding
+    ///   - paged: page style or not (`PageTabViewStyle`)
+    ///   - pageIndicators: show page indicators, default .always
+    /// - Returns: View
+    @available(iOS 14.0, *)
+    func embedInTabView<Selection: Hashable>(
+        _ selection: Binding<Selection>,
+        paged: Bool = true,
+        pageIndicators: PageTabViewStyle.IndexDisplayMode = .always
+    ) -> some View {
+        TabView(selection: selection) { self }
+            .if(paged) { (tabView) in
+                return tabView
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: pageIndicators))
+            }
+    }
+    
     /// Round view with specific corners
     /// - Parameters:
     ///   - radius: radius
