@@ -90,7 +90,7 @@ public extension View {
 
     /// Erase view to `AnyView`
     /// - Returns: new view
-    func eraseToAnyView() -> AnyView{
+    func eraseToAnyView() -> AnyView {
         AnyView(self)
     }
     
@@ -104,4 +104,37 @@ public extension View {
         case false: self
         }
     }
+    
+    /// Loading shimmer animation on view
+    /// - Parameters:
+    ///   - isActive: is shimmer animation active
+    ///   - speed: speed, default: 0.15
+    ///   - angle: angle of animation, default: 70º
+    /// - Returns: View
+    func shimmer(
+        isActive: Bool = true,
+        speed: Double = 0.15,
+        angle: Angle = .init(degrees: 70)
+    ) -> some View {
+        
+        let view = ShimmerModifier(
+            isActive: isActive,
+            speed: speed,
+            angle: angle
+        )
+        
+        return self.modifier(view)
+    }
+    
+    /// Overlay border on view
+    /// - Parameters:
+    ///   - content: ShapeStyle view
+    ///   - width: border width
+    ///   - cornerRadius: corner radius
+    /// - Returns: view
+   func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S: ShapeStyle {
+        return overlay(RoundedRectangle(cornerRadius: cornerRadius)
+                        .strokeBorder(content, lineWidth: width))
+    }
+    
 }
