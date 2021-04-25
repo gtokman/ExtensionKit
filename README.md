@@ -26,7 +26,7 @@
 -   [UIColor](Documentation/Reference/ExtensionKit/extensions/UIColor.md)
 -   [UIImage](Documentation/Reference/ExtensionKit/extensions/UIImage.md)
 -   [UITableView](Documentation/Reference/ExtensionKit/extensions/UITableView.md)
--   [UIViewController](Documentation/Reference/ExtensionKit/UIViewController.md)
+-   [UIViewController](Documentation/Reference/ExtensionKit/extensions/UIViewController.md)
 -   [UIView](Documentation/Reference/ExtensionKit/extensions/UIView.md)
 
 ### Foundation
