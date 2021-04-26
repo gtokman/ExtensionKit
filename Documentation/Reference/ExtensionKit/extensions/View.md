@@ -128,6 +128,22 @@ Embed Self in `TabView`
 | paged | page style or not (`PageTabViewStyle`) |
 | pageIndicators | show page indicators, default .always |
 
+### `embedInVerticalPagingTabView(_:pageIndicators:)`
+
+```swift
+func embedInVerticalPagingTabView<Selection: Hashable>(
+    _ selection: Binding<Selection>,
+    pageIndicators: PageTabViewStyle.IndexDisplayMode = .never
+) -> some View
+```
+
+```
+ ForEach(0 ..< 5) { item in
+     Rectangle()
+         .foregroundColor(.random())
+ }.embedInVerticalPagingTabView($selection)
+```
+
 ### `cornerRadius(_:corners:)`
 
 ```swift
@@ -274,3 +290,246 @@ Addd a `LinearGradient` background on View
 | colors | Colors |
 | start | Start, default top |
 | end | End, default bottom |
+
+### `safeArea(withBackground:safeAreaRegions:edges:)`
+
+```swift
+func safeArea<Background: View>(
+    withBackground backgroundView: Background,
+    safeAreaRegions: SafeAreaRegions = .all,
+    edges: Edge.Set = .all
+) -> some View
+```
+
+Expand safe area on the background of the view
+- Parameters:
+  - backgroundView: view to ignore safe area
+  - safeAreaRegions: safe area regions
+  - edges: edges
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| backgroundView | view to ignore safe area |
+| safeAreaRegions | safe area regions |
+| edges | edges |
+
+### `navigationBarColors(background:text:)`
+
+```swift
+func navigationBarColors(background: UIColor, text: UIColor) -> some View
+```
+
+Set Navigation bar background color and text
+- Parameters:
+  - background: background color
+  - text: text color
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| background | background color |
+| text | text color |
+
+### `background(alignment:content:)`
+
+```swift
+func background<Content: View>(
+    alignment: Alignment = .center,
+    @ViewBuilder content: () -> Content
+) -> some View
+```
+
+That way the container doesn’t leak outside the safe area, only the elements in its background    ///
+- Parameters:
+  - alignment: alignment
+  - content: content
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| alignment | alignment |
+| content | content |
+
+### `hideKeyboard()`
+
+```swift
+func hideKeyboard()
+```
+
+Hide keyboard
+
+### `keyboardState(isVisible:)`
+
+```swift
+func keyboardState(isVisible: Binding<Bool>) -> some View
+```
+
+Receive keyboard status updates
+- Parameter isVisible: is keyboard visible
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| isVisible | is keyboard visible |
+
+### `debugPrint(_:)`
+
+```swift
+func debugPrint(_ vars: Any...) -> some View
+```
+
+Debug print
+- Parameter vars: item to print
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| vars | item to print |
+
+### `debugAction(_:)`
+
+```swift
+func debugAction(_ closure: () -> Void) -> Self
+```
+
+Debug action
+- Parameter closure: action
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| closure | action |
+
+### `debugModifier(_:)`
+
+```swift
+func debugModifier<T: View>(_ modifier: (Self) -> T) -> some View
+```
+
+Debug visual modifier
+- Parameter modifier: View modifier
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| modifier | View modifier |
+
+### `debugBorder(_:width:)`
+
+```swift
+func debugBorder(_ color: Color = .red, width: CGFloat = 1) -> some View
+```
+
+Debug only border
+- Parameters:
+  - color: color
+  - width: width
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| color | color |
+| width | width |
+
+### `debugBackground(_:)`
+
+```swift
+func debugBackground(_ color: Color = .red) -> some View
+```
+
+Debug only background
+- Parameter color: color
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| color | color |
+
+### `times(_:)`
+
+```swift
+func times(_ value: UInt) -> some View
+```
+
+Repeat View n times
+- Parameter value: repeat upto not including
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| value | repeat upto not including |
+
+### `useSize(of:)`
+
+```swift
+func useSize<Content: View>(of content: @autoclosure () -> Content) -> some View
+```
+
+Overlay View on content size
+- Parameter content: content size
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| content | content size |
+
+### `onReceive(_:assignTo:)`
+
+```swift
+func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output>) -> some View where P.Failure == Never
+```
+
+Subscribe and blind ouput to View property
+- Parameters:
+  - publisher: publisher
+  - binding: binding
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| publisher | publisher |
+| binding | binding |
+
+### `onReceive(_:assignTo:)`
+
+```swift
+func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output?>) -> some View where P.Failure == Never
+```
+
+Subscribe and blind optional ouput to View property
+- Parameters:
+  - publisher: publisher
+  - binding: binding
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| publisher | publisher |
+| binding | binding |
