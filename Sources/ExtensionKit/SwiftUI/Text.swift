@@ -12,7 +12,7 @@ public extension Text {
     ///   - weight: font weight, default regular
     ///   - design: font design, default .default
     /// - Returns: View
-    func `default`(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> some View {
+    func `default`(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> Text {
         self.font(.system(size: size, weight: weight, design: design))
     }
     
@@ -22,7 +22,7 @@ public extension Text {
     ///   - weight: font weight, default regular
     ///   - design: font design, default .monospaced
     /// - Returns: View
-    func monospaced(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .monospaced) -> some View {
+    func monospaced(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .monospaced) -> Text {
         self.font(.system(size: size, weight: weight, design: design))
     }
     
