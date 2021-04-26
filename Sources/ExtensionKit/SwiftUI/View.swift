@@ -152,13 +152,6 @@ public extension View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
     }
 
-    /// Debug print view representation
-    /// - Returns: Self after printing
-    func debug() -> Self {
-        print(Mirror(reflecting: self).subjectType)
-        return self
-    }
-
     /// Erase view to `AnyView`
     /// - Returns: new view
     func eraseToAnyView() -> AnyView {
@@ -169,7 +162,7 @@ public extension View {
     /// - Parameter hidden: is hidden
     /// - Returns: hidden view but not drawn on screen
     @ViewBuilder
-    func hidden(_ hidden: Bool) -> some View {
+    func hide(if hidden: Bool) -> some View {
         switch hidden {
         case true: self.hidden()
         case false: self
@@ -346,6 +339,13 @@ public extension View {
         debugModifier {
             $0.background(color)
         }
+    }
+    
+    /// Debug print view representation
+    /// - Returns: Self after printing
+    func debug() -> Self {
+        print(Mirror(reflecting: self).subjectType)
+        return self
     }
 
     /// Repeat View n times
