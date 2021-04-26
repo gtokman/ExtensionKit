@@ -27,7 +27,7 @@ struct ShimmerView: View {
     var animation: Animation {
         Animation
             .default
-            .speed(0.15)
+            .speed(speed)
             .delay(0)
             .repeatForever(autoreverses: false)
     }
@@ -40,13 +40,12 @@ struct ShimmerView: View {
                 .rotationEffect(self.angle)
                 .offset(x: self.calcOffset(geo), y: 0)
                 .animation(self.animation)
-        }
+        }.onAppear(perform: { show.toggle() })
     }
     
     init(speed: Double, angle: Angle) {
         self.speed = speed
         self.angle = angle
-        self.show.toggle()
     }
     
     func calcOffset(_ geo: GeometryProxy) -> CGFloat {
