@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/gtokman/ExtensionKit/compare/v1.4.0...v1.6.0) (2021-04-26)
+
+
+### Features
+
+* add debug, publisher and keyboard extensions to view ([5ac4abd](https://github.com/gtokman/ExtensionKit/commit/5ac4abd5cfd47008e0d1b2b7d607451c3a288977))
+* add new template size modifier to text ([545c333](https://github.com/gtokman/ExtensionKit/commit/545c33317a9356fe43f03591c2e7a5d098218b43))
+* add tab view extension to vertically page ([1c8433e](https://github.com/gtokman/ExtensionKit/commit/1c8433edaf239a4eaa5d66633ee6fcd161af4793))
+
+
+### Bug Fixes
+
+* naming collision with other library on hidden extension ([b68b51b](https://github.com/gtokman/ExtensionKit/commit/b68b51bd472c7594cec058299d97e6b756460869))
+* update shimmer view to use speed and show on appear ([f777f0e](https://github.com/gtokman/ExtensionKit/commit/f777f0e285e9e0e1738015f719c00af8c8cf87d9))
+* update text extensions to return text ([42b0fd9](https://github.com/gtokman/ExtensionKit/commit/42b0fd93b94bd3efa32ece9158858f6bf0d68a11))
+
 ## [1.5.0](https://github.com/gtokman/ExtensionKit/compare/v1.4.0...v1.5.0) (2021-04-26)
 
 

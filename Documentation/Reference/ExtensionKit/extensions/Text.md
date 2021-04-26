@@ -9,7 +9,7 @@ public extension Text
 ### `default(_:weight:design:)`
 
 ```swift
-func `default`(_ size: CGFloat = 18, weight: Font.Weight = .regular, design: Font.Design = .default) -> some View
+func `default`(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> Text
 ```
 
 Text with system font
@@ -30,7 +30,7 @@ Text with system font
 ### `monospaced(_:weight:design:)`
 
 ```swift
-func monospaced(_ size: CGFloat = 18, weight: Font.Weight = .regular, design: Font.Design = .monospaced) -> some View
+func monospaced(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .monospaced) -> Text
 ```
 
 Text with system font and monospaced
@@ -47,3 +47,9 @@ Text with system font and monospaced
 | size | size, default 18 |
 | weight | font weight, default regular |
 | design | font design, default .monospaced |
+
+### `templateSize(for:)`
+
+```swift
+func templateSize(for value: String) -> some View
+```

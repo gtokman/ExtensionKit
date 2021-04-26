@@ -163,15 +163,6 @@ Round view with specific corners
 | radius | radius |
 | corners | corners to round |
 
-### `debug()`
-
-```swift
-func debug() -> Self
-```
-
-Debug print view representation
-- Returns: Self after printing
-
 ### `eraseToAnyView()`
 
 ```swift
@@ -181,10 +172,10 @@ func eraseToAnyView() -> AnyView
 Erase view to `AnyView`
 - Returns: new view
 
-### `hidden(_:)`
+### `hide(if:)`
 
 ```swift
-func hidden(_ hidden: Bool) -> some View
+func hide(if hidden: Bool) -> some View
 ```
 
 Hides the view conditionally
@@ -463,6 +454,15 @@ Debug only background
 | Name | Description |
 | ---- | ----------- |
 | color | color |
+
+### `debug()`
+
+```swift
+func debug() -> Self
+```
+
+Debug print view representation
+- Returns: Self after printing
 
 ### `times(_:)`
 
