@@ -4,6 +4,12 @@ import SwiftUI
 
 #endif
 
+#if canImport(Combine)
+
+import Combine
+
+#endif
+
 @available(iOS 13.0, macOS 10.15, *)
 public extension View {
 
@@ -236,4 +242,141 @@ public extension View {
             )
     }
     
+    /// Expand safe area on the background of the view
+    /// - Parameters:
+    ///   - backgroundView: view to ignore safe area
+    ///   - safeAreaRegions: safe area regions
+    ///   - edges: edges
+    /// - Returns: View
+    @available(iOS 14.0, *)
+    func safeArea<Background: View>(
+        withBackground backgroundView: Background,
+        safeAreaRegions: SafeAreaRegions = .all,
+        edges: Edge.Set = .all
+    ) -> some View {
+        self.background(
+            backgroundView.ignoresSafeArea(
+                safeAreaRegions,
+                edges: edges
+            )
+        )
+    }
+
+    /// Set Navigation bar background color and text
+    /// - Parameters:
+    ///   - background: background color
+    ///   - text: text color
+    /// - Returns: View
+    func navigationBarColors(background: UIColor, text: UIColor) -> some View {
+        self.modifier(
+            NavigationBarModifier(backgroundColor: background, textColor: text)
+        )
+    }
+    
+    /// That way the container doesn’t leak outside the safe area, only the elements in its background    ///
+    /// - Parameters:
+    ///   - alignment: alignment
+    ///   - content: content
+    /// - Returns: View
+    func background<Content: View>(
+        alignment: Alignment = .center,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+      self.background(ZStack(alignment: alignment) { content() }, alignment: alignment)
+    }
+    
+    /// Hide keyboard
+    func hideKeyboard() {
+        DispatchQueue.main.async {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+    }
+    
+    /// Receive keyboard status updates
+    /// - Parameter isVisible: is keyboard visible
+    /// - Returns: View
+    func keyboardState(isVisible: Binding<Bool>) -> some View {
+        self.modifier(KeyboardStateModifier(isVisible))
+    }
+    
+    /// Debug print
+    /// - Parameter vars: item to print
+    /// - Returns: View
+    func debugPrint(_ vars: Any...) -> some View {
+        for v in vars { dprint(v) }
+        return self
+    }
+    
+    /// Debug action
+    /// - Parameter closure: action
+    /// - Returns: View
+    func debugAction(_ closure: () -> Void) -> Self {
+        #if DEBUG
+        closure()
+        #endif
+        return self
+    }
+    
+    /// Debug visual modifier
+    /// - Parameter modifier: View modifier
+    /// - Returns: View
+    func debugModifier<T: View>(_ modifier: (Self) -> T) -> some View {
+        #if DEBUG
+        return modifier(self)
+        #else
+        return self
+        #endif
+    }
+    
+    /// Debug only border
+    /// - Parameters:
+    ///   - color: color
+    ///   - width: width
+    /// - Returns: View
+    func debugBorder(_ color: Color = .red, width: CGFloat = 1) -> some View {
+        debugModifier {
+            $0.border(color, width: width)
+        }
+    }
+
+    /// Debug only background
+    /// - Parameter color: color
+    /// - Returns: View
+    func debugBackground(_ color: Color = .red) -> some View {
+        debugModifier {
+            $0.background(color)
+        }
+    }
+
+    /// Repeat View n times
+    /// - Parameter value: repeat upto not including
+    /// - Returns: View
+    func times(_ value: UInt) -> some View {
+        ForEach(0..<Int(value)) { _ in self }
+    }
+    
+    /// Overlay View on content size
+    /// - Parameter content: content size
+    /// - Returns: View
+    func useSize<Content: View>(of content: @autoclosure () -> Content) -> some View {
+        return content().hidden().overlay(self)
+    }
+    
+    /// Subscribe and blind ouput to View property
+    /// - Parameters:
+    ///   - publisher: publisher
+    ///   - binding: binding
+    /// - Returns: View
+    func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output>) -> some View where P.Failure == Never {
+        onReceive(publisher) { binding.wrappedValue = $0 }
+    }
+    
+    /// Subscribe and blind optional ouput to View property
+    /// - Parameters:
+    ///   - publisher: publisher
+    ///   - binding: binding
+    /// - Returns: View
+    func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output?>) -> some View where P.Failure == Never {
+        onReceive(publisher) { binding.wrappedValue = $0 }
+    }
 }
