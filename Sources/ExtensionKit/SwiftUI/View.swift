@@ -266,7 +266,7 @@ public extension View {
         )
     }
     
-    /// That way the container doesn’t leak outside the safe area, only the elements in its background    ///
+    /// Container that doesn’t leak outside the safe area, only the elements in its background
     /// - Parameters:
     ///   - alignment: alignment
     ///   - content: content
