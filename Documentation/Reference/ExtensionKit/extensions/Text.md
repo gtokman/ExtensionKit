@@ -6,10 +6,10 @@ public extension Text
 ```
 
 ## Methods
-### `default(_:weight:design:)`
+### `system(_:weight:design:)`
 
 ```swift
-func `default`(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> Text
+func system(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> Text
 ```
 
 Text with system font

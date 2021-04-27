@@ -213,6 +213,28 @@ Loading shimmer animation on view
 | speed | speed, default: 0.15 |
 | angle | angle of animation, default: 70º |
 
+### `circleMotion(isActive:circleColor:)`
+
+```swift
+func circleMotion(
+    isActive: Bool = true,
+    circleColor: Color = .gray
+) -> some View
+```
+
+Add animating circles to view
+- Parameters:
+  - isActive: is animation active
+  - circleColor: circle foreground color
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| isActive | is animation active |
+| circleColor | circle foreground color |
+
 ### `addBorder(_:width:cornerRadius:)`
 
 ```swift
@@ -335,7 +357,7 @@ func background<Content: View>(
 ) -> some View
 ```
 
-That way the container doesn’t leak outside the safe area, only the elements in its background    ///
+Container that doesn’t leak outside the safe area, only the elements in its background
 - Parameters:
   - alignment: alignment
   - content: content
