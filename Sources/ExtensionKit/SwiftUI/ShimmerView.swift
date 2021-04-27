@@ -64,7 +64,7 @@ struct ShimmerModifier: ViewModifier {
     let speed: Double
     let angle: Angle
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         if(!isActive) { return content.eraseToAnyView() }
         
         let view = content
@@ -79,7 +79,7 @@ struct ShimmerModifier: ViewModifier {
         return view.eraseToAnyView()
     }
     
-    public init(
+    init(
          isActive: Bool,
          speed: Double,
          angle: Angle

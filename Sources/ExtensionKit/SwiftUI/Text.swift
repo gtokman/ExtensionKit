@@ -12,7 +12,7 @@ public extension Text {
     ///   - weight: font weight, default regular
     ///   - design: font design, default .default
     /// - Returns: View
-    func `default`(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> Text {
+    func system(_ size: CGFloat = 18, weight: SwiftUI.Font.Weight = .regular, design: SwiftUI.Font.Design = .default) -> Text {
         self.font(.system(size: size, weight: weight, design: design))
     }
     
