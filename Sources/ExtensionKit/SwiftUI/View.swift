@@ -190,6 +190,23 @@ public extension View {
         return self.modifier(view)
     }
     
+    /// Add animating circles to view
+    /// - Parameters:
+    ///   - isActive: is animation active
+    ///   - circleColor: circle foreground color
+    /// - Returns: View
+    func circleMotion(
+        isActive: Bool = true,
+        circleColor: Color = .gray
+    ) -> some View {
+        
+        let view = CircleMotionModifier(
+            isActive: isActive,
+            circleColor: circleColor)
+
+        return self.modifier(view)
+    }
+    
     /// Overlay border on view
     /// - Parameters:
     ///   - content: ShapeStyle view
