@@ -1,16 +1,24 @@
-#if canImport(SwiftUI)
-
 import SwiftUI
 
-#endif
-struct SwiftUIView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
+extension Array: View where Element: View {
+    
+    /*
+     ```
+     struct SwiftUIView: View {
+         let array = ["hello", "world"]
+
+         var body: some View {
+             VStack {
+                 array.map(Text.init)
+             }
+         }
+     }
+     ```
+     */
+    /// Add View conformance to Array where element is View
+    public var body: some View {
+        ForEach(indices, id: \.self) { self[$0] }
     }
+    
 }
