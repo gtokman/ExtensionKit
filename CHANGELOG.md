@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/gtokman/ExtensionKit/compare/v1.7.0...v1.8.0) (2021-04-28)
+
+
+### Features
+
+* add color inverted property and more color helpers ([451499b](https://github.com/gtokman/ExtensionKit/commit/451499b62c9b65360f49251bbf423f2d3b81dad5))
+* add new array view conformance  ([ff5f6ef](https://github.com/gtokman/ExtensionKit/commit/ff5f6effbd9cb76a31c889e5ad6f9e783957fb06))
+
+
+### Bug Fixes
+
+* circle motion animation fix ([e8d0050](https://github.com/gtokman/ExtensionKit/commit/e8d00507b938987bf121af0547b9751a94c6ccc5))
+* formatting and warnings in UIColor extensions ([72d0473](https://github.com/gtokman/ExtensionKit/commit/72d04732e6686495cd8888bbdb6956f7b1ee090f))
+* remove if can import statements  ([89c9607](https://github.com/gtokman/ExtensionKit/commit/89c9607e5cd810e6015c5b4b5a5dc9073901de88))
+
 ## [1.7.0](https://github.com/gtokman/ExtensionKit/compare/v1.4.0...v1.7.0) (2021-04-27)
 
 
