@@ -1,8 +1,4 @@
-#if canImport(SwiftUI)
-
 import SwiftUI
-
-#endif
 
 public extension Button where Label == Image {
     

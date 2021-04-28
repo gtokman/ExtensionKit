@@ -1,8 +1,4 @@
-#if canImport(SwiftUI)
-
 import SwiftUI
-
-#endif
 
 /// Get keyboard status updates
 struct KeyboardStateModifier: ViewModifier {

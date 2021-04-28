@@ -1,14 +1,5 @@
-#if canImport(SwiftUI)
-
 import SwiftUI
-
-#endif
-
-#if canImport(Combine)
-
 import Combine
-
-#endif
 
 @available(iOS 13.0, macOS 10.15, *)
 public extension View {

@@ -1,8 +1,4 @@
-#if canImport(SwiftUI)
-
-    import SwiftUI
-
-#endif
+import SwiftUI
 
 /// Random circle motion animation on view
 struct CircleMotionView: View {

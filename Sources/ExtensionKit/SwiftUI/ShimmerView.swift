@@ -1,8 +1,4 @@
-#if canImport(SwiftUI)
-
 import SwiftUI
-
-#endif
 
 /// View with linear gradient shimmer animation
 @available(iOS 13.0, macOS 10.15, *)

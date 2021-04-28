@@ -1,8 +1,4 @@
-#if canImport(SwiftUI)
-
 import SwiftUI
-
-#endif
 
 /// Set navigation bar appearance properties
 struct NavigationBarModifier: ViewModifier {
