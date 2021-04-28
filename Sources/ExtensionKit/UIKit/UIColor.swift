@@ -10,24 +10,16 @@ public extension UIColor {
     /// - Parameters:
     ///   - rgbValue: value
     ///   - alpha: alpha
-    convenience init(rgbValue: UInt, alpha: CGFloat) {
+    convenience init(rgbValue: UInt, alpha: CGFloat = 1) {
         self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
                   green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
                   blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
                   alpha: alpha)
     }
     
-    convenience init(rgbValue: UInt) {
-        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-                  green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-                  blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-                  alpha: 1)
-    }
-    
-    
     /// Color from HEX
     /// - Parameter hexCode: Hex w/o `#`
-    convenience init(hexCode: String) {
+    convenience init(hexCode: String, alpha: CGFloat = 1) {
         var cString:String = hexCode.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
@@ -35,12 +27,12 @@ public extension UIColor {
         if ((cString.count) != 6) {
             self.init()
         } else {
-            var rgbValue:UInt32 = 0
-            Scanner(string: cString).scanHexInt32(&rgbValue)
+            var rgbValue:UInt64 = 0
+            Scanner(string: cString).scanHexInt64(&rgbValue)
             self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
                       green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
                       blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-                      alpha: 1)
+                      alpha: alpha)
         }
     }
     
