@@ -5,7 +5,48 @@
 public extension Color
 ```
 
+## Properties
+### `inverted`
+
+```swift
+var inverted: Color
+```
+
+Inverse color
+
 ## Methods
+### `hex(_:alpha:)`
+
+```swift
+static func hex(_ hex: UInt, alpha: Double = 1) -> Self
+```
+
+Initialize with HEX
+- Parameter hex: HEX UInt value
+- Returns: Color
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| hex | HEX UInt value |
+
+### `hex(_:alpha:)`
+
+```swift
+static func hex(_ hex: String, alpha: CGFloat = 1) -> Self
+```
+
+Initialize with HEX
+- Parameter hex: HEX String value
+- Returns: Color
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| hex | HEX String value |
+
 ### `init(hex:)`
 
 ```swift

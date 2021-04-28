@@ -14,6 +14,14 @@ var removingRepeatElements: Array<Element>
 
 Returns an array where repeating elements of the receiver got removed.
 
+### `body`
+
+```swift
+public var body: some View
+```
+
+Add View conformance to Array where element is View
+
 ## Methods
 ### `remove(_:)`
 

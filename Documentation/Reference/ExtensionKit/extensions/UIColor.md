@@ -25,7 +25,7 @@ https://stackoverflow.com/questions/2509443/check-if-uicolor-is-dark-or-bright
 ### `init(rgbValue:alpha:)`
 
 ```swift
-convenience init(rgbValue: UInt, alpha: CGFloat)
+convenience init(rgbValue: UInt, alpha: CGFloat = 1)
 ```
 
 New color from RGB value
@@ -40,16 +40,10 @@ New color from RGB value
 | rgbValue | value |
 | alpha | alpha |
 
-### `init(rgbValue:)`
+### `init(hexCode:alpha:)`
 
 ```swift
-convenience init(rgbValue: UInt)
-```
-
-### `init(hexCode:)`
-
-```swift
-convenience init(hexCode: String)
+convenience init(hexCode: String, alpha: CGFloat = 1)
 ```
 
 Color from HEX
