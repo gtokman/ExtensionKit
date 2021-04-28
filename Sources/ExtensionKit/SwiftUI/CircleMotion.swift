@@ -49,7 +49,7 @@ struct CircleMotionView: View {
                         y: randomCoordinate(max: geometry.size.height))
                         .animation(animation)
                         .onAppear(perform: {
-                        isAnimating = true
+                            isAnimating.toggle()
                     })
                 } //: LOOP
             } //: ZSTACK
