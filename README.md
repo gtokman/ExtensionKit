@@ -72,7 +72,7 @@ Follow and contact me on Twitter at [@f6ary](https://www.twitter.com/f6ary).
 
 
 ## Contributions
-If you find an issue, just [open a ticket](https://github.com/eneko/SourceDocs/issues/new)
+If you find an issue, just [open a ticket](https://github.com/gtokman/extensionkit/issues/new)
 on it. Pull requests are warmly welcome as well.
 
 **Steps**
