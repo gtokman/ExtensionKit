@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/gtokman/ExtensionKit/compare/v1.8.0...v1.9.0) (2021-04-29)
+
+
+### Features
+
+* add array query item helper ([5e2a8c3](https://github.com/gtokman/ExtensionKit/commit/5e2a8c35132896c09f2c746b43a6f2a9b099a45e))
+* Add URL initializers  ([dc39e87](https://github.com/gtokman/ExtensionKit/commit/dc39e87b8ca4e08f328301b636ddd05a63bbd2fe))
+
 ## [1.8.0](https://github.com/gtokman/ExtensionKit/compare/v1.7.0...v1.8.0) (2021-04-28)
 
 
