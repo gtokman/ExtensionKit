@@ -39,3 +39,18 @@ Removes the given element in the array.
 | Name | Description |
 | ---- | ----------- |
 | element | The element to be removed. |
+
+### `init(_:)`
+
+```swift
+init<T: LosslessStringConvertible>(_ dictionary: [String: T])
+```
+
+Initialize `URLQueryItem from dictionary`
+- Parameter dictionary: url parameters
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| dictionary | url parameters |
