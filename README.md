@@ -42,6 +42,7 @@
 -   [RandomAccessCollection](Documentation/Reference/ExtensionKit/extensions/RandomAccessCollection.md)
 -   [String](Documentation/Reference/ExtensionKit/extensions/String.md)
 -   [Timer](Documentation/Reference/ExtensionKit/extensions/Timer.md)
+-   [URL](Documentation/Reference/ExtensionKit/extensions/URL.md)
 
 ### CoreGraphics
 
