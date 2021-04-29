@@ -25,3 +25,16 @@ public extension Array where Element: Equatable {
         return arr
     }
 }
+
+
+public extension Array where Element == URLQueryItem {
+    
+    /// Initialize `URLQueryItem from dictionary`
+    /// - Parameter dictionary: url parameters
+    init<T: LosslessStringConvertible>(_ dictionary: [String: T]) {
+        self = dictionary.map { (key, value) -> Element in
+            .init(name: key, value: String(value))
+        }
+    }
+    
+}
