@@ -46,16 +46,16 @@ var range: CountableRange<Int>
 
 Make a range from zero to self
 
-### `minutes`
-
-```swift
-var minutes: Int
-```
-
 ### `hours`
 
 ```swift
 var hours: Int
+```
+
+### `minutes`
+
+```swift
+var minutes: Int
 ```
 
 ### `days`
@@ -110,3 +110,11 @@ Return if `self` is in the given range.
 | Name | Description |
 | ---- | ----------- |
 | range | Target range. |
+
+### `times(block:)`
+
+```swift
+func times(block: () -> Void)
+```
+
+Calls the given block n number of times.

@@ -3,6 +3,14 @@
 # `UIViewController`
 
 ## Properties
+### `classNameValue`
+
+```swift
+var classNameValue: String
+```
+
+ViewController class name
+
 ### `titleColor`
 
 ```swift

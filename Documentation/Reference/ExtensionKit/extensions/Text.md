@@ -6,6 +6,42 @@ public extension Text
 ```
 
 ## Methods
+### `init(_:dateStyle:)`
+
+```swift
+init(_ date: Date, dateStyle: DateFormatter.Style = .full)
+```
+
+Create Text from date formate
+- Parameters:
+  - date: `Date`
+  - dateStyle: `DateFormatter.Style`, default .full
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| date | `Date` |
+| dateStyle | `DateFormatter.Style`, default .full |
+
+### `init(_:formatter:)`
+
+```swift
+init(_ date: Date, formatter: DateFormatter = Text.dateFormatter)
+```
+
+Create Text with date formatter string
+- Parameters:
+  - date: `Date`
+  - formatter: `DateFormatter`
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| date | `Date` |
+| formatter | `DateFormatter` |
+
 ### `system(_:weight:design:)`
 
 ```swift
@@ -53,3 +89,13 @@ Text with system font and monospaced
 ```swift
 func templateSize(for value: String) -> some View
 ```
+
+Hidden `View` with frame of String vale
+- Parameter value: String
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| value | String |

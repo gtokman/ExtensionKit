@@ -40,10 +40,32 @@ func fillHeight() -> some View
 Fill parent's height
 - Returns: view
 
+### `flexibleFill(_:alignment:)`
+
+```swift
+public func flexibleFill(
+    _ flexibleAxis: Axis.Set = [.horizontal, .vertical],
+    alignment: Alignment = .center
+) -> some View
+```
+
+Similar to distribuation fill on `UIStackView`, take up all availabe space of parent
+- Parameters:
+  - flexibleAxis: Axis to fill
+  - alignment: Alignment
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| flexibleAxis | Axis to fill |
+| alignment | Alignment |
+
 ### `if(_:transform:)`
 
 ```swift
-func `if`<Transform: View>(_ condition: Bool, transform: (Self) -> Transform) -> some View
+func `if`<TrueContent: View>(_ condition: Bool, transform: (Self) -> TrueContent) -> some View
 ```
 
 If a condition is true, transform and return a new view
@@ -83,6 +105,28 @@ If a condition is true, transform and return a new view
 | condition | condition |
 | ifTransform | true case transform |
 | elseTransform | else case transform |
+
+### `ifLet(_:_:)`
+
+```swift
+func `ifLet`<TrueContent: View, Optional>(
+    _ value: Optional?,
+    _ modifier: (Self, Optional
+    ) -> TrueContent) -> some View
+```
+
+Conditionally apply a modifier to the view based on if the optional exists
+- Parameters:
+  - value: Optional value
+  - modifier: Modifier to run on value if it exists
+- Returns: Modified self if optional has a value
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| value | Optional value |
+| modifier | Modifier to run on value if it exists |
 
 ### `embedInNavigationView()`
 

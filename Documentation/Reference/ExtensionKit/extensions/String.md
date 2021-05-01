@@ -6,6 +6,14 @@ public extension String
 ```
 
 ## Properties
+### `removeHTML`
+
+```swift
+var removeHTML: String
+```
+
+Remove HTML tags from String
+
 ### `isEmail`
 
 ```swift
@@ -99,6 +107,14 @@ var nilIfBlank: String?
 Return `nil` if `self.isBlank` is `true`.
 
 ## Methods
+### `trim()`
+
+```swift
+func trim() -> String
+```
+
+Trim white space and new lines
+
 ### `layoutSize(with:)`
 
 ```swift
@@ -145,3 +161,22 @@ Comparing app versions. Returns `true` if self is `1.1.0` and the given value is
 ```swift
 func treatsVisuallyEmptyAsNil() -> String?
 ```
+
+### `slice(from:to:)`
+
+```swift
+func slice(from: String, to: String) -> String?
+```
+
+Get subscring from created range
+- Parameters:
+  - from: from String
+  - to: to String
+- Returns: String
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| from | from String |
+| to | to String |
