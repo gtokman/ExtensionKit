@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/gtokman/ExtensionKit/compare/v1.9.0...v1.10.0) (2021-05-01)
+
+
+### Features
+
+* add first combine extension ([014e42a](https://github.com/gtokman/ExtensionKit/commit/014e42a6820b5c5bca5d1e575cd40f147e12cc6c))
+* misc extensions for calendar, collection, view controller ([4726029](https://github.com/gtokman/ExtensionKit/commit/47260292adc5f0d9cebf19e38957ceacdc00dbd2))
+* new date extensions around formatting and offseting ([75e89f0](https://github.com/gtokman/ExtensionKit/commit/75e89f0d14b7303a4747a7c1f1d37f394ad686c9))
+* new Int times extension ([657f0e7](https://github.com/gtokman/ExtensionKit/commit/657f0e77e71f949dea416a093029433cb9724fc3))
+* new string subscripting and helper functions ([9f1a408](https://github.com/gtokman/ExtensionKit/commit/9f1a408cbbbfe74d2a2d1117c0266b8dc83bab03))
+* new text initializers for Date ([038c09a](https://github.com/gtokman/ExtensionKit/commit/038c09ae286d4f3722452ec9f7d52f1ff98b6f9d))
+* new view `ifLet` extension  ([1e44dca](https://github.com/gtokman/ExtensionKit/commit/1e44dca33312ee361073e59a406779716842ac33))
+
+
+### Bug Fixes
+
+* URL init and check path component before constructing ([1e10313](https://github.com/gtokman/ExtensionKit/commit/1e10313e27dd1846f24a3afd53d3026230eab64c))
+
 ## [1.9.0](https://github.com/gtokman/ExtensionKit/compare/v1.8.0...v1.9.0) (2021-04-29)
 
 
