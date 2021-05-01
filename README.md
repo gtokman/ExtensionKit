@@ -20,6 +20,10 @@
 -   [Text](Documentation/Reference/ExtensionKit/extensions/Text.md)
 -   [View](Documentation/Reference/ExtensionKit/extensions/View.md)
 
+### Combine
+
+-   [Publisher](Documentation/Reference/ExtensionKit/extensions/Publisher.md)
+
 ### UIKit
 
 -   [UIApplication](Documentation/Reference/ExtensionKit/extensions/UIApplication.md)
@@ -34,6 +38,7 @@
 
 -   [Array](Documentation/Reference/ExtensionKit/extensions/Array.md)
 -   [CFRunLoopTimer](Documentation/Reference/ExtensionKit/extensions/CFRunLoopTimer.md)
+-   [Collection](Documentation/Reference/ExtensionKit/extensions/Collection.md)
 -   [Data](Documentation/Reference/ExtensionKit/extensions/Data.md)
 -   [Date](Documentation/Reference/ExtensionKit/extensions/Date.md)
 -   [FileManager](Documentation/Reference/ExtensionKit/extensions/FileManager.md)
@@ -41,6 +46,7 @@
 -   [NSObject](Documentation/Reference/ExtensionKit/extensions/NSObject.md)
 -   [RandomAccessCollection](Documentation/Reference/ExtensionKit/extensions/RandomAccessCollection.md)
 -   [String](Documentation/Reference/ExtensionKit/extensions/String.md)
+-   [String.Index](Documentation/Reference/ExtensionKit/extensions/String.Index.md)
 -   [Timer](Documentation/Reference/ExtensionKit/extensions/Timer.md)
 -   [URL](Documentation/Reference/ExtensionKit/extensions/URL.md)
 
