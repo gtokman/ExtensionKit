@@ -6,6 +6,9 @@ import SafariServices
 #endif
 
 public extension UIViewController {
+    
+    /// ViewController class name
+    var classNameValue: String { NSStringFromClass(self.classForCoder).components(separatedBy: ".").last! }
 
     /// Combine an array of models and an array of views.
     ///

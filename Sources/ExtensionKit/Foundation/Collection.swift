@@ -10,4 +10,11 @@ public extension Collection {
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
+    
+    /// Distance to index
+    /// - Parameter index: Index
+    /// - Returns: Int
+    func distance(to index: Index) -> Int {
+        return self.distance(from: startIndex, to: index)
+    }
 }
