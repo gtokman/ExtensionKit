@@ -4,7 +4,38 @@ import UIKit
 
 #endif
 
+internal extension StaticString {
+    var toString: String {
+        "\(self)"
+    }
+}
+
 public extension String {
+    
+    subscript(_ i: Int) -> String {
+        let idx1 = index(startIndex, offsetBy: i)
+        let idx2 = index(idx1, offsetBy: 1)
+        return String(self[idx1..<idx2])
+    }
+
+    subscript(r: Range<Int>) -> String {
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(startIndex, offsetBy: r.upperBound)
+        return String(self[start ..< end])
+    }
+
+    subscript(r: CountableClosedRange<Int>) -> String {
+        let startIndex =  self.index(self.startIndex, offsetBy: r.lowerBound)
+        let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
+        return String(self[startIndex...endIndex])
+    }
+    
+    /// Remove HTML tags from String
+    var removeHTML: String {
+        return self.replacingOccurrences(
+            of: "<[^>]+>", with: "", options: .regularExpression, range: nil
+        )
+    }
     
     /// Is valid email
     var isEmail: Bool {
@@ -32,6 +63,11 @@ public extension String {
             return String(format: "%.0f", double)
         }
         return self
+    }
+    
+    /// Trim white space and new lines
+    func trim() -> String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     /// Adding "+" at the very beginning.
@@ -81,4 +117,24 @@ public extension String {
     
     @available(*, deprecated, message: "Use `nilIfBlank` instead.")
     func treatsVisuallyEmptyAsNil() -> String? { nilIfBlank }
+    
+    /// Get subscring from created range
+    /// - Parameters:
+    ///   - from: from String
+    ///   - to: to String
+    /// - Returns: String
+    func slice(from: String, to: String) -> String? {
+        if let r1 = self.range(of: from)?.upperBound, let r2 = self.range(of: to)?.lowerBound {
+            return (String(self[r1..<r2]))
+        }
+        return nil
+    }
+}
+
+public extension String.Index {
+    
+    /// Distance to String value
+    /// - Parameter string: String distance too
+    /// - Returns: Int
+    func distance<S: StringProtocol>(in string: S) -> Int { return string.distance(to: self) }
 }
