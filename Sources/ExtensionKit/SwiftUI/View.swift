@@ -29,6 +29,21 @@ public extension View {
     func fillHeight() -> some View {
         return self.frame(minHeight: 0, maxHeight: .infinity)
     }
+    
+    /// Similar to distribuation fill on `UIStackView`, take up all availabe space of parent
+    /// - Parameters:
+    ///   - flexibleAxis: Axis to fill
+    ///   - alignment: Alignment
+    /// - Returns: View
+    public func flexibleFill(
+        _ flexibleAxis: Axis.Set = [.horizontal, .vertical],
+        alignment: Alignment = .center
+    ) -> some View {
+      return frame(
+        maxWidth: flexibleAxis.contains(.horizontal) ? .infinity : nil,
+        maxHeight: flexibleAxis.contains(.vertical) ? .infinity : nil,
+        alignment: alignment)
+    }
 
     /// If a condition is true, transform and return a new view
     /// - Parameters:
@@ -36,7 +51,7 @@ public extension View {
     ///   - transform: transformation if true
     /// - Returns: new view
     @ViewBuilder
-    func `if`<Transform: View>(_ condition: Bool, transform: (Self) -> Transform) -> some View {
+    func `if`<TrueContent: View>(_ condition: Bool, transform: (Self) -> TrueContent) -> some View {
         if condition {
             transform(self)
         } else {
@@ -61,6 +76,23 @@ public extension View {
       } else {
         elseTransform(self)
       }
+    }
+    
+    /// Conditionally apply a modifier to the view based on if the optional exists
+    /// - Parameters:
+    ///   - value: Optional value
+    ///   - modifier: Modifier to run on value if it exists
+    /// - Returns: Modified self if optional has a value
+    @ViewBuilder
+    func `ifLet`<TrueContent: View, Optional>(
+        _ value: Optional?,
+        _ modifier: (Self, Optional
+        ) -> TrueContent) -> some View {
+        if let value = value {
+            modifier(self, value)
+        } else {
+            self
+        }
     }
     
     /// Embed Self in `NavigationView`
