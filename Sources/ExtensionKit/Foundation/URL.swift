@@ -8,6 +8,15 @@ public extension URL {
         self.init(string: "\(string)")!
     }
 
+    /*
+     ```
+     static let url = URL(
+         "https://api.instagram.com",
+         path: "/oauth/authorize",
+         parameters: Plist.authorize as! [String: String]
+     )!
+     ```
+     **/
     /// Create URL from baseUrl, path, and parameters
     /// - Parameters:
     ///   - baseUrl: base URL including the host (https)
@@ -18,8 +27,10 @@ public extension URL {
         path: StaticString = "",
         parameters: [String: T] = [:]
     ) {
-        var urlComponents = URLComponents(string: "\(baseUrl)")
-        urlComponents?.path = "\(path)"
+        var urlComponents = URLComponents(string: baseUrl.toString)
+        if !path.toString.isEmpty {
+            urlComponents?.path = path.toString
+        }
         urlComponents?.queryItems = .init(parameters)
         guard let url = urlComponents?.url else {
             dprint("ERROR: Could not create URL from \(baseUrl) + \(path) + \(parameters)")
