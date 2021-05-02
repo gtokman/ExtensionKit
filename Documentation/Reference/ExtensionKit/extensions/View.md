@@ -40,10 +40,10 @@ func fillHeight() -> some View
 Fill parent's height
 - Returns: view
 
-### `flexibleFill(_:alignment:)`
+### `fillFlexible(_:alignment:)`
 
 ```swift
-public func flexibleFill(
+func fillFlexible(
     _ flexibleAxis: Axis.Set = [.horizontal, .vertical],
     alignment: Alignment = .center
 ) -> some View
@@ -109,10 +109,9 @@ If a condition is true, transform and return a new view
 ### `ifLet(_:_:)`
 
 ```swift
-func `ifLet`<TrueContent: View, Optional>(
-    _ value: Optional?,
-    _ modifier: (Self, Optional
-    ) -> TrueContent) -> some View
+func `ifLet`<Content: View, Value>(
+    _ value: Value?,
+    _ modifier: (Self, Value) -> Content) -> some View
 ```
 
 Conditionally apply a modifier to the view based on if the optional exists
@@ -599,3 +598,35 @@ Subscribe and blind optional ouput to View property
 | ---- | ----------- |
 | publisher | publisher |
 | binding | binding |
+
+### `scrollOffsetX(_:)`
+
+```swift
+func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View
+```
+
+Get the scroll view content offset X
+- Parameter offsetX: Binding for offset
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| offsetX | Binding for offset |
+
+### `scrollOffsetY(_:)`
+
+```swift
+func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View
+```
+
+Get the scroll view content offset Y
+- Parameter offsetY: Binding for offset
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| offsetY | Binding for offset |
