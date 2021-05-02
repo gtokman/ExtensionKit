@@ -35,7 +35,7 @@ public extension View {
     ///   - flexibleAxis: Axis to fill
     ///   - alignment: Alignment
     /// - Returns: View
-    public func flexibleFill(
+    func fillFlexible(
         _ flexibleAxis: Axis.Set = [.horizontal, .vertical],
         alignment: Alignment = .center
     ) -> some View {
