@@ -31,16 +31,16 @@ platform :ios do
         lines.append(line)
       end
     end
-    log = lines.drop(5)
+    log = lines.drop(5).join
     url = `git config --get remote.origin.url`.chomp
-    repo = str.split(":")[1].split(".")[0]
+    repo = url.split(":")[1].split(".")[0]
 
     github_release = set_github_release(
       repository_name: repo,
       api_token: ENV["GITHUB_TOKEN"],
       name: tag,
       tag_name: tag,
-      description: (log rescue "No changelog provided"),
+      description: (log rescue "Checkout the [changelog](./CHANGELOG.md)."),
       commitish: "main",
     )
   end
