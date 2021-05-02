@@ -418,4 +418,18 @@ public extension View {
     func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output?>) -> some View where P.Failure == Never {
         onReceive(publisher) { binding.wrappedValue = $0 }
     }
+    
+    /// Get the scroll view content offset X
+    /// - Parameter offsetX: Binding for offset
+    /// - Returns: View
+    func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View {
+        ScrollViewOffSetReaderRepresentable(offset: offsetX, isOffsetX: true) { self }
+    }
+    
+    /// Get the scroll view content offset Y
+    /// - Parameter offsetY: Binding for offset
+    /// - Returns: View
+    func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View {
+        ScrollViewOffSetReaderRepresentable(offset: offsetY, isOffsetX: false) { self }
+    }
 }
