@@ -1,0 +1,47 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Publish changelog & make a new release on GH"
+  lane :release do
+    tag = `git describe --abbrev=0`.chomp
+    puts tag
+    file = File.read("../CHANGELOG.md")
+    lines = []
+    file.each_line do |line|
+      if line.include?("## [")
+        break unless !lines.include?("*******")
+        lines.append("*******") 
+        lines.append(line)
+      else 
+        lines.append(line)
+      end
+    end
+    log = lines.drop(5)
+    url = `git config --get remote.origin.url`.chomp
+    repo = str.split(":")[1].split(".")[0]
+
+    github_release = set_github_release(
+      repository_name: repo,
+      api_token: ENV["GITHUB_TOKEN"],
+      name: tag,
+      tag_name: tag,
+      description: (log rescue "No changelog provided"),
+      commitish: "main",
+    )
+  end
+end
