@@ -84,10 +84,9 @@ public extension View {
     ///   - modifier: Modifier to run on value if it exists
     /// - Returns: Modified self if optional has a value
     @ViewBuilder
-    func `ifLet`<TrueContent: View, Optional>(
-        _ value: Optional?,
-        _ modifier: (Self, Optional
-        ) -> TrueContent) -> some View {
+    func `ifLet`<Content: View, Value>(
+        _ value: Value?,
+        _ modifier: (Self, Value) -> Content) -> some View {
         if let value = value {
             modifier(self, value)
         } else {
