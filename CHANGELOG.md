@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/gtokman/ExtensionKit/compare/v1.10.0...v1.11.0) (2021-05-02)
+
+
+### Features
+
+* add lane for publishing to GH release ([4810a05](https://github.com/gtokman/ExtensionKit/commit/4810a05fb9953b5a61a297b2115cb4e81aefd4d7))
+* add new scroll view extension to read content offset ([7f0da42](https://github.com/gtokman/ExtensionKit/commit/7f0da42d6b9f5e069683e30aa83604b02ef616cd))
+
+
+### Bug Fixes
+
+* update fill view extension naming to match others ([0c64caf](https://github.com/gtokman/ExtensionKit/commit/0c64caff810293c9ba4e2c7bff09e6282f788d12))
+* update name of if let view extension ([f92a73c](https://github.com/gtokman/ExtensionKit/commit/f92a73c1572a040bfb323419c2bd772f8388ef55))
+
 ## [1.10.0](https://github.com/gtokman/ExtensionKit/compare/v1.9.0...v1.10.0) (2021-05-01)
 
 
