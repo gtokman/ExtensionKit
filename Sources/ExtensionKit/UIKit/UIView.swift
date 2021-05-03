@@ -5,9 +5,7 @@ import UIKit
 #endif
 import AudioToolbox
 
-// These methods are for fixing a bug that `layer.content` exceeds its border programmically set by those `layer.borderxxx`.
 public extension UIView {
-
 
     /// Add border using path
     /// - Parameters:
@@ -216,5 +214,31 @@ public extension UIView {
         layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+
+    /// Constrain view to parent view
+    /// - Parameters:
+    ///   - view: Parent view
+    ///   - insets: Margin insets
+    func fillParent(view: UIView, with insets: UIEdgeInsets = .zero) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.topAnchor
+                .constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: insets.top),
+            self.bottomAnchor
+                .constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: insets.bottom),
+            self.leadingAnchor
+                .constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: insets.left),
+            self.trailingAnchor
+                .constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: insets.right),
+        ])
+    }
+    
+    /// Create a view with a clear background
+    /// - Returns: UIView
+    static func clear() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
 }
