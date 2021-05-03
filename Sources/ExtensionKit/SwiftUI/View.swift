@@ -129,7 +129,7 @@ public extension View {
     /// - Returns: View
     @available(iOS 14.0, *)
     func embedInTabView<Selection: Hashable>(
-        _ selection: Binding<Selection>,
+        _ selection: Binding<Selection>? = nil,
         paged: Bool = true,
         pageIndicators: PageTabViewStyle.IndexDisplayMode = .always
     ) -> some View {
@@ -155,7 +155,7 @@ public extension View {
     /// - Returns: View
     @available(iOS 14.0, *)
     func embedInVerticalPagingTabView<Selection: Hashable>(
-        _ selection: Binding<Selection>,
+        _ selection: Binding<Selection>? = nil,
         pageIndicators: PageTabViewStyle.IndexDisplayMode = .never
     ) -> some View {
         GeometryReader { proxy in
@@ -436,14 +436,15 @@ public extension View {
     /// Get the scroll view content offset X
     /// - Parameter offsetX: Binding for offset
     /// - Returns: View
-    func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View {
+    func scrollOffsetX(_ offsetX: Binding<CGFloat>?) -> some View {
         ScrollViewOffSetReaderRepresentable(offset: offsetX, isOffsetX: true) { self }
     }
     
     /// Get the scroll view content offset Y
     /// - Parameter offsetY: Binding for offset
     /// - Returns: View
-    func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View {
+    func scrollOffsetY(_ offsetY: Binding<CGFloat>?) -> some View {
         ScrollViewOffSetReaderRepresentable(offset: offsetY, isOffsetX: false) { self }
     }
+    
 }
