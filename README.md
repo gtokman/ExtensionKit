@@ -64,6 +64,10 @@
 -   [dprint(__)](Documentation/Reference/ExtensionKit/methods/dprint(__).md)
 -   [sleep(duration_)](Documentation/Reference/ExtensionKit/methods/sleep(duration_).md)
 
+## Structs
+
+-   [Screen](Documentation/Reference/ExtensionKit/structs/Screen.md)
+
 
 ## Installation
 
