@@ -1,11 +1,21 @@
 #if canImport(UIKit)
 
-import UIKit
+    import UIKit
 
 #endif
 
 public extension UIApplication {
-    
+
+    /// Application key window
+    static let keyWindow = UIApplication
+        .shared
+        .connectedScenes
+        .filter { $0.activationState == .foregroundActive }
+        .compactMap { $0 as? UIWindowScene }
+        .first?.windows
+        .filter { $0.isKeyWindow }
+        .first
+
     /// Open application settings
     func openSettings() {
         if let url = URL(string: UIApplication.openSettingsURLString), canOpenURL(url) {
@@ -16,7 +26,7 @@ public extension UIApplication {
             }
         }
     }
-    
+
     /// Opens application sheet for phonen number
     func openPhone(calling number: String) {
         if let url = URL(string: "tel://" + number) {
@@ -27,7 +37,7 @@ public extension UIApplication {
             }
         }
     }
-    
+
     /// Find My Facebook ID: https://findmyfbid.com/
     /// - Parameters:
     ///   - name: Facebook name
@@ -46,7 +56,7 @@ public extension UIApplication {
             UIViewController.getCurrentViewController()?.pushSafariViewController(urlString: "https://www.facebook.com/" + name)
         }
     }
-    
+
     /// Launches the Instagram app and loads the Instagram user
     /// - Parameter name: Instagram username
     func openInstagram(name: String?) {
@@ -63,7 +73,7 @@ public extension UIApplication {
             }
         }
     }
-    
+
     /// Launches the Instagram app and loads the Instagram user
     /// - Parameter name: Instagram username
     func openInstagram(media: String?) {
@@ -80,7 +90,7 @@ public extension UIApplication {
             }
         }
     }
-    
+
     /// Open a map app with the given query. Orders: Google Map -> Apple Map
     ///
     /// - Parameter query: The query to search on the map.

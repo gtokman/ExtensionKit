@@ -210,7 +210,7 @@ public extension UIViewController {
     ///
     /// - Parameter base: `UIViewController` to search
     /// - Returns: Current `UIViewController`
-    class func getCurrentViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    class func getCurrentViewController(base: UIViewController? = UIApplication.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return getCurrentViewController(base: nav.visibleViewController)
         }
