@@ -9,6 +9,24 @@ public extension UIViewController {
     
     /// ViewController class name
     var classNameValue: String { NSStringFromClass(self.classForCoder).components(separatedBy: ".").last! }
+    
+    /// Adds a child viewController to the current controller view
+    /// - Parameter viewController: The child view
+    func addChild(viewController: UIViewController, in view: UIView) {
+        addChild(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.frame = view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParent: self)
+    }
+    
+    /// Removes a child viewController from current
+    /// - Parameter viewController: The child view controller to remove
+    func removeChild(viewController: UIViewController) {
+        viewController.willMove(toParent: nil)
+        viewController.view.removeFromSuperview()
+        viewController.removeFromParent()
+    }
 
     /// Combine an array of models and an array of views.
     ///
