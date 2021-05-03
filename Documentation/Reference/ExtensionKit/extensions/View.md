@@ -449,10 +449,10 @@ func hideKeyboard()
 
 Hide keyboard
 
-### `keyboardState(isVisible:)`
+### `keyboardState(info:)`
 
 ```swift
-func keyboardState(isVisible: Binding<Bool>) -> some View
+func keyboardState(info: Binding<Notification.KeyboardInfo>) -> some View
 ```
 
 Receive keyboard status updates
@@ -630,7 +630,7 @@ Subscribe and blind optional ouput to View property
 ### `scrollOffsetX(_:)`
 
 ```swift
-func scrollOffsetX(_ offsetX: Binding<CGFloat>?) -> some View
+func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View
 ```
 
 Get the scroll view content offset X
@@ -646,7 +646,7 @@ Get the scroll view content offset X
 ### `scrollOffsetY(_:)`
 
 ```swift
-func scrollOffsetY(_ offsetY: Binding<CGFloat>?) -> some View
+func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View
 ```
 
 Get the scroll view content offset Y
