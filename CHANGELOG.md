@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/gtokman/ExtensionKit/compare/v1.11.0...v1.12.0) (2021-05-03)
+
+
+### Features
+
+* add helpers to add child view controllers ([3159b7c](https://github.com/gtokman/ExtensionKit/commit/3159b7c4b65069a249b1d842e7a8782b45dc1bd9))
+* add new fill equal frame extension and wrapping view in a hosted controller ([c462a8a](https://github.com/gtokman/ExtensionKit/commit/c462a8a8da44802d5125bac5fb1f8ab732b4da2f))
+* add sink Result variant to Combine extensions ([3075954](https://github.com/gtokman/ExtensionKit/commit/3075954066ef4cd93782e8b74822d071366d4eca))
+* add UIView helper for filling parent with constraints  ([d2152c6](https://github.com/gtokman/ExtensionKit/commit/d2152c64a999ad85081a8da8d3791e18a8f1e4c3))
+* dynamic color helper ([5e11862](https://github.com/gtokman/ExtensionKit/commit/5e11862eede8d7bb6c2686425c758a2993da28f1))
+* new geometry proxy computed vars for safe area ([5319dbc](https://github.com/gtokman/ExtensionKit/commit/5319dbcaf111f7d9ac04aead0d82455d0cd0a627))
+* Screen helper to access UIScreen main properties ([d094b50](https://github.com/gtokman/ExtensionKit/commit/d094b50c63535d4d88cc928ca5d51c06224d2de4))
+
+
+### Bug Fixes
+
+* update bindings to be optional on view extensions  ([08861a0](https://github.com/gtokman/ExtensionKit/commit/08861a07f6fdd00a31ba9acfeded0187d5aefdf8))
+
 ## [1.11.0](https://github.com/gtokman/ExtensionKit/compare/v1.10.0...v1.11.0) (2021-05-02)
 
 
