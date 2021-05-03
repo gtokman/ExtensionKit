@@ -2,6 +2,17 @@ import SwiftUI
 
 @available(iOS 13.0, OSX 10.15, *)
 public extension GeometryProxy {
+    
+    /// Returns the width minus the safeAreaInsets.
+    var safeWidth: CGFloat {
+        size.width - safeAreaInsets.leading - safeAreaInsets.trailing
+    }
+    
+    /// Returns the height minus the safeAreaInsets.
+    var safeHeight: CGFloat {
+        size.height - safeAreaInsets.top - safeAreaInsets.bottom
+    }
+    
     var localFrame: CGRect { frame(in: .local) }
     
     var localWidth: CGFloat { localFrame.width }
