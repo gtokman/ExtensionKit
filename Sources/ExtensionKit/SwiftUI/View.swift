@@ -436,15 +436,15 @@ public extension View {
     /// Get the scroll view content offset X
     /// - Parameter offsetX: Binding for offset
     /// - Returns: View
-    func scrollOffsetX(_ offsetX: Binding<CGFloat>?) -> some View {
-        ScrollViewOffSetReaderRepresentable(offset: offsetX ?? .constant(0), isOffsetX: true) { self }
+    func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View {
+        ScrollViewOffSetReaderRepresentable(offset: offsetX, isOffsetX: true) { self }
     }
     
     /// Get the scroll view content offset Y
     /// - Parameter offsetY: Binding for offset
     /// - Returns: View
-    func scrollOffsetY(_ offsetY: Binding<CGFloat>?) -> some View {
-        ScrollViewOffSetReaderRepresentable(offset: offsetY ?? .constant(0), isOffsetX: false) { self }
+    func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View {
+        ScrollViewOffSetReaderRepresentable(offset: offsetY, isOffsetX: false) { self }
     }
     
 }
