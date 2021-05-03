@@ -77,6 +77,21 @@ public extension UIColor {
         return self.adjust(by: -1 * abs(percentage) )
     }
     
+    /// Color for UI appearance ex: dark/light mode
+    /// - Parameters:
+    ///   - light: Light Color
+    ///   - dark: Dark Color
+    /// - Returns: UIColor
+    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+        UIColor { traitCollection -> UIColor in
+            if traitCollection.userInterfaceStyle == .dark {
+                return dark
+            } else {
+                return light
+            }
+        }
+    }
+    
     private func adjust(by percentage: CGFloat = 30.0) -> UIColor {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
