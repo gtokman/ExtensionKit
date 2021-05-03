@@ -15,7 +15,7 @@
 -   [Button](Documentation/Reference/ExtensionKit/extensions/Button.md)
 -   [Color](Documentation/Reference/ExtensionKit/extensions/Color.md)
 -   [GeometryProxy](Documentation/Reference/ExtensionKit/extensions/GeometryProxy.md)
--   [Preview](Documentation/Reference/ExtensionKit/extensions/structs/Preview.md)
+-   [Preview](Documentation/Reference/ExtensionKit/structs/Preview.md)
 -   [Image](Documentation/Reference/ExtensionKit/extensions/Image.md)
 -   [Shape](Documentation/Reference/ExtensionKit/extensions/Shape.md)
 -   [Text](Documentation/Reference/ExtensionKit/extensions/Text.md)
@@ -75,7 +75,7 @@
 ## Structs
 
 -   [Screen](Documentation/Reference/ExtensionKit/structs/Screen.md)
--   [Notification.KeyboardInfo](Documentation/Reference/ExtensionKit/extensions/structs/Notification.KeyboardInfo.md)
+-   [Notification.KeyboardInfo](Documentation/Reference/ExtensionKit/structs/Notification.KeyboardInfo.md)
 
 
 ## Installation
