@@ -6,6 +6,22 @@ public extension GeometryProxy
 ```
 
 ## Properties
+### `safeWidth`
+
+```swift
+var safeWidth: CGFloat
+```
+
+Returns the width minus the safeAreaInsets.
+
+### `safeHeight`
+
+```swift
+var safeHeight: CGFloat
+```
+
+Returns the height minus the safeAreaInsets.
+
 ### `localFrame`
 
 ```swift

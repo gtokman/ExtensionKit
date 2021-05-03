@@ -76,6 +76,36 @@ var tabBarHeight: CGFloat
 Tab bar height
 
 ## Methods
+### `addChild(viewController:in:)`
+
+```swift
+func addChild(viewController: UIViewController, in view: UIView)
+```
+
+Adds a child viewController to the current controller view
+- Parameter viewController: The child view
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| viewController | The child view |
+
+### `removeChild(viewController:)`
+
+```swift
+func removeChild(viewController: UIViewController)
+```
+
+Removes a child viewController from current
+- Parameter viewController: The child view controller to remove
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| viewController | The child view controller to remove |
+
 ### `combine(models:into:newViewGeneration:using:remainingViews:)`
 
 ```swift

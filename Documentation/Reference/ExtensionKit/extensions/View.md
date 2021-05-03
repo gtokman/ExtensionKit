@@ -5,7 +5,35 @@
 public extension View
 ```
 
+## Properties
+### `hosted`
+
+```swift
+var hosted: UIHostingController<Self>
+```
+
+Self wrapped in an `UIHostingController`
+
 ## Methods
+### `fillEqual(length:alignment:)`
+
+```swift
+func fillEqual(length: CGFloat, alignment: Alignment = .center) -> some View
+```
+
+Fill frame height and width to the same length
+- Parameters:
+  - length: Length to set
+  - alignment: Aligment
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| length | Length to set |
+| alignment | Aligment |
+
 ### `fillParent(alignment:)`
 
 ```swift
@@ -150,7 +178,7 @@ Embed Self in `ScrollView`
 
 ```swift
 func embedInTabView<Selection: Hashable>(
-    _ selection: Binding<Selection>,
+    _ selection: Binding<Selection>? = nil,
     paged: Bool = true,
     pageIndicators: PageTabViewStyle.IndexDisplayMode = .always
 ) -> some View
@@ -175,7 +203,7 @@ Embed Self in `TabView`
 
 ```swift
 func embedInVerticalPagingTabView<Selection: Hashable>(
-    _ selection: Binding<Selection>,
+    _ selection: Binding<Selection>? = nil,
     pageIndicators: PageTabViewStyle.IndexDisplayMode = .never
 ) -> some View
 ```
@@ -602,7 +630,7 @@ Subscribe and blind optional ouput to View property
 ### `scrollOffsetX(_:)`
 
 ```swift
-func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View
+func scrollOffsetX(_ offsetX: Binding<CGFloat>?) -> some View
 ```
 
 Get the scroll view content offset X
@@ -618,7 +646,7 @@ Get the scroll view content offset X
 ### `scrollOffsetY(_:)`
 
 ```swift
-func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View
+func scrollOffsetY(_ offsetY: Binding<CGFloat>?) -> some View
 ```
 
 Get the scroll view content offset Y

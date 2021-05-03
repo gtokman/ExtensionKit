@@ -173,3 +173,30 @@ Draw a simple drop shadow for the views layer
 | offSet | offset |
 | radius | radius (blur) default 1 |
 | scale | scale default: true |
+
+### `fillParent(view:with:)`
+
+```swift
+func fillParent(view: UIView, with insets: UIEdgeInsets = .zero)
+```
+
+Constrain view to parent view
+- Parameters:
+  - view: Parent view
+  - insets: Margin insets
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| view | Parent view |
+| insets | Margin insets |
+
+### `clear()`
+
+```swift
+static func clear() -> UIView
+```
+
+Create a view with a clear background
+- Returns: UIView
