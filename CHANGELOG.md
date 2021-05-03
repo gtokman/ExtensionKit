@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/gtokman/ExtensionKit/compare/v1.12.0...v1.13.0) (2021-05-03)
+
+
+### Features
+
+* add better support for keyboard info ([a37670d](https://github.com/gtokman/ExtensionKit/commit/a37670da27c3688210a80f3789f5ba246ba1505f))
+* add new bundle extension for loading local file ([62373b9](https://github.com/gtokman/ExtensionKit/commit/62373b91c3c1f2e2c2ce20646142c9d7834e6e28))
+* add new extensions for CoreLocation ([b7cc732](https://github.com/gtokman/ExtensionKit/commit/b7cc732dbcda3513526c779b9d83769a9ee5e1cc))
+* add new SwiftIU preview struct  ([160f3ef](https://github.com/gtokman/ExtensionKit/commit/160f3ef637c3d56217662b8237e9deb1f0411162))
+* add user default + Codable support ([9def8e2](https://github.com/gtokman/ExtensionKit/commit/9def8e2d02a478c5b29aaad2508ab87abbf72512))
+
+
+### Bug Fixes
+
+* compieler error on scroll view offset extension ([1fb4ed0](https://github.com/gtokman/ExtensionKit/commit/1fb4ed03aec185f403ea454d1d159a8becf0b07f))
+* random warnings in the project ([bc3b979](https://github.com/gtokman/ExtensionKit/commit/bc3b9794bb7afbedd2da175770c371e938647831))
+* updates to scroll info support ([0b56745](https://github.com/gtokman/ExtensionKit/commit/0b5674514b5ca5b262793b52f2e2c1e0f158f850))
+
 ## [1.12.0](https://github.com/gtokman/ExtensionKit/compare/v1.11.0...v1.12.0) (2021-05-03)
 
 
