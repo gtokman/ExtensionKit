@@ -15,6 +15,7 @@
 -   [Button](Documentation/Reference/ExtensionKit/extensions/Button.md)
 -   [Color](Documentation/Reference/ExtensionKit/extensions/Color.md)
 -   [GeometryProxy](Documentation/Reference/ExtensionKit/extensions/GeometryProxy.md)
+-   [Preview](Documentation/Reference/ExtensionKit/extensions/structs/Preview.md)
 -   [Image](Documentation/Reference/ExtensionKit/extensions/Image.md)
 -   [Shape](Documentation/Reference/ExtensionKit/extensions/Shape.md)
 -   [Text](Documentation/Reference/ExtensionKit/extensions/Text.md)
@@ -37,6 +38,7 @@
 ### Foundation
 
 -   [Array](Documentation/Reference/ExtensionKit/extensions/Array.md)
+-   [Bundle](Documentation/Reference/ExtensionKit/extensions/Bundle.md)
 -   [CFRunLoopTimer](Documentation/Reference/ExtensionKit/extensions/CFRunLoopTimer.md)
 -   [Collection](Documentation/Reference/ExtensionKit/extensions/Collection.md)
 -   [Data](Documentation/Reference/ExtensionKit/extensions/Data.md)
@@ -44,6 +46,7 @@
 -   [FileManager](Documentation/Reference/ExtensionKit/extensions/FileManager.md)
 -   [Int](Documentation/Reference/ExtensionKit/extensions/Int.md)
 -   [NSObject](Documentation/Reference/ExtensionKit/extensions/NSObject.md)
+-   [UserDefaults](Documentation/Reference/ExtensionKit/extensions/UserDefaults.md)
 -   [RandomAccessCollection](Documentation/Reference/ExtensionKit/extensions/RandomAccessCollection.md)
 -   [String](Documentation/Reference/ExtensionKit/extensions/String.md)
 -   [String.Index](Documentation/Reference/ExtensionKit/extensions/String.Index.md)
@@ -54,6 +57,11 @@
 
 -   [CGPoint](Documentation/Reference/ExtensionKit/extensions/CGPoint.md)
 -   [CGRect](Documentation/Reference/ExtensionKit/extensions/CGRect.md)
+
+### CoreLocation
+
+-   [CLLocation](Documentation/Reference/ExtensionKit/extensions/CLLocation.md)
+-   [CLLocationCoordinate2D](Documentation/Reference/ExtensionKit/extensions/CLLocationCoordinate2D.md)
 
 ## Methods
 
@@ -67,6 +75,7 @@
 ## Structs
 
 -   [Screen](Documentation/Reference/ExtensionKit/structs/Screen.md)
+-   [Notification.KeyboardInfo](Documentation/Reference/ExtensionKit/extensions/structs/Notification.KeyboardInfo.md)
 
 
 ## Installation
