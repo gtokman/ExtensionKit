@@ -341,8 +341,8 @@ public extension View {
     /// Receive keyboard status updates
     /// - Parameter isVisible: is keyboard visible
     /// - Returns: View
-    func keyboardState(isVisible: Binding<Bool>) -> some View {
-        self.modifier(KeyboardStateModifier(isVisible))
+    func keyboardState(info: Binding<Notification.KeyboardInfo>) -> some View {
+        self.modifier(KeyboardStateModifier(info))
     }
     
     /// Debug print

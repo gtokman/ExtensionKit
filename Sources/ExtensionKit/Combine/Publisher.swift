@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import UIKit
 
 public extension Publisher where Failure == Never {
     
@@ -22,4 +23,21 @@ public extension Publisher where Failure == Never {
             result(.success(output))
         })
     }
+    
+}
+
+extension Publisher where Failure == Never {
+    
+    /// Subscribe to keyboard notifications and receive `Notification.KeyboardInfo` on updates
+    static var keyboardInfo: AnyPublisher<Notification.KeyboardInfo, Never> {
+        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+                .map { $0.keyboardInfo }
+
+        let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
+            .map { _ in Notification.KeyboardInfo() }
+
+        return Publishers.MergeMany(willShow, willHide)
+            .eraseToAnyPublisher()
+    }
+    
 }
