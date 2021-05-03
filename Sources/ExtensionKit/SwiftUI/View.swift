@@ -3,6 +3,20 @@ import Combine
 
 @available(iOS 13.0, macOS 10.15, *)
 public extension View {
+    
+    /// Self wrapped in an `UIHostingController`
+    var hosted: UIHostingController<Self> {
+        return UIHostingController(rootView: self)
+    }
+    
+    /// Fill frame height and width to the same length
+    /// - Parameters:
+    ///   - length: Length to set
+    ///   - alignment: Aligment
+    /// - Returns: View
+    func fillEqual(length: CGFloat, alignment: Alignment = .center) -> some View {
+        self.frame(width: length, height: length, alignment: alignment)
+    }
 
     /// Fill parent view
     /// - Parameter alignment: alignment
