@@ -82,6 +82,7 @@ final class AuthorizationPublisher: NSObject, Publisher, CLLocationManagerDelega
             authorizationType: authorizationType,
             delegate: self
         )
+        subscriber.receive(subscription: subscription)
         publisherAuthorizationDelegate = subscription
     }
 
