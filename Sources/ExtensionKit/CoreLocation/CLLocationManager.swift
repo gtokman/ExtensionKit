@@ -3,6 +3,11 @@ import CoreLocation
 
 public extension CLLocationManager {
 
+    /// Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
+    /// - Parameters:
+    ///   - manager: `CLLocationManager`
+    ///   - type: `AuthorizationType`
+    /// - Returns: Publisher with `AuthorizationType`
     static func requestLocationAuthorization(
         with manager: CLLocationManager = .init(),
         type: AuthorizationType
@@ -11,6 +16,7 @@ public extension CLLocationManager {
             .eraseToAnyPublisher()
     }
 
+    /// Authorization access level
     enum AuthorizationType: String {
         case always, whenInUse
     }
@@ -60,7 +66,6 @@ final class AuthorizationSubscription <S: Subscriber>: NSObject,
         _ = subscriber?.receive(status)
     }
 }
-
 
 final class AuthorizationPublisher: NSObject, Publisher, CLLocationManagerDelegate, SubscriptionAuthorizationDelegate {
 
