@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/gtokman/ExtensionKit/compare/v1.13.0...v1.14.0) (2021-05-05)
+
+
+### Features
+
+* add combine location manager extension ([b50e0c8](https://github.com/gtokman/ExtensionKit/commit/b50e0c87c06efc9cbef62dae1fb1515f9e2899de))
+* add experimental always authorization publisher ([fe06db7](https://github.com/gtokman/ExtensionKit/commit/fe06db77f807ada8ae3bb39958fbc435530b2096))
+* add GH action ([8e89936](https://github.com/gtokman/ExtensionKit/commit/8e89936697a1e96d66861cfd4e156346ef953307))
+* add publisher for location updates ([91f38ce](https://github.com/gtokman/ExtensionKit/commit/91f38ce70eb96063ecdba4824096f59df5321142))
+
+
+### Bug Fixes
+
+* fastlane ([8dec36d](https://github.com/gtokman/ExtensionKit/commit/8dec36d1139fd05a8a0f3557ffea12446fb7dbcf))
+* refactor location auth publisher to new file ([bec8289](https://github.com/gtokman/ExtensionKit/commit/bec82898c7dc1ba6986d10a168c9fa42e635b112))
+* tell subscriber we've received the subscription ([fb657d9](https://github.com/gtokman/ExtensionKit/commit/fb657d959b25876535292495adb416fd7a6f01ac))
+* update brew package name ([6712460](https://github.com/gtokman/ExtensionKit/commit/67124609086a2a1c85724f12603dbb7a594370a4))
+* update gems ([26e85f8](https://github.com/gtokman/ExtensionKit/commit/26e85f828d43f3516fe7188b048f3ca4c3d42394))
+
 ## [1.13.0](https://github.com/gtokman/ExtensionKit/compare/v1.12.0...v1.13.0) (2021-05-03)
 
 
