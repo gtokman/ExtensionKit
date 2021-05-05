@@ -61,6 +61,7 @@
 ### CoreLocation
 
 -   [CLLocation](Documentation/Reference/ExtensionKit/extensions/CLLocation.md)
+-   [CLLocationManager](Documentation/Reference/ExtensionKit/extensions/CLLocationManager.md)
 -   [CLLocationCoordinate2D](Documentation/Reference/ExtensionKit/extensions/CLLocationCoordinate2D.md)
 
 ## Methods
@@ -68,14 +69,14 @@
 -   [+](Documentation/Reference/ExtensionKit/methods/+(____).md)
 -   [-](Documentation/Reference/ExtensionKit/methods/-(____).md)
 -   [/](Documentation/Reference/ExtensionKit/methods/_(____).md)
--   [/](Documentation/Reference/ExtensionKit/methods/_(____).md)
+-   [*](Documentation/Reference/ExtensionKit/methods/_(____).md)
 -   [dprint(__)](Documentation/Reference/ExtensionKit/methods/dprint(__).md)
 -   [sleep(duration_)](Documentation/Reference/ExtensionKit/methods/sleep(duration_).md)
 
 ## Structs
 
 -   [Screen](Documentation/Reference/ExtensionKit/structs/Screen.md)
--   [Notification.KeyboardInfo](Documentation/Reference/ExtensionKit/structs/Notification.KeyboardInfo.md)
+-   [KeyboardInfo](Documentation/Reference/ExtensionKit/structs/Notification.KeyboardInfo.md)
 
 
 ## Installation
