@@ -36,7 +36,7 @@ platform :ios do
     repo = url.split(":")[1].split(".")[0]
 
     github_release = set_github_release(
-      repository_name: repo,
+      repository_name: "gtokman/ExtensionKit",
       api_token: ENV["GITHUB_TOKEN"],
       name: tag,
       tag_name: tag,
