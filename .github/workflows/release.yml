@@ -1,0 +1,24 @@
+
+name: New Version Release
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+jobs:
+  template:
+    if: github.event.pull_request.merged == true
+    name: New Version Release
+    runs-on: macos-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Version bump & update docs
+        run: |
+          brew bundle
+          npm install
+          bundle install
+          ./update.sh
