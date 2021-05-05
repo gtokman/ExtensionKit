@@ -3,19 +3,6 @@ import CoreLocation
 
 public extension CLLocationManager {
     
-    /*
-     /// Upgrade the user authoriztion status
-     requestLocationAuthorization()
-     .flatMap { status -> AnyPublisher<CLAuthorizationStatus, Never> in
-         if status == CLAuthorizationStatus.authorizedAlways {
-             return AuthorizationPublisher(manager: manager, authorizationType: type)
-                 .eraseToAnyPublisher()
-         } else {
-             return Just(status)
-                 .eraseToAnyPublisher()
-         }
-     }
-     **/
     /// Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
     /// - Parameters:
     ///   - manager: `CLLocationManager`
@@ -29,6 +16,27 @@ public extension CLLocationManager {
             .eraseToAnyPublisher()
     }
     
+    /// Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade** prompt (experimental)
+    /// - Parameters:
+    ///   - manager: `CLLocationManager`
+    /// - Returns: Publisher with `AuthorizationType`
+    static func requestLocationAlwaysAuthorization(
+        with manager: CLLocationManager = .init()
+    ) -> AnyPublisher<CLAuthorizationStatus, Never> {
+        AuthorizationPublisher(manager: manager, authorizationType: .always)
+            .flatMap { status -> AnyPublisher<CLAuthorizationStatus, Never> in
+                if status == CLAuthorizationStatus.authorizedAlways {
+                    return AuthorizationPublisher(
+                        manager: manager,
+                        authorizationType: .always
+                    )
+                    .eraseToAnyPublisher()
+                }
+                return Just(status).eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+
     /// Receive location updates from the `CLLocationManager`
     /// - Parameter manager: `CLLocationManager`
     /// - Returns: Publisher with `[CLLocation]` or `Error`
