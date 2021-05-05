@@ -1,1 +1,1 @@
-brew "sourcedoc"
+brew "sourcedocs"
