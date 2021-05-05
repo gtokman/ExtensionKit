@@ -1,40 +1,7 @@
+import Foundation
 import Combine
 import CoreLocation
 
-public extension CLLocationManager {
-    
-    /*
-     /// Upgrade the user authoriztion status
-     requestLocationAuthorization()
-     .flatMap { status -> AnyPublisher<CLAuthorizationStatus, Never> in
-         if status == CLAuthorizationStatus.authorizedAlways {
-             return AuthorizationPublisher(manager: manager, authorizationType: type)
-                 .eraseToAnyPublisher()
-         } else {
-             return Just(status)
-                 .eraseToAnyPublisher()
-         }
-     }
-     **/
-    /// Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
-    /// - Parameters:
-    ///   - manager: `CLLocationManager`
-    ///   - type: `AuthorizationType`
-    /// - Returns: Publisher with `AuthorizationType`
-    static func requestLocationAuthorization(
-        with manager: CLLocationManager = .init(),
-        type: AuthorizationType
-    ) -> AnyPublisher<CLAuthorizationStatus, Never> {
-        AuthorizationPublisher(manager: manager, authorizationType: type)
-            .eraseToAnyPublisher()
-    }
-
-    /// Authorization access level
-    enum AuthorizationType: String {
-        case always, whenInUse
-    }
-
-}
 
 protocol PublisherAuthorizationDelegate: class {
     func send(status: CLAuthorizationStatus)
@@ -80,7 +47,10 @@ final class AuthorizationSubscription <S: Subscriber>: NSObject,
     }
 }
 
-final class AuthorizationPublisher: NSObject, Publisher, CLLocationManagerDelegate, SubscriptionAuthorizationDelegate {
+final class AuthorizationPublisher: NSObject,
+                                    Publisher,
+                                    CLLocationManagerDelegate,
+                                    SubscriptionAuthorizationDelegate {
 
     typealias Output = CLAuthorizationStatus
     typealias Failure = Never
@@ -92,6 +62,8 @@ final class AuthorizationPublisher: NSObject, Publisher, CLLocationManagerDelega
     init(manager: CLLocationManager, authorizationType: CLLocationManager.AuthorizationType) {
         self.manager = manager
         self.authorizationType = authorizationType
+        super.init()
+        self.manager.delegate = self
     }
 
     func receive<S>(subscriber: S) where S: Subscriber, AuthorizationPublisher.Failure == S.Failure, AuthorizationPublisher.Output == S.Input {
@@ -121,3 +93,4 @@ final class AuthorizationPublisher: NSObject, Publisher, CLLocationManagerDelega
         }
     }
 }
+
