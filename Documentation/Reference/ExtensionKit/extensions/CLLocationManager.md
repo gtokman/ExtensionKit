@@ -10,7 +10,7 @@ public extension CLLocationManager
 
 ```swift
 static func requestLocationAuthorization(
-    with manager: CLLocationManager
+    with manager: CLLocationManager,
     type: AuthorizationType
 ) -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
