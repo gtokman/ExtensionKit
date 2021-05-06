@@ -23,8 +23,28 @@ public func sleep(duration: TimeInterval) {
 /// to optimaze the performance.
 ///
 /// - Parameter item: items to print
-public func dprint(_ item: @autoclosure () -> Any) {
+public func dprint(_ item: @autoclosure () -> Any, _ event: PrintEvent = .d) {
     #if DEBUG
-        print(item())
+    print("\(event.rawValue): \(item())")
     #endif
+}
+
+/// Print event type
+public enum PrintEvent: String {
+    /// Error
+    case e = "[‼️]" // error
+    /// Info
+    case i = "[ℹ️]" // info
+    /// Debug
+    case d = "[💬]" // debug
+    /// Verbose
+    case v = "[🔬]" // verbose
+    /// Warning
+    case w = "[⚠️]" // warning
+    
+    var value: String {
+        get {
+            return self.rawValue;
+        }
+    }
 }
