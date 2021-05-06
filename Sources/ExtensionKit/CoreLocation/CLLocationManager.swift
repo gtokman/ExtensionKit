@@ -40,24 +40,19 @@ public extension CLLocationManager {
      */
     /// Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
     /// - Parameters:
-    ///   - manager: `CLLocationManager`
     ///   - type: `AuthorizationType`
     /// - Returns: Publisher with `AuthorizationType`
-    func requestLocationAuthorization(
-        type: AuthorizationType
-    ) -> AnyPublisher<CLAuthorizationStatus, Never> {
-        AuthorizationPublisher(manager: self, authorizationType: type)
+    func requestLocationWhenInUseAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never> {
+        AuthorizationPublisher(manager: self, authorizationType: .whenInUse)
             .eraseToAnyPublisher()
     }
     
     /// Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade** prompt (experimental)
-    /// - Parameters:
-    ///   - manager: `CLLocationManager`
     /// - Returns: Publisher with `AuthorizationType`
     func requestLocationAlwaysAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never> {
         AuthorizationPublisher(manager: self, authorizationType: .whenInUse)
             .flatMap { status -> AnyPublisher<CLAuthorizationStatus, Never> in
-                if status == CLAuthorizationStatus.authorizedAlways {
+                if status == CLAuthorizationStatus.authorizedWhenInUse {
                     return AuthorizationPublisher(
                         manager: self,
                         authorizationType: .always
@@ -70,15 +65,21 @@ public extension CLLocationManager {
     }
 
     /// Receive location updates from the `CLLocationManager`
-    /// - Parameter manager: `CLLocationManager`
     /// - Returns: Publisher with `[CLLocation]` or `Error`
     func receiveLocationUpdates() -> AnyPublisher<[CLLocation], Error> {
         LocationPublisher(manager: self)
             .eraseToAnyPublisher()
     }
+    
+    /// Receive location updates from the `CLLocationManager`
+    /// - Returns: Publisher with `[CLLocation]` or `Error`
+    func receiveOnTimeLocationUpdate() -> AnyPublisher<[CLLocation], Error> {
+        LocationPublisher(manager: self, onTimeUpdate: true)
+            .eraseToAnyPublisher()
+    }
 
     /// Authorization access level
-    enum AuthorizationType: String {
+    internal enum AuthorizationType: String {
         case always, whenInUse
     }
 
