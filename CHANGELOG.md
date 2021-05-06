@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.1](https://github.com/gtokman/ExtensionKit/compare/v1.15.0...v1.15.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* update location documentation and add one time location publisher ([019b03b](https://github.com/gtokman/ExtensionKit/commit/019b03b4e7c1af6c8cacc7b05c4bbea217f6dc39))
+
 ## [1.15.0](https://github.com/gtokman/ExtensionKit/compare/v1.14.3...v1.15.0) (2021-05-06)
 
 
