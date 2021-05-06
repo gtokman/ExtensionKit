@@ -57,7 +57,7 @@ final class AuthorizationPublisher: NSObject,
 
     private let manager: CLLocationManager
     private let authorizationType: CLLocationManager.AuthorizationType
-    private weak var publisherAuthorizationDelegate: PublisherAuthorizationDelegate?
+    private var publisherAuthorizationDelegate: PublisherAuthorizationDelegate?
 
     init(manager: CLLocationManager, authorizationType: CLLocationManager.AuthorizationType) {
         self.manager = manager

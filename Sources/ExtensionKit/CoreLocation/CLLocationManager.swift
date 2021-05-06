@@ -9,7 +9,7 @@ public extension CLLocationManager {
     ///   - type: `AuthorizationType`
     /// - Returns: Publisher with `AuthorizationType`
     static func requestLocationAuthorization(
-        with manager: CLLocationManager = .init(),
+        with manager: CLLocationManager
         type: AuthorizationType
     ) -> AnyPublisher<CLAuthorizationStatus, Never> {
         AuthorizationPublisher(manager: manager, authorizationType: type)
@@ -21,7 +21,7 @@ public extension CLLocationManager {
     ///   - manager: `CLLocationManager`
     /// - Returns: Publisher with `AuthorizationType`
     static func requestLocationAlwaysAuthorization(
-        with manager: CLLocationManager = .init()
+        with manager: CLLocationManager
     ) -> AnyPublisher<CLAuthorizationStatus, Never> {
         AuthorizationPublisher(manager: manager, authorizationType: .always)
             .flatMap { status -> AnyPublisher<CLAuthorizationStatus, Never> in
@@ -41,7 +41,7 @@ public extension CLLocationManager {
     /// - Parameter manager: `CLLocationManager`
     /// - Returns: Publisher with `[CLLocation]` or `Error`
     static func receiveLocationUpdates(
-        from manager: CLLocationManager = .init()
+        from manager: CLLocationManager
     ) -> AnyPublisher<[CLLocation], Error> {
         LocationPublisher(manager: manager)
             .eraseToAnyPublisher()

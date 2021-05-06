@@ -51,7 +51,7 @@ final class LocationPublisher: NSObject,
     typealias Failure = Error
     
     private let manager: CLLocationManager
-    private weak var subscriberDelegate: SubscriptionLocationDelegate?
+    private var subscriberDelegate: SubscriptionLocationDelegate?
     
     init(manager: CLLocationManager) {
         self.manager = manager
