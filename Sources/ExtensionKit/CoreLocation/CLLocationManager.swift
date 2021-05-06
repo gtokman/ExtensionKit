@@ -9,7 +9,7 @@ public extension CLLocationManager {
     ///   - type: `AuthorizationType`
     /// - Returns: Publisher with `AuthorizationType`
     static func requestLocationAuthorization(
-        with manager: CLLocationManager
+        with manager: CLLocationManager,
         type: AuthorizationType
     ) -> AnyPublisher<CLAuthorizationStatus, Never> {
         AuthorizationPublisher(manager: manager, authorizationType: type)
