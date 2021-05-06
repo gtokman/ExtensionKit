@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/gtokman/ExtensionKit/compare/v1.14.3...v1.15.0) (2021-05-06)
+
+
+### Features
+
+* add better print flags ([413fbf9](https://github.com/gtokman/ExtensionKit/commit/413fbf948dd243dfee692ef0e339086bc6671d53))
+* add docs for CLLocation authorization ([6672ed8](https://github.com/gtokman/ExtensionKit/commit/6672ed8faa15e62f5a2b17cec4baee5a1ac54cd9))
+* add network reachability check ([68e26e5](https://github.com/gtokman/ExtensionKit/commit/68e26e536a64fd547238c55763b351c69adab2bf))
+
+
+### Bug Fixes
+
+* update core location publishers to be on the type rather than static ([99ee929](https://github.com/gtokman/ExtensionKit/commit/99ee929594175c2406fdebe1312bc1e630b53ad7))
+
 ### [1.14.3](https://github.com/gtokman/ExtensionKit/compare/v1.14.2...v1.14.3) (2021-05-06)
 
 
