@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.1](https://github.com/gtokman/ExtensionKit/compare/v1.14.0...v1.14.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* update location memory bug and remove default values ([764be27](https://github.com/gtokman/ExtensionKit/commit/764be2733ff86d311c0261546ff84a5b645c5b7a))
+
 ## [1.14.0](https://github.com/gtokman/ExtensionKit/compare/v1.13.0...v1.14.0) (2021-05-05)
 
 
