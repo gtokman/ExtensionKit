@@ -15,15 +15,15 @@ public extension CLLocationManager {
          var cancellables = Set<AnyCancellable>()
          
          func requestPermission() {
-             CLLocationManager
-                 .requestLocationAuthorization(with: manager, type: .whenInUse)
+            manager
+                 .requestLocationAuthorization(type: .whenInUse)
                  .assign(to: \.status, on: self)
                  .store(in: &cancellables)
          }
          
          func getLocation() {
-             CLLocationManager
-                 .receiveLocationUpdates(from: manager)
+            manager
+                 .receiveLocationUpdates()
                  .compactMap(\.last)
                  .map(\.coordinate)
                  .sink { result in
@@ -37,17 +37,16 @@ public extension CLLocationManager {
          }
      }
      ```
-     **/
+     */
     /// Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
     /// - Parameters:
     ///   - manager: `CLLocationManager`
     ///   - type: `AuthorizationType`
     /// - Returns: Publisher with `AuthorizationType`
-    static func requestLocationAuthorization(
-        with manager: CLLocationManager,
+    func requestLocationAuthorization(
         type: AuthorizationType
     ) -> AnyPublisher<CLAuthorizationStatus, Never> {
-        AuthorizationPublisher(manager: manager, authorizationType: type)
+        AuthorizationPublisher(manager: self, authorizationType: type)
             .eraseToAnyPublisher()
     }
     
@@ -55,14 +54,12 @@ public extension CLLocationManager {
     /// - Parameters:
     ///   - manager: `CLLocationManager`
     /// - Returns: Publisher with `AuthorizationType`
-    static func requestLocationAlwaysAuthorization(
-        with manager: CLLocationManager
-    ) -> AnyPublisher<CLAuthorizationStatus, Never> {
-        AuthorizationPublisher(manager: manager, authorizationType: .always)
+    func requestLocationAlwaysAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never> {
+        AuthorizationPublisher(manager: self, authorizationType: .whenInUse)
             .flatMap { status -> AnyPublisher<CLAuthorizationStatus, Never> in
                 if status == CLAuthorizationStatus.authorizedAlways {
                     return AuthorizationPublisher(
-                        manager: manager,
+                        manager: self,
                         authorizationType: .always
                     )
                     .eraseToAnyPublisher()
@@ -75,10 +72,8 @@ public extension CLLocationManager {
     /// Receive location updates from the `CLLocationManager`
     /// - Parameter manager: `CLLocationManager`
     /// - Returns: Publisher with `[CLLocation]` or `Error`
-    static func receiveLocationUpdates(
-        from manager: CLLocationManager
-    ) -> AnyPublisher<[CLLocation], Error> {
-        LocationPublisher(manager: manager)
+    func receiveLocationUpdates() -> AnyPublisher<[CLLocation], Error> {
+        LocationPublisher(manager: self)
             .eraseToAnyPublisher()
     }
 
