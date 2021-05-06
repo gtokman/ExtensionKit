@@ -6,17 +6,14 @@ public extension CLLocationManager
 ```
 
 ## Methods
-### `requestLocationAuthorization(type:)`
+### `requestLocationWhenInUseAuthorization()`
 
 ```swift
-func requestLocationAuthorization(
-    type: AuthorizationType
-) -> AnyPublisher<CLAuthorizationStatus, Never>
+func requestLocationWhenInUseAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
 
 Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
 - Parameters:
-  - manager: `CLLocationManager`
   - type: `AuthorizationType`
 - Returns: Publisher with `AuthorizationType`
 
@@ -24,7 +21,6 @@ Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
 
 | Name | Description |
 | ---- | ----------- |
-| manager | `CLLocationManager` |
 | type | `AuthorizationType` |
 
 ### `requestLocationAlwaysAuthorization()`
@@ -34,15 +30,7 @@ func requestLocationAlwaysAuthorization() -> AnyPublisher<CLAuthorizationStatus,
 ```
 
 Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade** prompt (experimental)
-- Parameters:
-  - manager: `CLLocationManager`
 - Returns: Publisher with `AuthorizationType`
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| manager | `CLLocationManager` |
 
 ### `receiveLocationUpdates()`
 
@@ -51,11 +39,13 @@ func receiveLocationUpdates() -> AnyPublisher<[CLLocation], Error>
 ```
 
 Receive location updates from the `CLLocationManager`
-- Parameter manager: `CLLocationManager`
 - Returns: Publisher with `[CLLocation]` or `Error`
 
-#### Parameters
+### `receiveOnTimeLocationUpdate()`
 
-| Name | Description |
-| ---- | ----------- |
-| manager | `CLLocationManager` |
+```swift
+func receiveOnTimeLocationUpdate() -> AnyPublisher<[CLLocation], Error>
+```
+
+Receive location updates from the `CLLocationManager`
+- Returns: Publisher with `[CLLocation]` or `Error`
