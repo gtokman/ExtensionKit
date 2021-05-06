@@ -20,7 +20,7 @@ final class AuthorizationSubscription <S: Subscriber>: NSObject,
     typealias Failure = Never
 
     var subscriber: S?
-    private weak var delegate: SubscriptionAuthorizationDelegate?
+    private var delegate: SubscriptionAuthorizationDelegate?
     private let authorizationType: CLLocationManager.AuthorizationType
 
     init(

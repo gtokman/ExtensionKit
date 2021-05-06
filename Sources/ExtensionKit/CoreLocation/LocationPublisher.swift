@@ -17,7 +17,7 @@ final class LocationSubscription <S: Subscriber>:
                        S.Failure == Error {
 
     var subscriber: S?
-    private weak var publisherDelegate: PublisherLocationDelegate?
+    private var publisherDelegate: PublisherLocationDelegate?
     
     init(subscriber: S?, delegate: PublisherLocationDelegate?) {
         self.subscriber = subscriber
