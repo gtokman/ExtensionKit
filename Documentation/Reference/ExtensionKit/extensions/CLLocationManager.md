@@ -6,11 +6,10 @@ public extension CLLocationManager
 ```
 
 ## Methods
-### `requestLocationAuthorization(with:type:)`
+### `requestLocationAuthorization(type:)`
 
 ```swift
-static func requestLocationAuthorization(
-    with manager: CLLocationManager,
+func requestLocationAuthorization(
     type: AuthorizationType
 ) -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
@@ -28,12 +27,10 @@ Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
 | manager | `CLLocationManager` |
 | type | `AuthorizationType` |
 
-### `requestLocationAlwaysAuthorization(with:)`
+### `requestLocationAlwaysAuthorization()`
 
 ```swift
-static func requestLocationAlwaysAuthorization(
-    with manager: CLLocationManager
-) -> AnyPublisher<CLAuthorizationStatus, Never>
+func requestLocationAlwaysAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
 
 Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade** prompt (experimental)
@@ -47,12 +44,10 @@ Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade*
 | ---- | ----------- |
 | manager | `CLLocationManager` |
 
-### `receiveLocationUpdates(from:)`
+### `receiveLocationUpdates()`
 
 ```swift
-static func receiveLocationUpdates(
-    from manager: CLLocationManager
-) -> AnyPublisher<[CLLocation], Error>
+func receiveLocationUpdates() -> AnyPublisher<[CLLocation], Error>
 ```
 
 Receive location updates from the `CLLocationManager`
