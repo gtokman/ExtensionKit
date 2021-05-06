@@ -10,7 +10,7 @@ public extension CLLocationManager
 
 ```swift
 static func requestLocationAuthorization(
-    with manager: CLLocationManager = .init(),
+    with manager: CLLocationManager
     type: AuthorizationType
 ) -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
@@ -32,7 +32,7 @@ Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
 
 ```swift
 static func requestLocationAlwaysAuthorization(
-    with manager: CLLocationManager = .init()
+    with manager: CLLocationManager
 ) -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
 
@@ -51,7 +51,7 @@ Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade*
 
 ```swift
 static func receiveLocationUpdates(
-    from manager: CLLocationManager = .init()
+    from manager: CLLocationManager
 ) -> AnyPublisher<[CLLocation], Error>
 ```
 
