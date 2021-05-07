@@ -8,14 +8,16 @@
 public extension UIApplication {
 
     /// Application key window
-    static let keyWindow = UIApplication
-        .shared
+    var keyWindow: UIWindow? {
+        UIApplication.shared
         .connectedScenes
         .filter { $0.activationState == .foregroundActive }
         .compactMap { $0 as? UIWindowScene }
         .first?.windows
         .filter { $0.isKeyWindow }
         .first
+        
+    }
 
     /// Open application settings
     func openSettings() {
@@ -117,7 +119,7 @@ public extension UIApplication {
     }
     
     /// Checks if the application is connected to the internet via `SystemConfiguration`
-    static var isConnectedToNetwork: Bool {
+    var isConnectedToNetwork: Bool {
         
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
