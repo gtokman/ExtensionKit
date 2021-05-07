@@ -32,18 +32,6 @@ public extension View {
         )
     }
     
-    /// Fill parent's width
-    /// - Returns: view
-    func fillWidth() -> some View {
-        return self.frame(minWidth: 0, maxWidth: .infinity)
-    }
-
-    /// Fill parent's height
-    /// - Returns: view
-    func fillHeight() -> some View {
-        return self.frame(minHeight: 0, maxHeight: .infinity)
-    }
-    
     /// Similar to distribuation fill on `UIStackView`, take up all availabe space of parent
     /// - Parameters:
     ///   - flexibleAxis: Axis to fill
