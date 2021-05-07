@@ -4,12 +4,12 @@ import UIKit
 /// Hosting controller that updates the scroll view offset (x,y)
 class ScrollViewOffSetReader<Content>: UIHostingController<Content> where Content: View {
     
-    var offset: Binding<CGFloat>
+    var offset: Binding<CGPoint>
     let isOffsetX: Bool
     var showed = false
     var sv: UIScrollView?
 
-    init(offset: Binding<CGFloat>, isOffsetX: Bool, rootView: Content) {
+    init(offset: Binding<CGPoint>, isOffsetX: Bool, rootView: Content) {
         self.offset = offset
         self.isOffsetX = isOffsetX
         super.init(rootView: rootView)
@@ -32,16 +32,19 @@ class ScrollViewOffSetReader<Content>: UIHostingController<Content> where Conten
                         options: [.old, .new],
                         context: nil)
 
-        scroll(to: offset.wrappedValue, animated: false)
+        scroll(to: offset.wrappedValue, animated: false
+        )
 
         super.viewDidAppear(animated)
     }
 
-    func scroll(to position: CGFloat, animated: Bool = true) {
+    func scroll(to offset: CGPoint, animated: Bool = true) {
         if let s = sv {
-            if position != (self.isOffsetX ? s.contentOffset.x : s.contentOffset.y) {
-                let offset = self.isOffsetX ? CGPoint(x: position, y: 0) : CGPoint(x: 0, y: position)
-                sv?.setContentOffset(offset, animated: animated)
+            if offset != self.offset.wrappedValue {
+                let offset = self.isOffsetX
+                    ? CGPoint(x: offset.x, y: 0)
+                    : CGPoint(x: 0, y: offset.y)
+                s.setContentOffset(offset, animated: animated)
             }
         }
     }
@@ -53,7 +56,7 @@ class ScrollViewOffSetReader<Content>: UIHostingController<Content> where Conten
         if keyPath == #keyPath(UIScrollView.contentOffset) {
             if let s = self.sv {
                 DispatchQueue.main.async {
-                    self.offset.wrappedValue = self.isOffsetX ? s.contentOffset.x : s.contentOffset.y
+                    self.offset.wrappedValue = s.contentOffset
                 }
             }
         }
@@ -76,11 +79,11 @@ class ScrollViewOffSetReader<Content>: UIHostingController<Content> where Conten
 
 struct ScrollViewOffSetReaderRepresentable<Content>: UIViewControllerRepresentable where Content: View {
     
-    var offset: Binding<CGFloat>
+    var offset: Binding<CGPoint>
     let isOffsetX: Bool
     let content: Content
 
-    init(offset: Binding<CGFloat>, isOffsetX: Bool, @ViewBuilder content: @escaping () -> Content) {
+    init(offset: Binding<CGPoint>, isOffsetX: Bool, @ViewBuilder content: @escaping () -> Content) {
 
         self.offset = offset
         self.isOffsetX = isOffsetX
