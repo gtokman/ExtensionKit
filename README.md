@@ -25,6 +25,10 @@
 
 -   [Publisher](Documentation/Reference/ExtensionKit/extensions/Publisher.md)
 
+### PropertyWrappers
+
+-   [UserDefault](Documentation/Reference/ExtensionKit/structs/UserDefault.md)
+
 ### UIKit
 
 -   [UIApplication](Documentation/Reference/ExtensionKit/extensions/UIApplication.md)
