@@ -50,24 +50,6 @@ Fill parent view
 | ---- | ----------- |
 | alignment | alignment |
 
-### `fillWidth()`
-
-```swift
-func fillWidth() -> some View
-```
-
-Fill parent's width
-- Returns: view
-
-### `fillHeight()`
-
-```swift
-func fillHeight() -> some View
-```
-
-Fill parent's height
-- Returns: view
-
 ### `fillFlexible(_:alignment:)`
 
 ```swift
@@ -627,10 +609,10 @@ Subscribe and blind optional ouput to View property
 | publisher | publisher |
 | binding | binding |
 
-### `scrollOffsetX(_:)`
+### `scrollOffset(_:)`
 
 ```swift
-func scrollOffsetX(_ offsetX: Binding<CGFloat>) -> some View
+func scrollOffset(_ offset: Binding<CGPoint>) -> some View
 ```
 
 Get the scroll view content offset X
@@ -642,19 +624,3 @@ Get the scroll view content offset X
 | Name | Description |
 | ---- | ----------- |
 | offsetX | Binding for offset |
-
-### `scrollOffsetY(_:)`
-
-```swift
-func scrollOffsetY(_ offsetY: Binding<CGFloat>) -> some View
-```
-
-Get the scroll view content offset Y
-- Parameter offsetY: Binding for offset
-- Returns: View
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| offsetY | Binding for offset |

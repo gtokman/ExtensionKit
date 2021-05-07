@@ -12,16 +12,21 @@ public extension CLLocationManager
 func requestLocationWhenInUseAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
 
-Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
-- Parameters:
-  - type: `AuthorizationType`
-- Returns: Publisher with `AuthorizationType`
+```
+class LocationStore: ObservableObject {
 
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| type | `AuthorizationType` |
+    @Published var status: CLAuthorizationStatus = .notDetermined
+    let manager = CLLocationManager()
+    var cancellables = Set<AnyCancellable>()
+    
+    func requestPermission() {
+       manager
+            .requestLocationWhenInUseAuthorization()
+            .assign(to: \.status, on: self)
+            .store(in: &cancellables)
+    }
+}
+```
 
 ### `requestLocationAlwaysAuthorization()`
 
@@ -29,23 +34,54 @@ Request locaton authorization and subscribe to `CLAuthorizationStatus` updates
 func requestLocationAlwaysAuthorization() -> AnyPublisher<CLAuthorizationStatus, Never>
 ```
 
-Request locaton **always** authorization `CLAuthorizationStatus` with **upgrade** prompt (experimental)
-- Returns: Publisher with `AuthorizationType`
+```
+class LocationStore: ObservableObject {
 
-### `receiveLocationUpdates()`
-
-```swift
-func receiveLocationUpdates() -> AnyPublisher<[CLLocation], Error>
+    @Published var status: CLAuthorizationStatus = .notDetermined
+    let manager = CLLocationManager()
+    var cancellables = Set<AnyCancellable>()
+    
+    func requestPermission() {
+       manager
+            .requestLocationAlwaysAuthorization()
+            .assign(to: \.status, on: self)
+            .store(in: &cancellables)
+    }
+}
 ```
 
-Receive location updates from the `CLLocationManager`
-- Returns: Publisher with `[CLLocation]` or `Error`
-
-### `receiveOnTimeLocationUpdate()`
+### `receiveLocationUpdates(oneTime:)`
 
 ```swift
-func receiveOnTimeLocationUpdate() -> AnyPublisher<[CLLocation], Error>
+func receiveLocationUpdates(oneTime: Bool = false) -> AnyPublisher<[CLLocation], Error>
 ```
 
-Receive location updates from the `CLLocationManager`
-- Returns: Publisher with `[CLLocation]` or `Error`
+```
+class LocationStore: ObservableObject {
+    
+    @Published var coordinate: CLLocationCoordinate2D = .zero
+    let manager = CLLocationManager()
+    var cancellables = Set<AnyCancellable>()
+    
+    func getLocation() {
+       manager
+            .receiveLocationUpdates()
+            .compactMap(\.last)
+            .map(\.coordinate)
+            .sink { result in
+                if case let .failure(error) = result {
+                    dprint("Error: \(error.localizedDescription)")
+                }
+            } receiveValue: { coordinate in
+                self.coordinate = coordinate
+            }
+            .store(in: &cancellables)
+    }
+}
+```
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| oneTime | One time location update or constant updates, default: false |

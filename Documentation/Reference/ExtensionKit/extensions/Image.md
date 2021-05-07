@@ -41,3 +41,19 @@ Initialize with default system image
 | ---- | ----------- |
 | name | primary image name |
 | defaultSystemImage | default image name |
+
+### `icon(with:)`
+
+```swift
+func icon(with size: CGSize) -> some View
+```
+
+Create a resizable image with CGSize
+- Parameter size: CGSize
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| size | CGSize |

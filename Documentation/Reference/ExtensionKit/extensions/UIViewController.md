@@ -229,7 +229,7 @@ Resign keyboard
 ### `getCurrentViewController(base:)`
 
 ```swift
-class func getCurrentViewController(base: UIViewController? = UIApplication.keyWindow?.rootViewController) -> UIViewController?
+class func getCurrentViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController?
 ```
 
 Get the current visible view controller by crawling the view controller heirarchy

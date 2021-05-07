@@ -2,6 +2,23 @@
 
 # `UIApplication`
 
+## Properties
+### `keyWindow`
+
+```swift
+var keyWindow: UIWindow?
+```
+
+Application key window
+
+### `isConnectedToNetwork`
+
+```swift
+var isConnectedToNetwork: Bool
+```
+
+Checks if the application is connected to the internet via `SystemConfiguration`
+
 ## Methods
 ### `openSettings()`
 
