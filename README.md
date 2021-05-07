@@ -25,7 +25,7 @@
 
 -   [Publisher](Documentation/Reference/ExtensionKit/extensions/Publisher.md)
 
-### PropertyWrappers
+### Property Wrappers
 
 -   [UserDefault](Documentation/Reference/ExtensionKit/structs/UserDefault.md)
 
