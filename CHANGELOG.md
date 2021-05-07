@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/gtokman/ExtensionKit/compare/v1.15.1...v1.16.0) (2021-05-07)
+
+
+### Features
+
+* add button extension for shadow/corner radius ([ebb6136](https://github.com/gtokman/ExtensionKit/commit/ebb61361fe40a4f97428a987c6697674f1cee22c))
+* add image sizing helper ([c899c5d](https://github.com/gtokman/ExtensionKit/commit/c899c5dc96e7f303b9e924b902ab2bc8cb327f82))
+* add new property wrapper for UserDefault ([555732b](https://github.com/gtokman/ExtensionKit/commit/555732bade917a392b05974d3130de79890b68b8))
+
+
+### Bug Fixes
+
+* combine scroll offset modifiers  ([0d5c746](https://github.com/gtokman/ExtensionKit/commit/0d5c746b458963a030153a14c2a3510fb2a62a0f))
+* remove redundant view size modifiers ([136c8f2](https://github.com/gtokman/ExtensionKit/commit/136c8f2a1dc9262be87075c8d23ac23b456be1ad))
+* update documentation for location publishers ([163689e](https://github.com/gtokman/ExtensionKit/commit/163689e2a7952a8544a3b448bda670bbb4343796))
+* update UIApplication extension to be instances vars ([444a2e0](https://github.com/gtokman/ExtensionKit/commit/444a2e0d8f4c1fa3b3c3e74d2799ffe0cb8a0d2a))
+
 ### [1.15.1](https://github.com/gtokman/ExtensionKit/compare/v1.15.0...v1.15.1) (2021-05-06)
 
 
