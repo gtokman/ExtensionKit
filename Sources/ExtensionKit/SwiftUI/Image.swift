@@ -25,4 +25,14 @@ public extension Image {
             self.init(systemName: defaultSystemImage)
         }
     }
+    
+    /// Create a resizable image with CGSize
+    /// - Parameter size: CGSize
+    /// - Returns: View
+    func icon(with size: CGSize) -> some View {
+        self.renderingMode(.template)
+            .resizable()
+            .frame(width: size.width, height: size.height)
+    }
+    
 }
