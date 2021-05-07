@@ -26,9 +26,9 @@ platform :ios do
       if line.include?("## [")
         break unless !lines.include?("*******")
         lines.append("*******") 
-        lines.append(line.humanize)
+        lines.append(line..gsub(/^(.)/) { $1.capitalize })
       else 
-        lines.append(line.humanize)
+        lines.append(line.gsub(/^(.)/) { $1.capitalize })
       end
     end
     log = lines.drop(5).join
