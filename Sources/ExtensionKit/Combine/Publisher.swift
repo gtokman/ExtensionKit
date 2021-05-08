@@ -2,8 +2,39 @@ import Combine
 import Foundation
 import UIKit
 
-public extension Publisher where Failure == Never {
+// MARK: - Public
+
+public extension Publisher {
     
+    /// Debug print Publisher events
+    /// - Parameters:
+    ///   - prefix: Prefix on print statement
+    ///   - function: Function name
+    ///   - line: Line number
+    /// - Returns: Publisher
+    func debug(
+        prefix: String = "",
+        function: String = #function,
+        line: Int = #line) -> Publishers.HandleEvents<Self> {
+        let pattern = "\(prefix + (prefix.isEmpty ? "" : " "))\(function), line \(line): "
+
+        return handleEvents(receiveSubscription: {
+            dprint("\(pattern)subscription \($0)")
+        }, receiveOutput: {
+            dprint("\(pattern)output \($0)")
+        }, receiveCompletion: {
+            dprint("\(pattern)completion \($0)")
+        }, receiveCancel: {
+            dprint("\(pattern)cancelled")
+        }, receiveRequest: {
+            dprint("\(pattern)request \($0)")
+        })
+    }
+    
+}
+
+public extension Publisher where Failure == Never {
+
     /// Receive Output value on main thread  (DispatchQueue.main)
     func receiveOnMain() -> Publishers.ReceiveOn<Self, DispatchQueue> {
         self.receive(on: DispatchQueue.main)
@@ -52,5 +83,5 @@ extension Publisher where Failure == Never {
         return Publishers.MergeMany(willShow, willHide)
             .eraseToAnyPublisher()
     }
-    
+
 }
