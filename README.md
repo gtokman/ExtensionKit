@@ -5,10 +5,16 @@
 
 <img alt="Screen Shot 2021-04-24 at 3 58 58 PM" src="https://user-images.githubusercontent.com/12258850/115971376-1380be00-a516-11eb-82cd-451d7e0378fc.png">
 
-
 # Documentation
 
-ExtensionKit includes
+ExtensionKit includes many extensions, for getting the user location with a deterministic Combine API to a shimmer loading animation, to keyboard notification updates, and much much more. Check out the sample project or install the library with SPM to try it out.
+
+Many extensions are things I find cumbersome in everyday iOS dev so I made a package with where I can reference the extensions anytime. Many extensions are inspired or taken from open source projects and articles from the Swift community ❤️
+
+<br>
+
+![2021-05-08 12 31 40](https://user-images.githubusercontent.com/12258850/117546696-a8e17f00-aff9-11eb-92e9-c351634b7a78.gif)
+
 
 ## Extensions
 
@@ -102,7 +108,7 @@ Follow and contact me on Twitter at [@f6ary](https://www.twitter.com/f6ary).
 
 ## Contributions
 If you find an issue, just [open a ticket](https://github.com/gtokman/extensionkit/issues/new)
-on it. Pull requests are warmly welcome as well.
+on it. Pull requests are warmly welcome as well, especially SwiftUI or AVFoundation!
 
 **Steps**
 
