@@ -3,20 +3,6 @@ import UIKit
 
 extension Notification {
     
-    /// Struct modeling keyboard updates
-    public struct KeyboardInfo {
-        /// Keyboard height
-        public var height: CGFloat = 0
-        /// Keyboard animation curve
-        public var animationCurve: UIView.AnimationCurve = UIView.AnimationCurve.easeInOut
-        /// Keyboard animation duration
-        public var animationDuration: TimeInterval = 0.0
-        /// Is the keyboard visible
-        public var isVisible: Bool {
-            height != 0
-        }
-    }
-    
     /// Get keyboard info updates
     var keyboardInfo: KeyboardInfo {
         var info = KeyboardInfo()
