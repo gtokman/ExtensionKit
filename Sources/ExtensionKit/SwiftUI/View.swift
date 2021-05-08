@@ -456,4 +456,20 @@ public extension View {
             .cornerRadius(cornerRadius)
     }
     
+    /// Subscribe to the given notification
+    /// - Parameters:
+    ///   - name: Notification name
+    ///   - object: Object posting the notification
+    ///   - action: Action to run when received
+    /// - Returns: View
+    func onNotification(
+        _ name: Notification.Name,
+        object: AnyObject? = nil,
+        perform action: @escaping (Notification) -> Void
+    ) -> some View {
+        onReceive(NotificationCenter.default.publisher(for: name, object: object)) {
+            action($0)
+        }
+    }
+    
 }
