@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.18.1](https://github.com/gtokman/ExtensionKit/compare/v1.18.0...v1.18.1) (2021-05-08)
+
+
+### Bug Fixes
+
+* simplify the keyboard state modifier ([53e9f02](https://github.com/gtokman/ExtensionKit/commit/53e9f023cc9c5c03f5f0363d32d46581cc062071))
+
 ## [1.18.0](https://github.com/gtokman/ExtensionKit/compare/v1.17.1...v1.18.0) (2021-05-08)
 
 
