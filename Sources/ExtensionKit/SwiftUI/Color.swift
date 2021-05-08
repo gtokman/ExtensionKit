@@ -64,4 +64,13 @@ public extension Color {
             ? Color(UIColor(red: 1.0-r, green: 1.0-g, blue: 1.0-b, alpha: a))
             : .black
     }
+    
+    /// Create a color with a dark and light mode UIColor
+    /// - Parameters:
+    ///   - light: light color
+    ///   - dark: dark color
+    /// - Returns: Color
+    static func dynamicColor(light: UIColor, dark: UIColor) -> Color {
+        self.init(UIColor.dynamicColor(light: light, dark: dark))
+    }
 }
