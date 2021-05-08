@@ -180,3 +180,11 @@ Get subscring from created range
 | ---- | ----------- |
 | from | from String |
 | to | to String |
+
+### `copyToPasteboard()`
+
+```swift
+func copyToPasteboard()
+```
+
+Copy self to UIPasteboard

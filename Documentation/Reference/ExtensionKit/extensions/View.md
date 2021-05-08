@@ -434,7 +434,7 @@ Hide keyboard
 ### `keyboardState(info:)`
 
 ```swift
-func keyboardState(info: Binding<Notification.KeyboardInfo>) -> some View
+func keyboardState(info: Binding<KeyboardInfo>) -> some View
 ```
 
 Receive keyboard status updates
@@ -655,3 +655,28 @@ Add  foreground, background, shadow, cornerRadius to `Button` content
 | padding | padding |
 | shadow | shadow |
 | cornerRadius | corner radius |
+
+### `onNotification(_:object:perform:)`
+
+```swift
+func onNotification(
+    _ name: Notification.Name,
+    object: AnyObject? = nil,
+    perform action: @escaping (Notification) -> Void
+) -> some View
+```
+
+Subscribe to the given notification
+- Parameters:
+  - name: Notification name
+  - object: Object posting the notification
+  - action: Action to run when received
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| name | Notification name |
+| object | Object posting the notification |
+| action | Action to run when received |

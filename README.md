@@ -8,6 +8,8 @@
 
 # Documentation
 
+ExtensionKit includes
+
 ## Extensions
 
 ### SwiftUI
