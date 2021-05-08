@@ -7,9 +7,9 @@
 
 # Documentation
 
-ExtensionKit includes many extensions, for getting the user location with a deterministic Combine API to a shimmer loading animation, to keyboard notification updates, and much much more. Check out the sample project or install the library with SPM to try it out.
+ExtensionKit includes many extensions, from getting the user **location with a deterministic Combine API** to a **shimmer loading animation**, to **keyboard notification updates**, and much much more. Check out the docs below or install the library with SPM to try it out.
 
-Many extensions are things I find cumbersome in everyday iOS dev so I made a package with where I can reference the extensions anytime. Many extensions are inspired or taken from open source projects and articles from the Swift community ❤️
+Many extensions are things I find cumbersome in everyday iOS dev so I made a package where I can reference the them anytime. Lastly, a lot of these are inspired or taken from open source projects and articles from the Swift community ❤️
 
 <br>
 
