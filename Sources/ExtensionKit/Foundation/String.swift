@@ -129,6 +129,11 @@ public extension String {
         }
         return nil
     }
+    
+    /// Copy self to UIPasteboard
+    func copyToPasteboard() {
+        UIPasteboard.general.string = self
+    }
 }
 
 public extension String.Index {
