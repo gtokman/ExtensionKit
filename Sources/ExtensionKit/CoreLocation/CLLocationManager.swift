@@ -12,10 +12,9 @@ public extension CLLocationManager {
          var cancellables = Set<AnyCancellable>()
          
          func requestPermission() {
-            manager
+             manager
                  .requestLocationWhenInUseAuthorization()
-                 .assign(to: \.status, on: self)
-                 .store(in: &cancellables)
+                 .assign(to: &$status)
          }
      }
      ```
@@ -36,10 +35,9 @@ public extension CLLocationManager {
          var cancellables = Set<AnyCancellable>()
          
          func requestPermission() {
-            manager
-                 .requestLocationAlwaysAuthorization()
-                 .assign(to: \.status, on: self)
-                 .store(in: &cancellables)
+             manager
+                 .requestLocationWhenInUseAuthorization()
+                 .assign(to: &$status)
          }
      }
      ```
@@ -69,19 +67,13 @@ public extension CLLocationManager {
          let manager = CLLocationManager()
          var cancellables = Set<AnyCancellable>()
          
-         func getLocation() {
-            manager
+         func requestLocation() {
+             manager
                  .receiveLocationUpdates()
                  .compactMap(\.last)
                  .map(\.coordinate)
-                 .sink { result in
-                     if case let .failure(error) = result {
-                         dprint("Error: \(error.localizedDescription)")
-                     }
-                 } receiveValue: { coordinate in
-                     self.coordinate = coordinate
-                 }
-                 .store(in: &cancellables)
+                 .replaceError(with: .zero)
+                 .assign(to: &$coordinate)
          }
      }
      ```
