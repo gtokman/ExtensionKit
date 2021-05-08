@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.19.0](https://github.com/gtokman/ExtensionKit/compare/v1.18.1...v1.19.0) (2021-05-08)
+
+
+### Features
+
+* add new bottom sheet with animatable opacity, corner radius, and offset ([00b9169](https://github.com/gtokman/ExtensionKit/commit/00b9169344af8687f8c7b9e96c8ff9c4a1d4279e))
+
 ### [1.18.1](https://github.com/gtokman/ExtensionKit/compare/v1.18.0...v1.18.1) (2021-05-08)
 
 
