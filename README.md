@@ -15,6 +15,7 @@ ExtensionKit includes
 ### SwiftUI
 
 -   [Button](Documentation/Reference/ExtensionKit/extensions/Button.md)
+-   [Binding](Documentation/Reference/ExtensionKit/extensions/Binding.md)
 -   [Color](Documentation/Reference/ExtensionKit/extensions/Color.md)
 -   [GeometryProxy](Documentation/Reference/ExtensionKit/extensions/GeometryProxy.md)
 -   [Preview](Documentation/Reference/ExtensionKit/structs/Preview.md)
@@ -49,6 +50,7 @@ ExtensionKit includes
 -   [Collection](Documentation/Reference/ExtensionKit/extensions/Collection.md)
 -   [Data](Documentation/Reference/ExtensionKit/extensions/Data.md)
 -   [Date](Documentation/Reference/ExtensionKit/extensions/Date.md)
+-   [DispactQueue](Documentation/Reference/ExtensionKit/extensions/DispactQueue.md)
 -   [FileManager](Documentation/Reference/ExtensionKit/extensions/FileManager.md)
 -   [Int](Documentation/Reference/ExtensionKit/extensions/Int.md)
 -   [NSObject](Documentation/Reference/ExtensionKit/extensions/NSObject.md)
@@ -82,7 +84,7 @@ ExtensionKit includes
 ## Structs
 
 -   [Screen](Documentation/Reference/ExtensionKit/structs/Screen.md)
--   [KeyboardInfo](Documentation/Reference/ExtensionKit/structs/Notification.KeyboardInfo.md)
+-   [KeyboardInfo](Documentation/Reference/ExtensionKit/structs/KeyboardInfo.md)
 
 
 ## Installation
