@@ -445,8 +445,8 @@ public extension View {
     ) -> some View {
         self
             .foregroundColor(titleColor)
-            .background(background)
             .padding(padding.edges, padding.length)
+            .background(background)
             .shadow(
                 color: Color(UIColor(white: 0, alpha: shadow.radius)),
                 radius: shadow.radius,
