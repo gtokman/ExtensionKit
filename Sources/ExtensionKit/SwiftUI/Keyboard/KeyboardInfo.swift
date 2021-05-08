@@ -1,7 +1,7 @@
 import UIKit
 
 /// Struct modeling keyboard updates
-public struct KeyboardInfo {
+public struct KeyboardInfo: Equatable {
     /// Keyboard height
     public var height: CGFloat = 0
     /// Keyboard animation curve

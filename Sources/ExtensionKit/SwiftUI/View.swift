@@ -478,4 +478,30 @@ public extension View {
         }
     }
     
+    /// Adds a bottom sheet to View
+    /// - Parameters:
+    ///   - isPresented: Binding for presenting the View
+    ///   - height: Height, default .mid
+    ///   - animation: Animation
+    ///   - content: modal content
+    /// - Returns: View
+    func bottomSheet<Content: View>(
+        isPresented: Binding<Bool>,
+        height: Height = .mid,
+        animation: Animation = .easeInOut(duration: 0.3),
+        thumbHidden: Bool = false,
+        @ViewBuilder content: @escaping () -> Content
+    ) -> some View {
+        return ZStack {
+            self
+            BottomSheet(
+                isPresented: isPresented,
+                height: height,
+                animation: animation,
+                thumbHidden: thumbHidden,
+                content: content
+            )
+        }
+    }
+    
 }
