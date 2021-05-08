@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/gtokman/ExtensionKit/compare/v1.17.1...v1.18.0) (2021-05-08)
+
+
+### Features
+
+* add binding on change function ([48c1b67](https://github.com/gtokman/ExtensionKit/commit/48c1b671d7c48de8b7ce64ae57a9eec9a86865cc))
+* add copy to pasteboard helper ([95b6a3f](https://github.com/gtokman/ExtensionKit/commit/95b6a3fa7472b991cf8cc2b408017e6bf0601ff6))
+* add new build and lint steps for PRs ([c6b6981](https://github.com/gtokman/ExtensionKit/commit/c6b6981916c298ab3fe5b806c1d7f05a90bbfcdc))
+* add safe async  ([8544301](https://github.com/gtokman/ExtensionKit/commit/85443018215e521c180c5f951336cd7f615a1907))
+* add shorthand for subscribing to notifications on SwiftUI views ([b98bdce](https://github.com/gtokman/ExtensionKit/commit/b98bdce3b631852ddd1dfeaabfb0444bd331acc7))
+
+
+### Bug Fixes
+
+* make keyboard info init public ([63bcc63](https://github.com/gtokman/ExtensionKit/commit/63bcc635c90d72d43f510cc394a710e4f5d11402))
+
 ### [1.17.1](https://github.com/gtokman/ExtensionKit/compare/v1.17.0...v1.17.1) (2021-05-08)
 
 
