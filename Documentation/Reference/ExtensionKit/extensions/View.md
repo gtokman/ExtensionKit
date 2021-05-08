@@ -680,3 +680,32 @@ Subscribe to the given notification
 | name | Notification name |
 | object | Object posting the notification |
 | action | Action to run when received |
+
+### `bottomSheet(isPresented:height:animation:thumbHidden:content:)`
+
+```swift
+func bottomSheet<Content: View>(
+    isPresented: Binding<Bool>,
+    height: Height = .mid,
+    animation: Animation = .easeInOut(duration: 0.3),
+    thumbHidden: Bool = false,
+    @ViewBuilder content: @escaping () -> Content
+) -> some View
+```
+
+Adds a bottom sheet to View
+- Parameters:
+  - isPresented: Binding for presenting the View
+  - height: Height, default .mid
+  - animation: Animation
+  - content: modal content
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| isPresented | Binding for presenting the View |
+| height | Height, default .mid |
+| animation | Animation |
+| content | modal content |

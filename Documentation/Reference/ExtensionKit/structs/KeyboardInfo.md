@@ -3,7 +3,7 @@
 # `KeyboardInfo`
 
 ```swift
-public struct KeyboardInfo
+public struct KeyboardInfo: Equatable
 ```
 
 Struct modeling keyboard updates
