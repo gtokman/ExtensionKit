@@ -14,8 +14,7 @@ protocol SubscriptionAuthorizationDelegate: class {
 final class AuthorizationSubscription <S: Subscriber>: NSObject,
     PublisherAuthorizationDelegate,
     Subscription where S.Input == CLAuthorizationStatus,
-    S.Failure == Never {
-
+                       S.Failure == Never {
     typealias Output = CLAuthorizationStatus
     typealias Failure = Never
 
@@ -32,6 +31,10 @@ final class AuthorizationSubscription <S: Subscriber>: NSObject,
         self.delegate = delegate
         self.authorizationType = authorizationType
     }
+    
+    deinit {
+        printDeinitMessage()
+    }
 
     func request(_ demand: Subscribers.Demand) {
         delegate?.requestAuthorization(type: authorizationType)
@@ -41,6 +44,8 @@ final class AuthorizationSubscription <S: Subscriber>: NSObject,
         subscriber = nil
         delegate = nil
     }
+    
+    // MARK: - PublisherAuthorizationDelegate
     
     func send(status: CLAuthorizationStatus) {
         _ = subscriber?.receive(status)
@@ -64,6 +69,10 @@ final class AuthorizationPublisher: NSObject,
         self.authorizationType = authorizationType
         super.init()
         self.manager.delegate = self
+    }
+    
+    deinit {
+        printDeinitMessage()
     }
 
     func receive<S>(subscriber: S) where S: Subscriber, AuthorizationPublisher.Failure == S.Failure, AuthorizationPublisher.Output == S.Input {

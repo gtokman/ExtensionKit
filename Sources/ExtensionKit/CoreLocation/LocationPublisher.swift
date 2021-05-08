@@ -36,6 +36,10 @@ final class LocationSubscription <S: Subscriber>:
         publisherDelegate?.startLocationUpdates()
     }
     
+    deinit {
+        printDeinitMessage()
+    }
+
     func cancel() {
         subscriber = nil
         publisherDelegate = nil
@@ -51,14 +55,18 @@ final class LocationPublisher: NSObject,
     typealias Failure = Error
     
     private let manager: CLLocationManager
-    private let onTimeUpdate: Bool
+    private let oneTimeUpdate: Bool
     private var subscriberDelegate: SubscriptionLocationDelegate?
     
     init(manager: CLLocationManager, onTimeUpdate: Bool = false) {
         self.manager = manager
-        self.onTimeUpdate = onTimeUpdate
+        self.oneTimeUpdate = onTimeUpdate
         super.init()
         self.manager.delegate = self
+    }
+    
+    deinit {
+        printDeinitMessage()
     }
     
     // MARK: Publisher
@@ -86,7 +94,7 @@ final class LocationPublisher: NSObject,
     // MARK: PublisherLocationDelegate
     
     func startLocationUpdates() {
-        if onTimeUpdate {
+        if oneTimeUpdate {
             manager.requestLocation()
         } else {
             manager.startUpdatingLocation()
