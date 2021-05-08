@@ -21,32 +21,5 @@ public extension Button where Label == Image {
             Image(imageName)
         }
     }
-
-    /// Create a `Button` with foreground, background, shadow, cornerRadius
-    /// - Parameters:
-    ///   - titleColor: foreground color
-    ///   - background: background color
-    ///   - padding: padding
-    ///   - shadow: shadow
-    ///   - cornerRadius: corner radius
-    /// - Returns: View
-    func shadowButton(
-        titleColor: Color = .white,
-        background: Color = .blue,
-        padding: (edges: Edge.Set, length: CGFloat) = (.all, 10),
-        shadow: (radius: CGFloat, alpha: CGFloat, y: CGFloat) = (10, 0.15, 4),
-        cornerRadius: CGFloat = 10
-    ) -> some View {
-        self
-            .foregroundColor(titleColor)
-            .background(background)
-            .padding(padding.edges, padding.length)
-            .shadow(color:
-                        Color(
-                            UIColor(white: 0,
-                                    alpha: shadow.radius)
-                        ), radius: shadow.radius, x: 0, y: shadow.y)
-            .cornerRadius(cornerRadius)
-    }
     
 }
