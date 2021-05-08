@@ -16,22 +16,35 @@ public extension Publisher where Failure == Never {
         return sink(receiveCompletion: { completion in
             switch completion {
             case .failure(let error):
-                    result(.failure(error))
+                result(.failure(error))
             case .finished: break
             }
         }, receiveValue: { output in
             result(.success(output))
         })
     }
-    
+
+    /// Assign property to object without using [weak self]
+    /// - Parameters:
+    ///   - keyPath: Property keypath
+    ///   - root: Any object
+    /// - Returns: AnyCancellable
+    func assign<Root: AnyObject>(to keyPath: ReferenceWritableKeyPath<Root, Output>, on root: Root) -> AnyCancellable {
+        sink { [weak root] in
+            root?[keyPath: keyPath] = $0
+        }
+    }
+
 }
 
+// MARK - Internal
+
 extension Publisher where Failure == Never {
-    
+
     /// Subscribe to keyboard notifications and receive `Notification.KeyboardInfo` on updates
     static var keyboardInfo: AnyPublisher<Notification.KeyboardInfo, Never> {
         let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
-                .map { $0.keyboardInfo }
+            .map { $0.keyboardInfo }
 
         let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
             .map { _ in Notification.KeyboardInfo() }
