@@ -8,13 +8,13 @@
 
 # Documentation
 
-ExtensionKit includes many extensions, from getting the user **[location](Documentation/Reference/ExtensionKit/extensions/CLLocationManager.md#receivelocationupdatesonetime) with a deterministic Combine API** to a **[shimmer](Documentation/Reference/ExtensionKit/extensions/View.md#shimmerisactivespeedangle) loading animation**, to **[keyboard](Documentation/Reference/ExtensionKit/extensions/View.md#keyboardstateinfo) notification updates**, and much much more. Check out the docs below or install the library with SPM to try it out.
+ExtensionKit includes many extensions, from getting the user **[location](Documentation/Reference/ExtensionKit/extensions/CLLocationManager.md#receivelocationupdatesonetime) with a deterministic Combine API** to a **[shimmer](Documentation/Reference/ExtensionKit/extensions/View.md#shimmerisactivespeedangle) loading animation**, to **[keyboard](Documentation/Reference/ExtensionKit/extensions/View.md#keyboardstateinfo) notification updates**, **[bottom sheet](Documentation/Reference/ExtensionKit/extensions/View.md#bottomsheetispresentedheightanimationthumbhiddencontent)** and much much more. Check out the docs below or install the library with SPM to try it out.
 
 Many extensions are things I find cumbersome in everyday iOS dev so I made a package where I can reference the them anytime. Lastly, a lot of these are inspired or taken from open source projects and articles from the Swift community ❤️
 
 <br>
 
-![2021-05-08 12 31 40](https://user-images.githubusercontent.com/12258850/117546696-a8e17f00-aff9-11eb-92e9-c351634b7a78.gif)
+![2021-05-08 18 51 31](https://user-images.githubusercontent.com/12258850/117555631-cbda5600-b02e-11eb-8205-26322c8afe34.gif)
 
 
 ## Extensions
