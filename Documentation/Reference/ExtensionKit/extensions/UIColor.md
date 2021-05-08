@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UIColor`
+```swift
+public extension UIColor
+```
 
 ## Properties
 ### `isLight`

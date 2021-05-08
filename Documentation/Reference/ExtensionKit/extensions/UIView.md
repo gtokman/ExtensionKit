@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UIView`
+```swift
+public extension UIView
+```
 
 ## Properties
 ### `anchorPoint`

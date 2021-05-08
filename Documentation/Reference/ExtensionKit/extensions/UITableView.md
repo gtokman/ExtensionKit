@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UITableView`
+```swift
+public extension UITableView
+```
 
 ## Properties
 ### `isEmpty`

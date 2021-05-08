@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UIButton`
+```swift
+public extension UIButton
+```
 
 ## Properties
 ### `normalStateBackgroundColor`

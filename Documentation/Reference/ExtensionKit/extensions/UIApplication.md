@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UIApplication`
+```swift
+public extension UIApplication
+```
 
 ## Properties
 ### `keyWindow`

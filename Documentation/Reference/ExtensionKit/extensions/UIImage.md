@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UIImage`
+```swift
+public extension UIImage
+```
 
 ## Properties
 ### `isSquare`

@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `UIViewController`
+```swift
+public extension UIViewController
+```
 
 ## Properties
 ### `classNameValue`
