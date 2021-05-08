@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.1](https://github.com/gtokman/ExtensionKit/compare/v1.17.0...v1.17.1) (2021-05-08)
+
+
+### Bug Fixes
+
+* update order of modifiers on Button extension ([154cc3b](https://github.com/gtokman/ExtensionKit/commit/154cc3b3fa26298e9a231a8db67a6a8e89a57e8f))
+
 ## [1.17.0](https://github.com/gtokman/ExtensionKit/compare/v1.16.0...v1.17.0) (2021-05-08)
 
 
