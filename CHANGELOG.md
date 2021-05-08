@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/gtokman/ExtensionKit/compare/v1.16.0...v1.17.0) (2021-05-08)
+
+
+### Features
+
+* add new assign subscriber for publishers ([ae6e57d](https://github.com/gtokman/ExtensionKit/commit/ae6e57d26ece32f8c24c0a9ea54d59769b3df341))
+* add new dynamic color func for Color ([228ee24](https://github.com/gtokman/ExtensionKit/commit/228ee24158d1376392547658629b654b0834741c))
+* add new operator to print Publisher lifecycle ([5ce1172](https://github.com/gtokman/ExtensionKit/commit/5ce11723a77e65c0a8c79c43363909b453bbb474))
+* update docs for location publishers  ([c8ce92e](https://github.com/gtokman/ExtensionKit/commit/c8ce92ed19bf75072499586caf482b48ea5998da))
+
+
+### Bug Fixes
+
+* move Button extension to View ([c95fa3b](https://github.com/gtokman/ExtensionKit/commit/c95fa3b84d6d02bed2c097c7a298dfb5fc5233b0))
+* reformat and add deinit print ([4e0a09a](https://github.com/gtokman/ExtensionKit/commit/4e0a09a251a7a49946f0f31a238bbed6cc12d65c))
+
 ## [1.16.0](https://github.com/gtokman/ExtensionKit/compare/v1.15.1...v1.16.0) (2021-05-07)
 
 
