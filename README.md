@@ -2,12 +2,13 @@
 [![Release](https://img.shields.io/github/release/gtokman/extensionkit.svg)](https://github.com/gtokman/extensionkit/releases)
 ![Swift 5.3](https://img.shields.io/badge/Swift-5.3-orange.svg)
 [![Swift Package Manager Compatible](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org/package-manager)
+![Supported Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 
 <img alt="Screen Shot 2021-04-24 at 3 58 58 PM" src="https://user-images.githubusercontent.com/12258850/115971376-1380be00-a516-11eb-82cd-451d7e0378fc.png">
 
 # Documentation
 
-ExtensionKit includes many extensions, from getting the user **location with a deterministic Combine API** to a **shimmer loading animation**, to **keyboard notification updates**, and much much more. Check out the docs below or install the library with SPM to try it out.
+ExtensionKit includes many extensions, from getting the user **[location](Documentation/Reference/ExtensionKit/extensions/CLLocationManager.md#receivelocationupdatesonetime) with a deterministic Combine API** to a **[shimmer](Documentation/Reference/ExtensionKit/extensions/View.md#shimmerisactivespeedangle) loading animation**, to **[keyboard](Documentation/Reference/ExtensionKit/extensions/View.md#keyboardstateinfo) notification updates**, and much much more. Check out the docs below or install the library with SPM to try it out.
 
 Many extensions are things I find cumbersome in everyday iOS dev so I made a package where I can reference the them anytime. Lastly, a lot of these are inspired or taken from open source projects and articles from the Swift community ❤️
 
@@ -95,7 +96,11 @@ Many extensions are things I find cumbersome in everyday iOS dev so I made a pac
 
 ## Installation
 
-Add the url for ExtensionKit in Xcode and `Import ExtensionKit` to start using it.
+Add the url for ExtensionKit in Xcode with SPM and `Import ExtensionKit` to start using it (iOS 13+).
+<br>
+
+[![Release](https://img.shields.io/github/release/gtokman/extensionkit.svg)](https://github.com/gtokman/extensionkit/releases)
+
 
 ```
 https://github.com/gtokman/ExtensionKit.git
