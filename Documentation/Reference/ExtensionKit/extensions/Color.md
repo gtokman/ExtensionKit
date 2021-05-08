@@ -109,3 +109,22 @@ Darken color
 | Name | Description |
 | ---- | ----------- |
 | percentage | percentage (1 -100), default: 30 |
+
+### `dynamicColor(light:dark:)`
+
+```swift
+static func dynamicColor(light: UIColor, dark: UIColor) -> Color
+```
+
+Create a color with a dark and light mode UIColor
+- Parameters:
+  - light: light color
+  - dark: dark color
+- Returns: Color
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| light | light color |
+| dark | dark color |

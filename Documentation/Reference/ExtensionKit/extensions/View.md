@@ -624,3 +624,34 @@ Get the scroll view content offset X
 | Name | Description |
 | ---- | ----------- |
 | offsetX | Binding for offset |
+
+### `shadowButton(titleColor:background:padding:shadow:cornerRadius:)`
+
+```swift
+func shadowButton(
+    titleColor: Color = .white,
+    background: Color = .blue,
+    padding: (edges: Edge.Set, length: CGFloat) = (.all, 10),
+    shadow: (radius: CGFloat, alpha: CGFloat, y: CGFloat) = (10, 0.15, 4),
+    cornerRadius: CGFloat = 10
+) -> some View
+```
+
+Add  foreground, background, shadow, cornerRadius to `Button` content
+- Parameters:
+  - titleColor: foreground color
+  - background: background color
+  - padding: padding
+  - shadow: shadow
+  - cornerRadius: corner radius
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| titleColor | foreground color |
+| background | background color |
+| padding | padding |
+| shadow | shadow |
+| cornerRadius | corner radius |
