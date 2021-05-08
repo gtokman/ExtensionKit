@@ -330,7 +330,13 @@ public extension View {
     /// - Parameter isVisible: is keyboard visible
     /// - Returns: View
     func keyboardState(info: Binding<KeyboardInfo>) -> some View {
-        self.modifier(KeyboardStateModifier(info))
+        self
+            .onNotification(UIApplication.keyboardWillShowNotification) { notif in
+                info.wrappedValue.update(with: notif.userInfo)
+            }
+            .onNotification(UIApplication.keyboardWillHideNotification) { notif in
+                info.wrappedValue = .init()
+            }
     }
     
     /// Debug print

@@ -16,4 +16,18 @@ public struct KeyboardInfo {
     public var isVisible: Bool {
         height != 0
     }
+    
+    mutating func update(with userInfo: [AnyHashable: Any]?) {
+        if let value = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            self.height = value.height
+        }
+        if let value = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber {
+            if let curve = UIView.AnimationCurve(rawValue: value.intValue) {
+                self.animationCurve = curve
+            }
+        }
+        if let value = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber {
+            self.animationDuration = value.doubleValue
+        }
+    }
 }

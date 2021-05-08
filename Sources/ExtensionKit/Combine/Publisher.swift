@@ -67,21 +67,3 @@ public extension Publisher where Failure == Never {
     }
 
 }
-
-// MARK - Internal
-
-extension Publisher where Failure == Never {
-
-    /// Subscribe to keyboard notifications and receive `Notification.KeyboardInfo` on updates
-    static var keyboardInfo: AnyPublisher<KeyboardInfo, Never> {
-        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
-            .map { $0.keyboardInfo }
-
-        let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
-            .map { _ in KeyboardInfo() }
-
-        return Publishers.MergeMany(willShow, willHide)
-            .eraseToAnyPublisher()
-    }
-
-}
