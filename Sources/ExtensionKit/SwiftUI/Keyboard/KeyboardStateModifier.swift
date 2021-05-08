@@ -4,16 +4,16 @@ import SwiftUI
 /// Get keyboard status updates
 struct KeyboardStateModifier: ViewModifier {
 
-    @Binding var keyboardInfo: Notification.KeyboardInfo
+    @Binding var keyboardInfo: KeyboardInfo
 
-    init(_ keyboardInfo: Binding<Notification.KeyboardInfo>) {
+    init(_ keyboardInfo: Binding<KeyboardInfo>) {
         _keyboardInfo = keyboardInfo
     }
 
     func body(content: Content) -> some View {
         content
             .onReceive(
-            AnyPublisher<Notification.KeyboardInfo, Never>.keyboardInfo,
+            AnyPublisher<KeyboardInfo, Never>.keyboardInfo,
             assignTo: $keyboardInfo
         )
     }
