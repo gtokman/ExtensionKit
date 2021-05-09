@@ -504,4 +504,11 @@ public extension View {
         }
     }
     
+    /// Get the views frame in the global coordinate space
+    /// - Parameter binding: Rect binding
+    /// - Returns: View
+    func getRect(binding: Binding<CGRect>) -> some View {
+        self.background(RectGetter(rect: binding))
+    }
+
 }
