@@ -65,5 +65,32 @@ public extension Publisher where Failure == Never {
             root?[keyPath: keyPath] = $0
         }
     }
+ 
+}
 
+public protocol TimerStartable {
+    func start(totalTime: TimeInterval?) -> AnyPublisher<Date, Never>
+    func stop()
+}
+
+/// AutoConnect publishers that have TimerPublisher as its their upstream aka "autoconnect()"
+extension Publishers.Autoconnect: TimerStartable where Upstream: Timer.TimerPublisher {
+    
+    /// Stops timer of current timer publisher instance
+    public func stop() {
+        upstream.connect().cancel()
+    }
+    
+    /// Stops timer of current timer publisher instance after totalTime
+    /// If totalTime is nil, then continues until hard stopped
+    public func start(totalTime: TimeInterval? = nil) -> AnyPublisher<Date, Never> {
+        var timeElapsed: TimeInterval = 0
+        return flatMap { date in
+            return Future<Date, Never> { promise in
+                if let totalTime = totalTime, timeElapsed >= totalTime { self.stop() }
+                promise(.success(date))
+                timeElapsed += 1
+            }
+        }.eraseToAnyPublisher()
+    }
 }
