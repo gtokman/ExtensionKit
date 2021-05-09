@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.20.0](https://github.com/gtokman/ExtensionKit/compare/v1.19.0...v1.20.0) (2021-05-09)
+
+
+### Features
+
+* add publisher for starting/stoping timer ([790cfa8](https://github.com/gtokman/ExtensionKit/commit/790cfa8e770459b03ff5f3e760527db5967d5aa1))
+* add rect getter extension ([7f69baa](https://github.com/gtokman/ExtensionKit/commit/7f69baa987f08848146f0750d19efbaa5ce3606c))
+
 ## [1.19.0](https://github.com/gtokman/ExtensionKit/compare/v1.18.1...v1.19.0) (2021-05-08)
 
 
