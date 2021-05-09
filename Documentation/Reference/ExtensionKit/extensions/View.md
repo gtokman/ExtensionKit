@@ -709,3 +709,19 @@ Adds a bottom sheet to View
 | height | Height, default .mid |
 | animation | Animation |
 | content | modal content |
+
+### `getRect(binding:)`
+
+```swift
+func getRect(binding: Binding<CGRect>) -> some View
+```
+
+Get the views frame in the global coordinate space
+- Parameter binding: Rect binding
+- Returns: View
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| binding | Rect binding |
