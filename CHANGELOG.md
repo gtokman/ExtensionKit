@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.20.1](https://github.com/gtokman/ExtensionKit/compare/v1.20.0...v1.20.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* update bundle decode helper to take extension  ([5e4c6c9](https://github.com/gtokman/ExtensionKit/commit/5e4c6c971079506a374a90c7cc1fae858fd001c5))
+
 ## [1.20.0](https://github.com/gtokman/ExtensionKit/compare/v1.19.0...v1.20.0) (2021-05-09)
 
 
