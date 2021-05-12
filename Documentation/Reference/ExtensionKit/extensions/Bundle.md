@@ -23,11 +23,13 @@ var buildNumber: String
 Build number via -  CFBundleVersion
 
 ## Methods
-### `decode(_:from:dateDecodingStrategy:keyDecodingStrategy:)`
+### `decode(_:fromFile:withExtension:dateDecodingStrategy:keyDecodingStrategy:)`
 
 ```swift
 func decode<T: Decodable>(
-    _ type: T.Type, from file: String,
+    _ type: T.Type,
+    fromFile file: String,
+    withExtension `extension`: String? = nil,
     dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
     keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys
 ) -> Deferred<Future<T, Error>>
