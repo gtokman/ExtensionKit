@@ -26,13 +26,15 @@ public extension Bundle {
     ///   - keyDecodingStrategy: key decoding strategy
     /// - Returns: Future
     func decode<T: Decodable>(
-        _ type: T.Type, from file: String,
+        _ type: T.Type,
+        fromFile file: String,
+        withExtension `extension`: String? = nil,
         dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
         keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys
     ) -> Deferred<Future<T, Error>> {
         Deferred {
             Future { promise in
-                guard let url = self.url(forResource: file, withExtension: nil) else {
+                guard let url = self.url(forResource: file, withExtension: `extension`) else {
                     promise(.failure(DataDecodingError.urlNotFound("Failed to locate \(file) in bundle.")))
                     return
                 }
