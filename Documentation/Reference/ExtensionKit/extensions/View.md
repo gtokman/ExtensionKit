@@ -2,14 +2,14 @@
 
 # `View`
 ```swift
-public extension View
+extension View
 ```
 
 ## Properties
 ### `hosted`
 
 ```swift
-var hosted: UIHostingController<Self>
+public var hosted: UIHostingController<Self>
 ```
 
 Self wrapped in an `UIHostingController`
@@ -18,7 +18,7 @@ Self wrapped in an `UIHostingController`
 ### `fillEqual(length:alignment:)`
 
 ```swift
-func fillEqual(length: CGFloat, alignment: Alignment = .center) -> some View
+public func fillEqual(length: CGFloat, alignment: Alignment = .center) -> some View
 ```
 
 Fill frame height and width to the same length
@@ -37,7 +37,7 @@ Fill frame height and width to the same length
 ### `fillParent(alignment:)`
 
 ```swift
-func fillParent(alignment: Alignment = .center) -> some View
+public func fillParent(alignment: Alignment = .center) -> some View
 ```
 
 Fill parent view
@@ -53,7 +53,7 @@ Fill parent view
 ### `fillFlexible(_:alignment:)`
 
 ```swift
-func fillFlexible(
+public func fillFlexible(
     _ flexibleAxis: Axis.Set = [.horizontal, .vertical],
     alignment: Alignment = .center
 ) -> some View
@@ -72,75 +72,10 @@ Similar to distribuation fill on `UIStackView`, take up all availabe space of pa
 | flexibleAxis | Axis to fill |
 | alignment | Alignment |
 
-### `if(_:transform:)`
-
-```swift
-func `if`<TrueContent: View>(_ condition: Bool, transform: (Self) -> TrueContent) -> some View
-```
-
-If a condition is true, transform and return a new view
-- Parameters:
-  - condition: condition
-  - transform: transformation if true
-- Returns: new view
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| condition | condition |
-| transform | transformation if true |
-
-### `if(_:if:else:)`
-
-```swift
-func `if`<TrueContent: View, FalseContent: View>(
-  _ condition: Bool,
-  if ifTransform: (Self) -> TrueContent,
-  else elseTransform: (Self) -> FalseContent
-) -> some View
-```
-
-If a condition is true, transform and return a new view
-- Parameters:
-  - condition: condition
-  - ifTransform: true case transform
-  - elseTransform: else case transform
-- Returns: new view
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| condition | condition |
-| ifTransform | true case transform |
-| elseTransform | else case transform |
-
-### `ifLet(_:_:)`
-
-```swift
-func `ifLet`<Content: View, Value>(
-    _ value: Value?,
-    _ modifier: (Self, Value) -> Content) -> some View
-```
-
-Conditionally apply a modifier to the view based on if the optional exists
-- Parameters:
-  - value: Optional value
-  - modifier: Modifier to run on value if it exists
-- Returns: Modified self if optional has a value
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| value | Optional value |
-| modifier | Modifier to run on value if it exists |
-
 ### `embedInNavigationView()`
 
 ```swift
-func embedInNavigationView() -> some View
+public func embedInNavigationView() -> some View
 ```
 
 Embed Self in `NavigationView`
@@ -149,42 +84,19 @@ Embed Self in `NavigationView`
 ### `embedInScrollView(_:showsIndicators:)`
 
 ```swift
-func embedInScrollView(_ axis: Axis.Set = .vertical,
-                       showsIndicators: Bool = false) -> some View
+public func embedInScrollView(
+    _ axis: Axis.Set = .vertical,
+    showsIndicators: Bool = false
+) -> some View
 ```
 
 Embed Self in `ScrollView`
 - Returns: New view with `ScrollView` parent
 
-### `embedInTabView(_:paged:pageIndicators:)`
-
-```swift
-func embedInTabView<Selection: Hashable>(
-    _ selection: Binding<Selection>? = nil,
-    paged: Bool = true,
-    pageIndicators: PageTabViewStyle.IndexDisplayMode = .always
-) -> some View
-```
-
-Embed Self in `TabView`
-- Parameters:
-  - selection: selection binding
-  - paged: page style or not (`PageTabViewStyle`)
-  - pageIndicators: show page indicators, default .always
-- Returns: View
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| selection | selection binding |
-| paged | page style or not (`PageTabViewStyle`) |
-| pageIndicators | show page indicators, default .always |
-
 ### `embedInVerticalPagingTabView(_:pageIndicators:)`
 
 ```swift
-func embedInVerticalPagingTabView<Selection: Hashable>(
+public func embedInVerticalPagingTabView<Selection: Hashable>(
     _ selection: Binding<Selection>? = nil,
     pageIndicators: PageTabViewStyle.IndexDisplayMode = .never
 ) -> some View
@@ -200,7 +112,7 @@ func embedInVerticalPagingTabView<Selection: Hashable>(
 ### `cornerRadius(_:corners:)`
 
 ```swift
-func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View
+public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View
 ```
 
 Round view with specific corners
@@ -216,10 +128,26 @@ Round view with specific corners
 | radius | radius |
 | corners | corners to round |
 
+### `center(alignment:)`
+
+```swift
+public func center(alignment: Alignment = .center) -> some View
+```
+
+Center a view in parent local coor space
+- Parameter alignment: aligment of centered view
+- Returns: new view
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| alignment | aligment of centered view |
+
 ### `eraseToAnyView()`
 
 ```swift
-func eraseToAnyView() -> AnyView
+public func eraseToAnyView() -> AnyView
 ```
 
 Erase view to `AnyView`
@@ -228,7 +156,7 @@ Erase view to `AnyView`
 ### `hide(if:)`
 
 ```swift
-func hide(if hidden: Bool) -> some View
+public func hide(if hidden: Bool) -> some View
 ```
 
 Hides the view conditionally
@@ -244,7 +172,7 @@ Hides the view conditionally
 ### `shimmer(isActive:speed:angle:)`
 
 ```swift
-func shimmer(
+public func shimmer(
     isActive: Bool = true,
     speed: Double = 0.15,
     angle: Angle = .init(degrees: 70)
@@ -269,7 +197,7 @@ Loading shimmer animation on view
 ### `circleMotion(isActive:circleColor:)`
 
 ```swift
-func circleMotion(
+public func circleMotion(
     isActive: Bool = true,
     circleColor: Color = .gray
 ) -> some View
@@ -291,7 +219,7 @@ Add animating circles to view
 ### `addBorder(_:width:cornerRadius:)`
 
 ```swift
-func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S: ShapeStyle
+public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S: ShapeStyle
 ```
 
 Overlay border on view
@@ -312,10 +240,11 @@ Overlay border on view
 ### `gradientOverlay(colors:start:end:)`
 
 ```swift
-func gradientOverlay(
+public func gradientOverlay(
     colors: Color...,
     start: UnitPoint = .top,
-    end: UnitPoint = .bottom) -> some View
+    end: UnitPoint = .bottom
+) -> some View
 ```
 
 Addd a `LinearGradient` overlayed on View
@@ -336,10 +265,11 @@ Addd a `LinearGradient` overlayed on View
 ### `gradientBackground(colors:start:end:)`
 
 ```swift
-func gradientBackground(
+public func gradientBackground(
     colors: Color...,
     start: UnitPoint = .top,
-    end: UnitPoint = .bottom) -> some View
+    end: UnitPoint = .bottom
+) -> some View
 ```
 
 Addd a `LinearGradient` background on View
@@ -360,7 +290,7 @@ Addd a `LinearGradient` background on View
 ### `safeArea(withBackground:safeAreaRegions:edges:)`
 
 ```swift
-func safeArea<Background: View>(
+public func safeArea<Background: View>(
     withBackground backgroundView: Background,
     safeAreaRegions: SafeAreaRegions = .all,
     edges: Edge.Set = .all
@@ -385,7 +315,7 @@ Expand safe area on the background of the view
 ### `navigationBarColors(background:text:)`
 
 ```swift
-func navigationBarColors(background: UIColor, text: UIColor) -> some View
+public func navigationBarColors(background: UIColor, text: UIColor) -> some View
 ```
 
 Set Navigation bar background color and text
@@ -404,7 +334,7 @@ Set Navigation bar background color and text
 ### `background(alignment:content:)`
 
 ```swift
-func background<Content: View>(
+public func background<Content: View>(
     alignment: Alignment = .center,
     @ViewBuilder content: () -> Content
 ) -> some View
@@ -426,7 +356,7 @@ Container that doesn’t leak outside the safe area, only the elements in its ba
 ### `hideKeyboard()`
 
 ```swift
-func hideKeyboard()
+public func hideKeyboard()
 ```
 
 Hide keyboard
@@ -434,7 +364,7 @@ Hide keyboard
 ### `keyboardState(info:)`
 
 ```swift
-func keyboardState(info: Binding<KeyboardInfo>) -> some View
+public func keyboardState(info: Binding<KeyboardInfo>) -> some View
 ```
 
 Receive keyboard status updates
@@ -450,7 +380,7 @@ Receive keyboard status updates
 ### `debugPrint(_:)`
 
 ```swift
-func debugPrint(_ vars: Any...) -> some View
+public func debugPrint(_ vars: Any...) -> some View
 ```
 
 Debug print
@@ -466,7 +396,7 @@ Debug print
 ### `debugAction(_:)`
 
 ```swift
-func debugAction(_ closure: () -> Void) -> Self
+public func debugAction(_ closure: () -> Void) -> Self
 ```
 
 Debug action
@@ -482,7 +412,7 @@ Debug action
 ### `debugModifier(_:)`
 
 ```swift
-func debugModifier<T: View>(_ modifier: (Self) -> T) -> some View
+public func debugModifier<T: View>(_ modifier: (Self) -> T) -> some View
 ```
 
 Debug visual modifier
@@ -498,7 +428,7 @@ Debug visual modifier
 ### `debugBorder(_:width:)`
 
 ```swift
-func debugBorder(_ color: Color = .red, width: CGFloat = 1) -> some View
+public func debugBorder(_ color: Color = .red, width: CGFloat = 1) -> some View
 ```
 
 Debug only border
@@ -517,7 +447,7 @@ Debug only border
 ### `debugBackground(_:)`
 
 ```swift
-func debugBackground(_ color: Color = .red) -> some View
+public func debugBackground(_ color: Color = .red) -> some View
 ```
 
 Debug only background
@@ -533,7 +463,7 @@ Debug only background
 ### `debug()`
 
 ```swift
-func debug() -> Self
+public func debug() -> Self
 ```
 
 Debug print view representation
@@ -542,7 +472,7 @@ Debug print view representation
 ### `times(_:)`
 
 ```swift
-func times(_ value: UInt) -> some View
+public func times(_ value: UInt) -> some View
 ```
 
 Repeat View n times
@@ -558,7 +488,7 @@ Repeat View n times
 ### `useSize(of:)`
 
 ```swift
-func useSize<Content: View>(of content: @autoclosure () -> Content) -> some View
+public func useSize<Content: View>(of content: @autoclosure () -> Content) -> some View
 ```
 
 Overlay View on content size
@@ -574,7 +504,7 @@ Overlay View on content size
 ### `onReceive(_:assignTo:)`
 
 ```swift
-func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output>) -> some View where P.Failure == Never
+public func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output>) -> some View where P.Failure == Never
 ```
 
 Subscribe and blind ouput to View property
@@ -593,7 +523,7 @@ Subscribe and blind ouput to View property
 ### `onReceive(_:assignTo:)`
 
 ```swift
-func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output?>) -> some View where P.Failure == Never
+public func onReceive<P: Publisher>(_ publisher: P, assignTo binding: Binding<P.Output?>) -> some View where P.Failure == Never
 ```
 
 Subscribe and blind optional ouput to View property
@@ -612,7 +542,7 @@ Subscribe and blind optional ouput to View property
 ### `scrollOffset(_:)`
 
 ```swift
-func scrollOffset(_ offset: Binding<CGPoint>) -> some View
+public func scrollOffset(_ offset: Binding<CGPoint>) -> some View
 ```
 
 Get the scroll view content offset X
@@ -628,7 +558,7 @@ Get the scroll view content offset X
 ### `shadowButton(titleColor:background:padding:shadow:cornerRadius:)`
 
 ```swift
-func shadowButton(
+public func shadowButton(
     titleColor: Color = .white,
     background: Color = .blue,
     padding: (edges: Edge.Set, length: CGFloat) = (.all, 10),
@@ -659,7 +589,7 @@ Add  foreground, background, shadow, cornerRadius to `Button` content
 ### `onNotification(_:object:perform:)`
 
 ```swift
-func onNotification(
+public func onNotification(
     _ name: Notification.Name,
     object: AnyObject? = nil,
     perform action: @escaping (Notification) -> Void
@@ -684,7 +614,7 @@ Subscribe to the given notification
 ### `bottomSheet(isPresented:height:animation:thumbHidden:content:)`
 
 ```swift
-func bottomSheet<Content: View>(
+public func bottomSheet<Content: View>(
     isPresented: Binding<Bool>,
     height: Height = .mid,
     animation: Animation = .easeInOut(duration: 0.3),
@@ -713,7 +643,7 @@ Adds a bottom sheet to View
 ### `getRect(binding:)`
 
 ```swift
-func getRect(binding: Binding<CGRect>) -> some View
+public func getRect(binding: Binding<CGRect>) -> some View
 ```
 
 Get the views frame in the global coordinate space

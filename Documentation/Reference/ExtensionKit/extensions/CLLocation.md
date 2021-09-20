@@ -21,10 +21,10 @@ convenience init(from coordinate: CLLocationCoordinate2D)
 | ---- | ----------- |
 | coordinate | `CLLocationCoordinate2D` |
 
-### `reverseGeocode(location:)`
+### `reverseGeocode()`
 
 ```swift
-func reverseGeocode(location: CLLocation) -> Deferred<Future<[CLPlacemark], GeocodeError>>
+func reverseGeocode() -> Deferred<Future<[CLPlacemark], GeocodeError>>
 ```
 
 Reverse geocode a `CLLocation`
