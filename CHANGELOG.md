@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.20.2](https://github.com/gtokman/ExtensionKit/compare/v1.20.1...v1.20.2) (2021-09-20)
+
+
+### Bug Fixes
+
+* update build warnings and remove bad performance view conditionals ([1f44268](https://github.com/gtokman/ExtensionKit/commit/1f4426891313f2e426903a8225b57f4edc74ae5b))
+* update location geocode api signiture ([907d4f3](https://github.com/gtokman/ExtensionKit/commit/907d4f3e67f0cb761389e6f473cfa8d85aacdf89))
+
 ### [1.20.1](https://github.com/gtokman/ExtensionKit/compare/v1.20.0...v1.20.1) (2021-05-12)
 
 
