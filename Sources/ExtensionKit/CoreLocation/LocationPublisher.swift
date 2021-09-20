@@ -1,11 +1,11 @@
 import Combine
 import CoreLocation
 
-protocol PublisherLocationDelegate: class {
+protocol PublisherLocationDelegate: AnyObject {
     func startLocationUpdates()
 }
 
-protocol SubscriptionLocationDelegate: class {
+protocol SubscriptionLocationDelegate: AnyObject {
     func didUpdate(with locations: [CLLocation])
     func didFail(with error: Error)
 }

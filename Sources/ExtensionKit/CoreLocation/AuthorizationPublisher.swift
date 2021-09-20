@@ -3,11 +3,11 @@ import Combine
 import CoreLocation
 
 
-protocol PublisherAuthorizationDelegate: class {
+protocol PublisherAuthorizationDelegate: AnyObject {
     func send(status: CLAuthorizationStatus)
 }
 
-protocol SubscriptionAuthorizationDelegate: class {
+protocol SubscriptionAuthorizationDelegate: AnyObject {
     func requestAuthorization(type: CLLocationManager.AuthorizationType)
 }
 
