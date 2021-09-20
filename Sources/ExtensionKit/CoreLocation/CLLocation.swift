@@ -18,10 +18,10 @@ public extension CLLocation {
     /// Reverse geocode a `CLLocation`
     /// - Parameter location: `CLLocation`
     /// - Returns: Future with Result<[`CLPlacemark`], `GeocodeError`>
-    func reverseGeocode(location: CLLocation) -> Deferred<Future<[CLPlacemark], GeocodeError>> {
+    func reverseGeocode() -> Deferred<Future<[CLPlacemark], GeocodeError>> {
         Deferred {
             Future { promise in
-                CLGeocoder().reverseGeocodeLocation(location) { placemarks, error -> Void in
+                CLGeocoder().reverseGeocodeLocation(self) { placemarks, error -> Void in
                     if let err = error {
                         return promise(.failure(.invalid("\(String(describing: err))")))
                     }
