@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.21.2](https://github.com/gtokman/ExtensionKit/compare/v1.21.1...v1.21.2) (2024-09-23)
+
+
+### Bug Fixes
+
+* message view init ([330d701](https://github.com/gtokman/ExtensionKit/commit/330d701deefeb2073134884a6e4798df711ef08a))
+
 ### [1.21.1](https://github.com/gtokman/ExtensionKit/compare/v1.21.0...v1.21.1) (2024-09-23)
 
 
