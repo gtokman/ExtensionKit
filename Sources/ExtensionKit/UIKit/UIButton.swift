@@ -56,28 +56,6 @@ public extension UIButton {
         }
     }
     
-    @IBInspectable var titleImageSpacing: CGFloat {
-        get { return -1 }
-        set {
-            self.centerTextAndImage(spacing: newValue, forceRightToLeft: false)
-        }
-    }
-    
-    /// Adjust `contentEdgeInsets`, `imageEdgeInsets` and `titleEdgeInsets` with appropriate value so as to make a specified spacing between the button's title and image.
-    /// - Reference: https://stackoverflow.com/questions/4564621/aligning-text-and-image-on-uibutton-with-imageedgeinsets-and-titleedgeinsets
-    ///
-    /// - Parameters:
-    ///   - spacing: The desired spacing to make.
-    ///   - forceRightToLeft: Whether the content of the button is in `forceRightToLeft` semantic.
-    func centerTextAndImage(spacing: CGFloat, forceRightToLeft: Bool) {
-        let insetAmount = spacing / 2
-        let factor: CGFloat = forceRightToLeft ? -1 : 1
-        
-        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount*factor, bottom: 0, right: insetAmount*factor)
-        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount*factor, bottom: 0, right: -insetAmount*factor)
-        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
-    }
-    
     var isTitleImagePositionReversed: Bool {
         get {
             return transform == .identity

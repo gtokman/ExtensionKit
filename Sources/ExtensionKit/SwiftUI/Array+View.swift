@@ -1,7 +1,7 @@
 import SwiftUI
 
 
-extension Array: View where Element: View {
+extension Array: @retroactive View where Element: View {
     
     /*
      ```

@@ -1,9 +1,8 @@
 //
 //  Apply.swift
-//  ZamzamCore
+//  ExtensionKit
 //
-//  Created by Basem Emara on 4/29/17.
-//  Copyright © 2017 Zamzam Inc. All rights reserved.
+//  Created by Gary Tokman on 9/22/24.
 //
 
 import Foundation.NSJSONSerialization

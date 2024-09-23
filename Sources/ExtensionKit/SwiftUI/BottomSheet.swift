@@ -9,55 +9,54 @@
 import SwiftUI
 
 #if os(iOS)
-@available(iOS, obsoleted: 16.0)
 private struct BottomSheet<Content: View>: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
     let detents: [UISheetPresentationController.Detent]
     let prefersGrabberVisible: Bool
     let content: (() -> Content)?
     let onDismiss: (() -> Void)?
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(parent: self)
     }
-
+    
     func makeUIViewController(context: Context) -> UIViewController {
         let controller = UIViewController()
         controller.view.backgroundColor = .clear
         return controller
     }
-
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         guard isPresented else {
             guard uiViewController.presentedViewController == context.coordinator.controller else { return }
             uiViewController.presentedViewController?.dismiss(animated: true, completion: onDismiss)
             return
         }
-
+        
         guard let content = content?(), uiViewController.presentedViewController == nil else { return }
-
+        
         let hostingController = UIHostingController(rootView: content)
         hostingController.presentationController?.delegate = context.coordinator
-
+        
         if let presentationController = hostingController.presentationController as? UISheetPresentationController {
             presentationController.detents = detents
             presentationController.prefersGrabberVisible = prefersGrabberVisible
         }
-
+        
         // Store reference to compare later for dismissal in multi bottom sheet scenarios
         context.coordinator.controller = hostingController
-
+        
         uiViewController.present(hostingController, animated: true)
     }
-
+    
     class Coordinator: NSObject, UISheetPresentationControllerDelegate {
         private let parent: BottomSheet
         var controller: UIViewController?
-
+        
         init(parent: BottomSheet) {
             self.parent = parent
         }
-
+        
         func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
             guard parent.isPresented else { return }
             parent.isPresented = false
@@ -70,7 +69,7 @@ private struct BottomSheet<Content: View>: UIViewControllerRepresentable {
 public enum BottomSheetDetents {
     case medium
     case large
-
+    
     var iOS15: UISheetPresentationController.Detent {
         switch self {
         case .medium:
@@ -79,7 +78,7 @@ public enum BottomSheetDetents {
             return .large()
         }
     }
-
+    
     @available(iOS 16, *)
     var iOS16: PresentationDetent {
         switch self {
@@ -139,26 +138,12 @@ public extension View {
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View {
-        modifier {
-            if #available(iOS 16, *) {
-                $0.sheet(isPresented: isPresented, onDismiss: onDismiss) {
-                    content()
-                        .presentationDetents(Set(detents.map(\.iOS16)))
-                        .modifier(let: prefersDragIndicator) { content, value in
-                            content.presentationDragIndicator(value ? .visible : .hidden)
-                        }
+        sheet(isPresented: isPresented, onDismiss: onDismiss) {
+            content()
+                .presentationDetents(Set(detents.map(\.iOS16)))
+                .modifier(let: prefersDragIndicator) { content, value in
+                    content.presentationDragIndicator(value ? .visible : .hidden)
                 }
-            } else {
-                $0.background(
-                    BottomSheet(
-                        isPresented: isPresented,
-                        detents: detents.map(\.iOS15),
-                        prefersGrabberVisible: prefersDragIndicator ?? true,
-                        content: content,
-                        onDismiss: onDismiss
-                    )
-                )
-            }
         }
     }
 }
@@ -253,11 +238,11 @@ struct BottomSheet_Previews: PreviewProvider {
         Sample1View()
         Sample2View()
     }
-
+    
     private struct Sample1View: View {
         @State private var dismissedStatus = "Content here..."
         @State private var isShowingSheet = false
-
+        
         var body: some View {
             Button {
                 isShowingSheet.toggle()
@@ -278,10 +263,10 @@ struct BottomSheet_Previews: PreviewProvider {
             }
         }
     }
-
+    
     private struct Sample2View: View {
         @State private var inventoryItem: InventoryItem?
-
+        
         var body: some View {
             List((1..<6)) { index in
                 Button("Part Details #\(index)") {
@@ -305,7 +290,7 @@ struct BottomSheet_Previews: PreviewProvider {
                 }
             }
         }
-
+        
         struct InventoryItem: Identifiable {
             var id: String
             let partNumber: String

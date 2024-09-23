@@ -1,9 +1,8 @@
 //
-//  MailSheet.swift
-//  ZamzamUI
+//  MailView.swift
+//  ExtensionKit
 //
-//  Created by Basem Emara on 2021-08-16.
-//  Copyright © 2021 Zamzam Inc. All rights reserved.
+//  Created by Gary Tokman on 9/22/24.
 //
 
 #if os(iOS) && canImport(MessageUI)
@@ -114,4 +113,5 @@ public extension View {
         }
     }
 }
+
 #endif

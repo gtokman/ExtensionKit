@@ -16,14 +16,12 @@ public struct Preview<Content: View>: View {
                 .environment(\.colorScheme, .light)
                 .preferredColorScheme(.light)
                 .navigationBarHidden(true)
-                .previewDevice("iPhone 12 Pro")
                 .previewDisplayName("Pro, light mode")
 
             self.content
                 .environment(\.colorScheme, .dark)
                 .preferredColorScheme(.dark)
                 .navigationBarHidden(true)
-                .previewDevice("iPhone 12 mini")
                 .previewDisplayName("Mini, dark mode")
         }
     }

@@ -1,9 +1,8 @@
 //
-//  SafariSheet.swift
-//  ZamzamUI
+//  SafariView.swift
+//  ExtensionKit
 //
-//  Created by Basem Emara on 2020-11-23.
-//  Copyright © 2020 Zamzam Inc. All rights reserved.
+//  Created by Gary Tokman on 9/22/24.
 //
 
 #if os(iOS) && canImport(SafariServices)

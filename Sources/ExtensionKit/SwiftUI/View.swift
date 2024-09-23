@@ -1,7 +1,6 @@
 import Combine
 import SwiftUI
 
-@available(iOS 13.0, macOS 10.15, *)
 extension View {
 
     /// Self wrapped in an `UIHostingController`
@@ -154,24 +153,6 @@ extension View {
             isActive: isActive,
             speed: speed,
             angle: angle
-        )
-
-        return self.modifier(view)
-    }
-
-    /// Add animating circles to view
-    /// - Parameters:
-    ///   - isActive: is animation active
-    ///   - circleColor: circle foreground color
-    /// - Returns: View
-    public func circleMotion(
-        isActive: Bool = true,
-        circleColor: Color = .gray
-    ) -> some View {
-
-        let view = CircleMotionModifier(
-            isActive: isActive,
-            circleColor: circleColor
         )
 
         return self.modifier(view)
@@ -432,32 +413,6 @@ extension View {
         }
     }
 
-    /// Adds a bottom sheet to View
-    /// - Parameters:
-    ///   - isPresented: Binding for presenting the View
-    ///   - height: Height, default .mid
-    ///   - animation: Animation
-    ///   - content: modal content
-    /// - Returns: View
-    public func bottomSheet<Content: View>(
-        isPresented: Binding<Bool>,
-        height: Height = .mid,
-        animation: Animation = .easeInOut(duration: 0.3),
-        thumbHidden: Bool = false,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View {
-        return ZStack {
-            self
-            BottomSheet(
-                isPresented: isPresented,
-                height: height,
-                animation: animation,
-                thumbHidden: thumbHidden,
-                content: content
-            )
-        }
-    }
-
     /// Get the views frame in the global coordinate space
     /// - Parameter binding: Rect binding
     /// - Returns: View
@@ -465,4 +420,103 @@ extension View {
         self.background(RectGetter(rect: binding))
     }
 
+    /// Applies a modifier to a view conditionally.
+    ///
+    ///     someView
+    ///         .modifier(if: model == nil) {
+    ///             $0.redacted(reason: .placeholder )
+    ///         }
+    ///
+    /// - Warning: The view will re-render when the condition is changed.
+    ///
+    /// - Parameters:
+    ///   - condition: The condition to determine if the content should be applied.
+    ///   - content: The modifier to apply to the view.
+    /// - Returns: The modified view.
+    @ViewBuilder func modifier(
+        if condition: Bool,
+        then content: (Self) -> some View
+    ) -> some View {
+        if condition {
+            content(self)
+        } else {
+            self
+        }
+    }
+    
+    /// Applies a modifier to a view conditionally.
+    ///
+    ///     someView
+    ///         .modifier(if: model == nil) {
+    ///             $0.redacted(reason: .placeholder )
+    ///         } else: {
+    ///             $0.unredacted()
+    ///         }
+    ///
+    /// - Warning: The view will re-render when the condition is changed.
+    ///
+    /// - Parameters:
+    ///   - condition: The condition to determine the content to be applied.
+    ///   - trueContent: The modifier to apply to the view if the condition passes.
+    ///   - falseContent: The modifier to apply to the view if the condition fails.
+    /// - Returns: The modified view.
+    @ViewBuilder func modifier(
+        if condition: Bool,
+        then trueContent: (Self) -> some View,
+        else falseContent: (Self) -> some View
+    ) -> some View {
+        if condition {
+            trueContent(self)
+        } else {
+            falseContent(self)
+        }
+    }
+    
+    /// Applies a modifier to a view if an optional item can be unwrapped.
+    ///
+    ///     someView
+    ///         .modifier(let: model) { (content, model) in
+    ///             content.background(BackgroundView(model.bg))
+    ///         }
+    ///
+    /// - Parameters:
+    ///   - item: The optional item to determine if the content should be applied.
+    ///   - content: The modifier and unwrapped item to apply to the view.
+    /// - Returns: The modified view.
+    @ViewBuilder func modifier<Item>(
+        `let` item: Item?,
+        then content: (Self, Item) -> some View
+    ) -> some View {
+        if let item = item {
+            content(self, item)
+        } else {
+            self
+        }
+    }
+    
+    /// Applies a modifier to a view if an optional item can be unwrapped.
+    ///
+    ///     someView
+    ///         .modifier(let: model) { (content, model) in
+    ///             content.background(BackgroundView(model.bg))
+    ///         } else: {
+    ///             $0.background(Color.black)
+    ///         }
+    ///
+    /// - Parameters:
+    ///   - item: The optional item to determine if the content should be applied.
+    ///   - trueContent: The modifier and unwrapped item to apply to the view.
+    ///   - falseContent: The modifier to apply to the view if the condition fails.
+    /// - Returns: The modified view.
+    @ViewBuilder func modifier<Item>(
+        `let` item: Item?,
+        then trueContent: (Self, Item) -> some View,
+        else falseContent: (Self) -> some View
+    ) -> some View {
+        if let item = item {
+            trueContent(self, item)
+        } else {
+            falseContent(self)
+        }
+    }
 }
