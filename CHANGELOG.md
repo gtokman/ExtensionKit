@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.21.0](https://github.com/gtokman/ExtensionKit/compare/v1.20.2...v1.21.0) (2024-09-23)
+
+
+### Features
+
+* add more views ([6e16bac](https://github.com/gtokman/ExtensionKit/commit/6e16bacdfd7ff2bd10220deb0e58840704eb86d3))
+* add more views and polish ([898529c](https://github.com/gtokman/ExtensionKit/commit/898529cdd89c6c23f17bd1a24cc874e7c9a6ad54))
+
 ### [1.20.2](https://github.com/gtokman/ExtensionKit/compare/v1.20.1...v1.20.2) (2021-09-20)
 
 
