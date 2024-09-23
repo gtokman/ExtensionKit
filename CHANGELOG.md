@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.21.1](https://github.com/gtokman/ExtensionKit/compare/v1.21.0...v1.21.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* import in Publisher ([7b58d58](https://github.com/gtokman/ExtensionKit/commit/7b58d582e89bc50cc9eecf009fa6c34cd5947431))
+
 ## [1.21.0](https://github.com/gtokman/ExtensionKit/compare/v1.20.2...v1.21.0) (2024-09-23)
 
 
