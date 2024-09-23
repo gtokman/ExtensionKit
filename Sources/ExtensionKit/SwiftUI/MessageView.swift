@@ -13,6 +13,11 @@ public struct MessageItem: Identifiable, Equatable {
     public var id = UUID()
     public var recipients: [String]
     public var body: String
+
+    public init(recipients: [String], body: String) {
+        self.recipients = recipients
+        self.body = body
+    }
 }
 
 @available(iOS 17.0, *)
