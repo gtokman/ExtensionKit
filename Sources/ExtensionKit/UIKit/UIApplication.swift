@@ -8,7 +8,7 @@
 public extension UIApplication {
 
     /// Application key window
-    var keyWindow: UIWindow? {
+    static var keyWindow: UIWindow? {
         UIApplication.shared
         .connectedScenes
         .filter { $0.activationState == .foregroundActive }
