@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.21.3](https://github.com/gtokman/ExtensionKit/compare/v1.21.2...v1.21.3) (2025-06-02)
+
 ### [1.21.2](https://github.com/gtokman/ExtensionKit/compare/v1.21.1...v1.21.2) (2024-09-23)
 
 
