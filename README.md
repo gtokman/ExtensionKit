@@ -1,6 +1,6 @@
 
 [![Release](https://img.shields.io/github/release/gtokman/extensionkit.svg)](https://github.com/gtokman/extensionkit/releases)
-![Swift 5.7](https://img.shields.io/badge/Swift-5.3-orange.svg)
+![Swift 5.7](https://img.shields.io/badge/Swift-5.7-orange.svg)
 [![Swift Package Manager Compatible](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org/package-manager)
 ![Supported Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 
