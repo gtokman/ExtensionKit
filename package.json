@@ -1,6 +1,6 @@
 {
   "name": "extensionkit",
-  "version": "1.21.4",
+  "version": "1.21.5",
   "description": "A collection of UIKit and SwiftUI extensions to speed up app development",
   "main": "package.swift",
   "scripts": {
