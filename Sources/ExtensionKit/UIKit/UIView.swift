@@ -274,4 +274,19 @@ public extension UIView {
         view.backgroundColor = .clear
         return view
     }
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+           let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+           let mask = CAShapeLayer()
+           mask.path = path.cgPath
+           layer.mask = mask
+       }
+      
+      func shake() {
+          let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+          animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+          animation.duration = 0.35
+          animation.values = [-10.0, 10.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+          layer.add(animation, forKey: "shake")
+      }
 }

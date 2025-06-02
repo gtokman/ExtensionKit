@@ -6,6 +6,20 @@ import UIKit
 
 public extension UIImage {
     
+    func getPixelColor(pos: CGPoint) -> UIColor {
+        let pixelData = self.cgImage!.dataProvider!.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+        
+        return UIColor(displayP3Red: r, green: g, blue: b, alpha: a)
+    }
+    
     /// Create QR code from string
     /// - Parameter string: String for QR code
     convenience init?(qrCodeFrom string: String) {
@@ -220,15 +234,15 @@ public extension UIImage {
         case .down, .downMirrored:
             transform = transform.translatedBy(x: width, y: height)
             transform = transform.rotated(by: .pi)
-
+            
         case .left, .leftMirrored:
             transform = transform.translatedBy(x: width, y: 0)
             transform = transform.rotated(by: .pi / 2)
-
+            
         case .right, .rightMirrored:
             transform = transform.translatedBy(x: 0, y: height)
             transform = transform.rotated(by: -(.pi / 2))
-
+            
         default:
             break
         }
@@ -237,7 +251,7 @@ public extension UIImage {
         case .upMirrored, .downMirrored:
             transform = transform.translatedBy(x: width, y: 0)
             transform = transform.scaledBy(x: -1, y: 1)
-
+            
         case .leftMirrored, .rightMirrored:
             transform = transform.translatedBy(x: height, y: 0)
             transform = transform.scaledBy(x: -1, y: 1)
@@ -282,7 +296,7 @@ public extension UIImage {
         }
         return nil
     }
-
+    
     
     /// Redraw the image to the specified size
     ///
@@ -294,7 +308,7 @@ public extension UIImage {
         draw(in: CGRect(origin: .zero, size: size))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-
+    
     func resizedImageWithAspectFitSize(forBindingSize binding: CGSize) -> UIImage? {
         return resized(to: aspectFitSize(forBindingSize: binding))
     }
@@ -314,7 +328,7 @@ public extension UIImage {
         draw(in: CGRect(origin: origin, size: size))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-
+    
     /// Redraw a new image with the given requirements.
     ///
     /// - Parameters:
@@ -327,7 +341,7 @@ public extension UIImage {
                                  height: size.height + insets.top + insets.bottom)
         UIGraphicsBeginImageContextWithOptions(contextSize, false, 0.0)
         defer { UIGraphicsEndImageContext() }
-       
+        
         let context = UIGraphicsGetCurrentContext()
         let contextRect = CGRect(origin: .zero, size: contextSize)
         let backgroundPath = UIBezierPath(roundedRect: contextRect, cornerRadius: cornerRadius)
@@ -353,17 +367,17 @@ public extension UIImage {
             context?.move(to: rect.bottomLeft)
             context?.addLine(to: rect.topMiddle)
             context?.addLine(to: rect.bottomRight)
-
+            
         case .down:
             context?.move(to: rect.topLeft)
             context?.addLine(to: rect.bottomMiddle)
             context?.addLine(to: rect.topRight)
-
+            
         case .left:
             context?.move(to: rect.topRight)
             context?.addLine(to: rect.leftMiddle)
             context?.addLine(to: rect.bottomRight)
-
+            
         case .right:
             context?.move(to: rect.topLeft)
             context?.addLine(to: rect.rightMiddle)

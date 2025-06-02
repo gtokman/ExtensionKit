@@ -1,24 +1,57 @@
 #if canImport(UIKit)
 
-    import UIKit
-    import SystemConfiguration
+import UIKit
+import SystemConfiguration
 
 #endif
 
 public extension UIApplication {
-
+    
     /// Application key window
     static var keyWindow: UIWindow? {
         UIApplication.shared
-        .connectedScenes
-        .filter { $0.activationState == .foregroundActive }
-        .compactMap { $0 as? UIWindowScene }
-        .first?.windows
-        .filter { $0.isKeyWindow }
-        .first
-        
+            .connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .compactMap { $0 as? UIWindowScene }
+            .first?.windows
+            .filter(\.isKeyWindow)
+            .first
     }
+    
+    var visibleKeyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .filter({
+                return $0.activationState == .foregroundActive ||
+                $0.activationState == .background ||
+                $0.activationState == .foregroundInactive
+            })
+            .compactMap({$0 as? UIWindowScene})
+            .sorted(by: {
+                $0.activationState.rawValue < $1.activationState.rawValue
+            })
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+    }
+    
+    func makeSnapshot() -> UIImage? {
+        return visibleKeyWindow?.layer.makeSnapshot()
+    }
+    
+    
+    static func getTopViewController(base: UIViewController? = nil) -> UIViewController? {
+        let base = base ?? UIApplication.shared.visibleKeyWindow?.rootViewController
+        if let nav = base as? UINavigationController {
+            return getTopViewController(base: nav.visibleViewController)
 
+        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+            return getTopViewController(base: selected)
+
+        } else if let presented = base?.presentedViewController {
+            return getTopViewController(base: presented)
+        }
+        return base
+    }
+    
     /// Open application settings
     func openSettings() {
         if let url = URL(string: UIApplication.openSettingsURLString), canOpenURL(url) {
@@ -29,7 +62,7 @@ public extension UIApplication {
             }
         }
     }
-
+    
     /// Opens application sheet for phonen number
     func openPhone(calling number: String) {
         if let url = URL(string: "tel://" + number) {
@@ -40,15 +73,15 @@ public extension UIApplication {
             }
         }
     }
-
+    
     /// Find My Facebook ID: https://findmyfbid.com/
     /// - Parameters:
     ///   - name: Facebook name
     ///   - id: Facebook ID
     func openFacebook(name: String?, id: String?) {
         if let facebookID = id,
-            let facebookURL = URL(string: "fb://profile/\(facebookID)"),
-            UIApplication.shared.canOpenURL(facebookURL) {
+           let facebookURL = URL(string: "fb://profile/\(facebookID)"),
+           UIApplication.shared.canOpenURL(facebookURL) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(facebookURL, options: [:], completionHandler: nil)
             } else {
@@ -59,13 +92,13 @@ public extension UIApplication {
             UIViewController.getCurrentViewController()?.pushSafariViewController(urlString: "https://www.facebook.com/" + name)
         }
     }
-
+    
     /// Launches the Instagram app and loads the Instagram user
     /// - Parameter name: Instagram username
     func openInstagram(name: String?) {
         if let ins = name {
             if let instagramURL = URL(string: "instagram://user?username=\(ins)"),
-                UIApplication.shared.canOpenURL(instagramURL) {
+               UIApplication.shared.canOpenURL(instagramURL) {
                 if #available(iOS 10.0, *) {
                     open(instagramURL, options: [:], completionHandler: nil)
                 } else {
@@ -76,13 +109,13 @@ public extension UIApplication {
             }
         }
     }
-
+    
     /// Launches the Instagram app and loads the Instagram user
     /// - Parameter name: Instagram username
     func openInstagram(media: String?) {
         if let media = media {
             if let instagramURL = URL(string: "instagram://media?id=\(media)"),
-                UIApplication.shared.canOpenURL(instagramURL) {
+               UIApplication.shared.canOpenURL(instagramURL) {
                 if #available(iOS 10.0, *) {
                     open(instagramURL, options: [:], completionHandler: nil)
                 } else {
@@ -93,14 +126,14 @@ public extension UIApplication {
             }
         }
     }
-
+    
     /// Open a map app with the given query. Orders: Google Map -> Apple Map
     ///
     /// - Parameter query: The query to search on the map.
     func openExternalMapApp(query: String) {
         if let string = "comgooglemaps://?q=\(query)&zoom=13".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-            let googleMapURL = URL(string: string),
-            UIApplication.shared.canOpenURL(googleMapURL) {
+           let googleMapURL = URL(string: string),
+           UIApplication.shared.canOpenURL(googleMapURL) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(googleMapURL)
             } else {

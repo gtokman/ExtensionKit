@@ -210,17 +210,6 @@ extension View {
         )
     }
 
-    /// Set Navigation bar background color and text
-    /// - Parameters:
-    ///   - background: background color
-    ///   - text: text color
-    /// - Returns: View
-    public func navigationBarColors(background: UIColor, text: UIColor) -> some View {
-        self.modifier(
-            NavigationBarModifier(backgroundColor: background, textColor: text)
-        )
-    }
-
     /// Container that doesn’t leak outside the safe area, only the elements in its background
     /// - Parameters:
     ///   - alignment: alignment
@@ -499,5 +488,74 @@ extension View {
         } else {
             falseContent(self)
         }
+    }
+}
+
+public extension UIView {
+    private static let shimmerLayerID = "shimmer_layer"
+    
+    func addShimmer(using baseColor: UIColor) {
+        // - If a previous shimmer layer exists, simply update the frames and colors
+        var foundExistingLayer = false
+        self.layer.sublayers?.forEach({ sublayer in
+            if sublayer.name == Self.shimmerLayerID {
+                self.updateShimmerFrame()
+                self.updateShimmerColors(using: baseColor)
+                
+                foundExistingLayer = true
+                return
+            }
+        })
+        guard !foundExistingLayer else { return }
+                
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.name = Self.shimmerLayerID
+
+        gradientLayer.startPoint = CGPoint(x: CGFloat(0.0), y: CGFloat(0.0))
+        gradientLayer.endPoint = CGPoint(x: CGFloat(1.0), y: CGFloat(0.35))
+        
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+
+        self.layer.addSublayer(gradientLayer)
+        
+        self.updateShimmerFrame()
+        self.updateShimmerColors(using: baseColor)
+        
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = [-1.0, -0.5, 0.0]
+        animation.toValue = [1.0, 1.5, 2.0]
+        animation.repeatCount = .infinity
+        animation.duration = 1.4
+
+        gradientLayer.add(animation, forKey: animation.keyPath)
+    }
+    
+    func removeShimmer() {
+        self.layer.sublayers?.forEach({ sublayer in
+            if sublayer.name == Self.shimmerLayerID {
+                sublayer.removeFromSuperlayer()
+            }
+        })
+    }
+    
+    func updateShimmerFrame() {
+        self.layer.sublayers?.forEach({ sublayer in
+            if sublayer.name == Self.shimmerLayerID {
+                let absoluteOrigin: CGPoint = self.superview?.convert(self.frame.origin, to: nil) ?? .zero
+                sublayer.frame = CGRect(x: -absoluteOrigin.x, y: -absoluteOrigin.y, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                return
+            }
+        })
+    }
+    
+    func updateShimmerColors(using baseColor: UIColor) {
+        self.layer.sublayers?.forEach({ sublayer in
+            if sublayer.name == Self.shimmerLayerID, let gradientLayer = sublayer as? CAGradientLayer {
+                let gradientColorOne: CGColor = baseColor.withAlphaComponent(0).cgColor
+                let gradientColorTwo: CGColor = baseColor.withAlphaComponent(0.1).cgColor
+                gradientLayer.colors = [gradientColorOne, gradientColorTwo, gradientColorOne]
+                return
+            }
+        })
     }
 }
