@@ -91,20 +91,4 @@ public extension UIButton {
         }
     }
 
-    /// Button action for event
-    /// - Parameters:
-    ///   - controlEvent: Event
-    ///   - closure: Closure to run
-    func addAction(for controlEvent: UIControl.Event, closure: @escaping () -> Void) {
-        let wrapper = ButtonClosureWrapper(closure)
-        addTarget(wrapper, action: #selector(ButtonClosureWrapper.invoke), for: controlEvent)
-        
-        var possibleKey = "hessekit_ClosureWrapper_\(arc4random())"
-        while objc_getAssociatedObject(self, &possibleKey) != nil {
-            possibleKey = "hessekit_ClosureWrapper_\(arc4random())"
-        }
-        
-        objc_setAssociatedObject(self, &possibleKey, wrapper, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-    }
-
 }

@@ -137,27 +137,6 @@ extension View {
         }
     }
 
-    /// Loading shimmer animation on view
-    /// - Parameters:
-    ///   - isActive: is shimmer animation active
-    ///   - speed: speed, default: 0.15
-    ///   - angle: angle of animation, default: 70º
-    /// - Returns: View
-    public func shimmer(
-        isActive: Bool = true,
-        speed: Double = 0.15,
-        angle: Angle = .init(degrees: 70)
-    ) -> some View {
-
-        let view = ShimmerModifier(
-            isActive: isActive,
-            speed: speed,
-            angle: angle
-        )
-
-        return self.modifier(view)
-    }
-
     /// Overlay border on view
     /// - Parameters:
     ///   - content: ShapeStyle view
@@ -334,7 +313,9 @@ extension View {
     /// - Parameter value: repeat upto not including
     /// - Returns: View
     public func times(_ value: UInt) -> some View {
-        ForEach(0..<Int(value)) { _ in self }
+        ForEach(0..<Int(value), id: \.self) { _ in
+            self
+        }
     }
 
     /// Overlay View on content size
